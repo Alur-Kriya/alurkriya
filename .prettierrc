@@ -1,10 +1,14 @@
 {
-  "semi": false,
+  "semi": true,
   "singleQuote": true,
-  "printWidth": 80,
-  "useTabs": true,
+  "printWidth": 100,
+  "tabWidth": 2,
   "trailingComma": "es5",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+
   "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+
   "overrides": [
     {
       "files": [".*", "*.md", "*.toml", "*.yml"],
