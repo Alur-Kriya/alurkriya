@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { services } from '@contents/services/services.mjs';
+import { faq } from '@contents/services/faq.mjs';
+import HeroBanner from '@components/services/HeroBanner.astro'; 
+import Features from '@components/services/Features.astro';
+import Approach from '@components/services/Approach.astro';
+import Faq from '@components/services/Faq.astro';
+import RichSnipetts from '@components/RichSnipetts.astro';
+
+export async function getStaticPaths() {
+  return services.map((url) => ({
+    params: { slug: url.slug },
+  }));
+}
+
+// Get the slug from Astro's params
+const { slug } = Astro.params;
+// Find the matching layanan item
+const content = services.find((item: any) => item.slug === slug);
+
+if (!content) {
+  throw new Error(`Layanan jasa with slug "${slug}" not found`);
+}
+
+const faqData = faq.find((item: any) => item.slug === slug);
+
+if (!faqData) {
+  throw new Error(`FAQ not found`);
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+---
+
+<BaseLayout title={content.title} description={content.description}>
+  <HeroBanner {...content} />
+
+  <Features {...content} />
+
+  <Approach />
+
+  <Faq {...faqData} />
+
+  <RichSnipetts />
+</BaseLayout>

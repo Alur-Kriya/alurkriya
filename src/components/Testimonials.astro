@@ -1,13 +1,9 @@
 ---
-import { Image } from 'astro:assets';
-import imgClient from '@images/testimonials/miduk.png';
-import clientA from '@images/clients/redtop.webp';
-import clientB from '@images/clients/stregis.webp';
-import clientC from '@images/clients/bidakara.webp';
+import TestiSlide from '@components/ui/TestiSlide.astro';
 ---
 
 <!-- Testimonials with Stats -->
-<div class="max-w-[85rem] px-4 py-20 sm:px-6 lg:px-8 lg:py-20 mx-auto">
+<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
   <!-- Grid -->
   <div class="text-base lg:grid lg:grid-cols-12 lg:items-center lg:justify-between lg:gap-16">
     <div class="lg:col-span-5 lg:col-start-1">
@@ -27,7 +23,7 @@ import clientC from '@images/clients/bidakara.webp';
       <!-- Blockquote -->
       <blockquote class="relative">
         <svg
-          class="absolute start-0 top-0 size-16 -translate-x-6 -translate-y-8 transform text-gray-200 dark:text-neutral-800"
+          class="absolute start-0 top-0 size-16 -translate-x-6 -translate-y-8 transform text-(--color-deep-space-blue-100) dark:text-(--color-deep-space-blue-950)"
           width="16"
           height="16"
           viewBox="0 0 16 16"
@@ -40,37 +36,7 @@ import clientC from '@images/clients/bidakara.webp';
             fill="currentColor"></path>
         </svg>
 
-        <div class="relative z-10">
-          <p class="text-base text-gray-800 italic dark:text-white">
-            " Tim sales sangat responsif, jelas dalam menjelaskan solusi yang ditawarkan, serta
-            fleksibel dalam penjadwalan sesuai dengan kebutuhan operasional pabrik kami. "
-          </p>
-        </div>
-
-        <footer class="mt-6">
-          <div class="flex items-center gap-x-4">
-            <div class="shrink-0">
-              {
-                (
-                  <Image
-                    src={imgClient}
-                    alt="Miduk Lasman - PT. Modelez Indonesia Manufacturing"
-                    class="size-8 rounded-full"
-                    draggable="false"
-                    loading="lazy"
-                    format="avif"
-                  />
-                )
-              }
-            </div>
-            <div class="grow">
-              <div class="font-semibold text-gray-800 dark:text-neutral-200">Miduk Lasman</div>
-              <div class="text-xs text-gray-500 dark:text-neutral-500">
-                Project Engineer & Automation Lead | PT. Mondelēz Indonesia Manufacturing
-              </div>
-            </div>
-          </div>
-        </footer>
+<TestiSlide />
       </blockquote>
       <!-- End Blockquote -->
     </div>
@@ -134,122 +100,4 @@ import clientC from '@images/clients/bidakara.webp';
   <!-- End Grid -->
 </div>
 <!-- End Testimonials with Stats -->
-<!-- Testimonials -->
-<div class="mx-auto max-w-[85rem] px-4 pb-16 sm:px-6 lg:px-8 lg:pb-16">
-  <!-- Grid -->
-  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <!-- Card -->
-    <div
-      class="flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-900"
-    >
-      <div class="flex-auto p-4 md:p-6">
-        {
-          (
-            <Image
-              src={clientA}
-              alt="Redtop Hotel Jakarta"
-              class="h-8 w-auto"
-              draggable="false"
-              loading="lazy"
-              format="avif"
-            />
-          )
-        }
 
-        <p class="mt-3 text-base text-gray-800 sm:mt-6 dark:text-white">
-          <em>
-            " Sejak menggunakan jasa Ecofix, permasalahan tersebut dapat dikendalikan dengan baik.
-            Tim teknisi datang dengan perlengkapan lengkap, sangat disiplin soal waktu, dan rapi
-            dalam bekerja. "
-          </em>
-        </p>
-      </div>
-
-      <div class="rounded-b-xl p-4 md:px-6">
-        <h3 class="text-sm font-semibold text-gray-800 sm:text-base dark:text-neutral-200">
-          Richard
-        </h3>
-        <p class="text-sm text-gray-500 dark:text-neutral-500">
-          Spv. Engineering | Redtop Hotel Jakarta
-        </p>
-      </div>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div
-      class="flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-900"
-    >
-      <div class="flex-auto p-4 md:p-6">
-        {
-          (
-            <Image
-              src={clientB}
-              alt="St. Regis Hotels & Resorts Jakarta"
-              class="h-auto w-20"
-              draggable="false"
-              loading="lazy"
-              format="avif"
-            />
-          )
-        }
-
-        <p class="mt-3 text-base text-gray-800 sm:mt-6 dark:text-white">
-          <em>
-            " Kami sangat terbantu dengan layanan Ecofix.id untuk membersihkan perangkap minyak
-            secara berkala di dapur hotel kami. Hasil kerja petugasnya rapi, tidak mengganggu
-            operasional dapur, dan sangat komunikatif dalam memberikan edukasi. "
-          </em>
-        </p>
-      </div>
-
-      <div class="rounded-b-xl p-4 md:px-6">
-        <h3 class="text-sm font-semibold text-gray-800 sm:text-base dark:text-neutral-200">
-          Mochamad Era
-        </h3>
-        <p class="text-sm text-gray-500 dark:text-neutral-500">
-          Engineering Manager | St. Regis Hotels & Resorts
-        </p>
-      </div>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div
-      class="flex flex-col rounded-xl border border-gray-200 bg-white shadow-2xs dark:border-neutral-700 dark:bg-neutral-900"
-    >
-      <div class="flex-auto p-4 md:p-6">
-        {
-          (
-            <Image
-              src={clientC}
-              alt="Hotel Bidakara Jakarta"
-              class="h-auto w-20"
-              draggable="false"
-              loading="lazy"
-              format="avif"
-            />
-          )
-        }
-
-        <p class="mt-3 text-base text-gray-800 sm:mt-6 dark:text-white">
-          <em>
-            " Sudah lebih dari 10 tahun kami mempercayakan pekerjaan Grease Trap dan Drain Cleaning
-            kepada tim Ecofix.id. Sejak menggunakan layanan Ecofix, semua masalah bisa teratasi
-            dengan sangat baik. "
-          </em>
-        </p>
-      </div>
-
-      <div class="rounded-b-xl p-4 md:px-6">
-        <h3 class="text-sm font-semibold text-gray-800 sm:text-base dark:text-neutral-200">Lia</h3>
-        <p class="text-sm text-gray-500 dark:text-neutral-500">
-          Adm. Engineering | Hotel Bidakara Jakarta
-        </p>
-      </div>
-    </div>
-    <!-- End Card -->
-  </div>
-  <!-- End Grid -->
-</div>
-<!-- End Testimonials -->

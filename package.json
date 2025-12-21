@@ -2,6 +2,7 @@
   "name": "alurkriya",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -15,6 +16,7 @@
     "@types/three": "^0.181.0",
     "astro": "^5.16.4",
     "preline": "^3.2.3",
+    "swiper": "^12.0.3",
     "tailwindcss": "^4.1.17",
     "three": "^0.181.2"
   },

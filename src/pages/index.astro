@@ -1,18 +1,20 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import HeroBanner from '@components/homes/HeroBanner.astro';
-import Services from '@components/Services.astro';
+import Partners from '@components/Partners.astro';
+import Threats from '@components/Threats.astro';
 import AboutUs from '@components/AboutUs.astro';
+import Services from '@/components/Services.astro';
 import Testimonials from '@components/Testimonials.astro';
 import RichSnipetts from '@components/RichSnipetts.astro';
-import Partners from '@components/Partners.astro';
 ---
 
 <BaseLayout>
   <HeroBanner />
   <Partners />
-  <Services />
+  <Threats />
   <AboutUs />
+  <Services />
   <Testimonials />
   <RichSnipetts />
 </BaseLayout>

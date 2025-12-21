@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": true,
   "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "prettier.prettier-vscode"
   },
   "prettier.prettierPath": "/alurkriya/node_modules/prettier/bin-prettier.js"
 }

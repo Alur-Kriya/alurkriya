@@ -1,0 +1,144 @@
+---
+interface Props {
+  problem: string;
+  poina: string;
+  desca: string;
+  poinb: string;
+  descb: string;
+  poinc: string;
+  descc: string;
+  poind: string;
+  descd: string;
+}
+
+const { problem, poina, desca, poinb, descb, poinc, descc, poind, descd} = Astro.props;
+---
+
+<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
+  <div class="mt-5 grid gap-8 lg:grid-cols-3 lg:gap-12">
+    <div class="lg:col-span-1">
+      <h2 class="text-2xl font-bold text-gray-800 md:text-3xl dark:text-neutral-200">
+        Helping Overcome Challenges
+      </h2>
+      <p class="mt-2 text-gray-500 md:mt-4 dark:text-neutral-500">
+        {problem}
+      </p>
+    </div>
+    <!-- End Col -->
+
+    <div class="lg:col-span-2">
+      <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
+        <!-- Icon Block -->
+        <div class="flex gap-x-5">
+          <svg
+            class="mt-2 size-8 shrink-0 text-(--color-ink-black-800) dark:text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
+          </svg>
+          <div class="grow">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">{poina}</h3>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+              {desca}
+            </p>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div class="flex gap-x-5">
+          <svg
+            class="mt-2 size-8 shrink-0 text-(--color-ink-black-800) dark:text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
+          </svg>
+          <div class="grow">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+              {poinb}
+            </h3>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+              {descb}
+            </p>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div class="flex gap-x-5">
+          <svg
+            class="mt-2 size-8 shrink-0 text-(--color-ink-black-800) dark:text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
+          </svg>
+          <div class="grow">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+              {poinc}
+            </h3>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+              {descc}
+            </p>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div class="flex gap-x-5">
+          <svg
+            class="mt-2 size-8 shrink-0 text-(--color-ink-black-800) dark:text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
+          </svg>
+          <div class="grow">
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+              {poind}
+            </h3>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+              {descd}
+            </p>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+      </div>
+    </div>
+    <!-- End Col -->
+  </div>
+</div>
