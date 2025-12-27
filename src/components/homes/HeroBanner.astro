@@ -1,12 +1,13 @@
 ---
 import Server from '@components/ui/Server.astro';
-import Orbit from '@components/ui/Orbit.astro';
+import Net from '@components/ui/Net.astro';
 import Wabutton from '@components/ui/Wabutton.astro';
 ---
 
+<div class="relative overflow-hidden">
+<Net />
 <!-- Hero -->
-<Orbit />
-<div class="relative mx-auto max-w-[85rem] px-4 py-30 sm:px-6 lg:px-8">
+<div class="relative mx-auto max-w-[85rem] px-4 py-35 sm:px-6 lg:px-8">
   <!-- Grid -->
   <div class="grid gap-4 md:grid-cols-2 md:items-center md:gap-8 xl:gap-20">
     <div>
@@ -36,3 +37,5 @@ import Wabutton from '@components/ui/Wabutton.astro';
   <!-- End Grid -->
 </div>
 <!-- End Hero -->
+
+</div>

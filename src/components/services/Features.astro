@@ -11,16 +11,16 @@ interface Props {
   descd: string;
 }
 
-const { problem, poina, desca, poinb, descb, poinc, descc, poind, descd} = Astro.props;
+const { problem, poina, desca, poinb, descb, poinc, descc, poind, descd } = Astro.props;
 ---
 
 <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
   <div class="mt-5 grid gap-8 lg:grid-cols-3 lg:gap-12">
     <div class="lg:col-span-1">
-      <h2 class="text-2xl font-bold text-gray-800 md:text-3xl dark:text-neutral-200">
+      <h2 class="text-3xl font-bold text-(--color-ink-black-800) lg:text-4xl dark:text-white">
         Helping Overcome Challenges
       </h2>
-      <p class="mt-2 text-gray-500 md:mt-4 dark:text-neutral-500">
+      <p class="mt-3 dark:text-neutral-300">
         {problem}
       </p>
     </div>
@@ -46,8 +46,12 @@ const { problem, poina, desca, poinb, descb, poinc, descc, poind, descd} = Astro
             <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
           </svg>
           <div class="grow">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">{poina}</h3>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+            <h3
+              class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white"
+            >
+              {poina}
+            </h3>
+            <p class="mt-1 dark:text-neutral-300">
               {desca}
             </p>
           </div>
@@ -72,10 +76,12 @@ const { problem, poina, desca, poinb, descb, poinc, descc, poind, descd} = Astro
             <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
           </svg>
           <div class="grow">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+            <h3
+              class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white"
+            >
               {poinb}
             </h3>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+            <p class="mt-1 dark:text-neutral-300">
               {descb}
             </p>
           </div>
@@ -100,10 +106,12 @@ const { problem, poina, desca, poinb, descb, poinc, descc, poind, descd} = Astro
             <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
           </svg>
           <div class="grow">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+            <h3
+              class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white"
+            >
               {poinc}
             </h3>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+            <p class="mt-1 dark:text-neutral-300">
               {descc}
             </p>
           </div>
@@ -128,10 +136,12 @@ const { problem, poina, desca, poinb, descb, poinc, descc, poind, descd} = Astro
             <path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path>
           </svg>
           <div class="grow">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+            <h3
+              class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white"
+            >
               {poind}
             </h3>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">
+            <p class="mt-1 dark:text-neutral-300">
               {descd}
             </p>
           </div>

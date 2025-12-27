@@ -3,7 +3,7 @@ import srvcB from '@images/srvc-b.png';
 import srvcC from '@images/srvc-c.png';
 import srvcD from '@images/srvc-d.png';
 import srvcE from '@images/srvc-e.png';
-import srvcF from '@images/srvc-f.png'; 
+import srvcF from '@images/srvc-f.png';
 
 export const services = [
   {

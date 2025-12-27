@@ -1,0 +1,88 @@
+
+  <!-- Network Canvas -->
+  <canvas id="network-canvas" class="absolute inset-0 -z-1 size-full opacity-40 dark:opacity-20"
+  ></canvas>
+  <!-- End Network Canvas -->
+
+<script>
+  const canvas = document.getElementById('network-canvas') as HTMLCanvasElement;
+
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let w: number, h: number;
+    let particles: Particle[] = [];
+
+    // Konfigurasi
+    const particleCount = 60;
+    const connectionDistance = 150;
+    const moveSpeed = 0.5;
+
+    class Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+
+      constructor() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * moveSpeed;
+        this.vy = (Math.random() - 0.5) * moveSpeed;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
+      }
+
+      draw() {
+        if (!ctx) return;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = '#888888';
+        ctx.fill();
+      }
+    }
+
+    const init = () => {
+      w = canvas.width = canvas.parentElement?.offsetWidth || window.innerWidth;
+      h = canvas.height = canvas.parentElement?.offsetHeight || window.innerHeight;
+      particles = Array.from({ length: particleCount }, () => new Particle());
+    };
+
+    const animate = () => {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach((p, index) => {
+        p.update();
+        p.draw();
+
+        // Draw connections
+        for (let i = index + 1; i < particles.length; i++) {
+          const p2 = particles[i];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < connectionDistance) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(136, 136, 136, ${1 - distance / connectionDistance})`;
+            ctx.lineWidth = 1;
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      });
+      requestAnimationFrame(animate);
+    };
+
+    window.addEventListener('resize', init);
+    init();
+    animate();
+  }
+</script>

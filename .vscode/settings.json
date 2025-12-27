@@ -3,5 +3,7 @@
   "[astro]": {
     "editor.defaultFormatter": "prettier.prettier-vscode"
   },
-  "prettier.prettierPath": "/alurkriya/node_modules/prettier/bin-prettier.js"
+  "prettier.prettierPath": "./node_modules/prettier/bin-prettier.js",
+  "eslint.validate": ["javascript", "astro"],
+  "eslint.run": "onSave"
 }

@@ -1,7 +1,7 @@
 ---
-import '../styles/global.css';
-import Navbar from '@/components/Navbar.astro';
-import Footer from '@/components/Footer.astro';
+import '../assets/styles/global.css';
+import NavigationBar from '@components/NavigationBar.astro';
+import Footer from '@components/Footer.astro';
 ---
 
 <!doctype html>
@@ -9,11 +9,15 @@ import Footer from '@/components/Footer.astro';
   <meta charset="UTF-8" />
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-<script type="text/javascript" src="/scripts/main.js" defer></script>
+  <script type="text/javascript" src="/scripts/main.js" defer></script>
 
-  <body class="min-h-400 bg-(--color-deep-space-blue-50) dark:bg-(--color-deep-space-blue-900)" cz-shortcut-listen="true">
-    <Navbar />
+  <body
+    class="bg-(--color-deep-space-blue-50) dark:bg-(--color-deep-space-blue-900)"
+    cz-shortcut-listen="true"
+  >
+    <NavigationBar />
     <main id="content">
       <slot />
     </main>
