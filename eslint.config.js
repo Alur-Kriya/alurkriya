@@ -9,7 +9,7 @@ export default [
     ignores: ['dist/', '.astro/', 'node_modules/'],
   },
 
-  ...astro.configs.recommended,
+  ...astro.configs['flat/typescript-recommended'],
 
   {
     files: ['**/*.{ts,tsx}'],

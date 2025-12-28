@@ -16,11 +16,5 @@
         "useTabs": false
       }
     },
-    {
-      "files": ["**/*.astro"],
-      "options": {
-        "parser": "astro"
-      }
-    }
   ]
 }

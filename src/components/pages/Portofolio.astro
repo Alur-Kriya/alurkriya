@@ -1,0 +1,173 @@
+---
+import { portfolio } from '@/contents/pages/portofolio.mjs';
+
+const projects = portfolio;
+const ITEMS_PER_PAGE = 6;
+const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
+const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+---
+
+<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
+  <div id="portfolio-grid" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Card -->
+    {
+      projects.map((project, index) => {
+        const pageNum = Math.floor(index / ITEMS_PER_PAGE) + 1;
+        const imageSrc = typeof project.image === 'object' ? project.image : project.image;
+
+        return (
+          <a
+            class:list={[
+              'group portfolio-item flex h-full flex-col rounded-lg border border-gray-200 bg-white transition-all hover:shadow-lg dark:border-neutral-700 dark:bg-(--color-deep-space-blue-950)',
+              { hidden: pageNum !== 1 },
+            ]}
+            href={project.link}
+            data-page={pageNum}
+          >
+            <div class="h-52 overflow-hidden rounded-t-lg">
+              <img
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src={imageSrc}
+                alt={project.title}
+                loading="lazy"
+              />
+            </div>
+            <div class="flex grow flex-col p-4 md:p-5">
+              <div class="mb-auto">
+                <h2 class="text-base font-semibold text-(--color-ink-black-800) dark:text-white">
+                  {project.title}
+                </h2>
+                <p class="mt-1 text-sm dark:text-neutral-300">{project.description}</p>
+              </div>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="inline-flex items-center rounded-md bg-gray-100 px-1.5 py-1 text-xs font-medium dark:bg-(--color-steel-blue-700) dark:text-neutral-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        );
+      })
+    }
+    <!-- End Card -->
+  </div>
+
+  <!-- Pagination -->
+  {
+    totalPages > 1 && (
+      <div class="mt-12 flex justify-center gap-x-2">
+        <nav class="flex items-center gap-x-1" aria-label="Pagination">
+          <button
+            type="button"
+            class="pagination-prev inline-flex min-h-[38px] min-w-[38px] items-center justify-center gap-x-2 rounded-lg px-2.5 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
+            aria-label="Previous"
+            disabled
+          >
+            <svg
+              class="size-3.5 shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            <span class="sr-only">Previous</span>
+          </button>
+          <div class="flex items-center gap-x-1">
+            {pages.map((page) => (
+              <button
+                type="button"
+                class:list={[
+                  'pagination-number flex min-h-[38px] min-w-[38px] items-center justify-center rounded-lg px-3 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10',
+                  { 'bg-gray-200 focus:bg-gray-200 dark:bg-neutral-600': page === 1 },
+                ]}
+                data-page={page}
+                aria-current={page === 1 ? 'page' : undefined}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            class="pagination-next inline-flex min-h-[38px] min-w-[38px] items-center justify-center gap-x-2 rounded-lg px-2.5 py-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
+            aria-label="Next"
+          >
+            <span class="sr-only">Next</span>
+            <svg
+              class="size-3.5 shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+    )
+  }
+</div>
+
+<script>
+  const items = document.querySelectorAll('.portfolio-item');
+  const numbers = document.querySelectorAll('.pagination-number');
+  const prevBtn = document.querySelector('.pagination-prev');
+  const nextBtn = document.querySelector('.pagination-next');
+  let currentPage = 1;
+  const totalPages = numbers.length;
+
+  function updateDisplay(page: number) {
+    items.forEach((item) => {
+      // @ts-ignore
+      if (parseInt(item.dataset.page) === page) item.classList.remove('hidden'); 
+      else item.classList.add('hidden');
+    });
+    numbers.forEach((btn) => {
+      // @ts-ignore
+      const btnPage = parseInt(btn.dataset.page);
+      if (btnPage === page) {
+        btn.classList.add('bg-gray-200', 'focus:bg-gray-200', 'dark:bg-neutral-600');
+        btn.setAttribute('aria-current', 'page');
+      } else {
+        btn.classList.remove('bg-gray-200', 'focus:bg-gray-200', 'dark:bg-neutral-600');
+        btn.removeAttribute('aria-current');
+      }
+    });
+    // @ts-ignore
+    if (prevBtn) prevBtn.disabled = page === 1;
+    // @ts-ignore
+    if (nextBtn) nextBtn.disabled = page === totalPages;
+    currentPage = page;
+  }
+
+  numbers.forEach((btn) => {
+    // @ts-ignore
+    btn.addEventListener('click', () => updateDisplay(parseInt(btn.dataset.page)));
+  });
+
+  // @ts-ignore
+  if (prevBtn)
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) updateDisplay(currentPage - 1);
+    });
+  // @ts-ignore
+  if (nextBtn)
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages) updateDisplay(currentPage + 1);
+    });
+</script>

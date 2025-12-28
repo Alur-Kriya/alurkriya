@@ -1,8 +1,14 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import HeroBanner from '@/components/pages/HeroBanner.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroBanner from '@components/pages/HeroBanner.astro';
+import Portofolio from '@components/pages/Portofolio.astro';
+import RichSnippets from '@components/RichSnippets.astro';
+import Clients from '@components/Clients.astro';
 ---
 
 <BaseLayout>
   <HeroBanner />
+  <Portofolio />
+  <RichSnippets />
+  <Clients />
 </BaseLayout>
