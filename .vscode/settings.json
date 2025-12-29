@@ -1,9 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "[astro]": {
-    "editor.defaultFormatter": "prettier.prettier-vscode"
-  },
-  "prettier.prettierPath": "./node_modules/prettier/bin-prettier.js",
-  "eslint.validate": ["javascript", "astro"],
-  "eslint.run": "onSave"
-}

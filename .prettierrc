@@ -6,15 +6,14 @@
   "trailingComma": "es5",
   "arrowParens": "always",
   "bracketSpacing": true,
-
   "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
-
   "overrides": [
     {
-      "files": [".*", "*.md", "*.toml", "*.yml"],
+      "files": ["*.astro", "*.md", "*.toml", "*.yml"],
       "options": {
+        "parser": "astro",
         "useTabs": false
       }
-    },
+    }
   ]
 }

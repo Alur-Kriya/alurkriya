@@ -134,7 +134,7 @@ const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   function updateDisplay(page: number) {
     items.forEach((item) => {
       // @ts-ignore
-      if (parseInt(item.dataset.page) === page) item.classList.remove('hidden'); 
+      if (parseInt(item.dataset.page) === page) item.classList.remove('hidden');
       else item.classList.add('hidden');
     });
     numbers.forEach((btn) => {

@@ -195,7 +195,7 @@
     font-variation-settings: var(--default-font-variation-settings, normal);
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   h1,
   h2,
   h3,
@@ -206,5 +206,4 @@
     font-weight: 400;
     line-height: var(--leading-tight);
   }
-
 }
