@@ -205,5 +205,7 @@
     font-family: var(--default-font-heading);
     font-weight: 400;
     line-height: var(--leading-tight);
+      font-size: inherit;
+        font-weight: inherit;
   }
 }

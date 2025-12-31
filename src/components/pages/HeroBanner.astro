@@ -1,6 +1,12 @@
 ---
 import Net from '@components/ui/Net.astro';
-import Wabutton from '@components/ui/Wabutton.astro';
+
+interface Props {
+  description?: string;
+  heading?: string;
+}
+
+const { description, heading } = Astro.props;
 ---
 
 <!-- Hero -->
@@ -41,18 +47,14 @@ import Wabutton from '@components/ui/Wabutton.astro';
         <h1
           class="block text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
         >
-          Let's Build
-          <span class="bg-linear-to-tl from-blue-600 to-violet-600 bg-clip-text text-transparent"
-            >Together</span
-          >
+          {heading}
         </h1>
       </div>
       <!-- End Title -->
 
       <div class="mx-auto mt-5 max-w-3xl text-center">
         <p class="text-lg text-gray-600 dark:text-neutral-400">
-          Preline UI is an open-source set of prebuilt UI components, ready-to-use examples and
-          Figma design system based on the utility-first Tailwind CSS framework.
+          {description}
         </p>
       </div>
 

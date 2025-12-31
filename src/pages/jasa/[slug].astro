@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { services } from '@contents/services/services.mjs';
 import { faq } from '@contents/services/faq.mjs';
+import { approach } from '@contents/services/approach.mjs';
 import HeroBanner from '@components/services/HeroBanner.astro';
 import Features from '@components/services/Features.astro';
 import Approach from '@components/services/Approach.astro';
@@ -29,6 +30,12 @@ if (!faqData) {
   throw new Error(`FAQ not found`);
 }
 
+const approachData = approach.find((item: any) => item.slug === slug);
+
+if (!approachData) {
+  throw new Error(`Services not found`);
+}
+
 interface Props {
   title?: string;
   description?: string;
@@ -40,7 +47,7 @@ interface Props {
 
   <Features {...content} />
 
-  <Approach />
+  <Approach {...approachData} />
 
   <Faq {...faqData} />
 

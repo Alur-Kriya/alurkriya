@@ -1,3 +1,14 @@
+---
+import { Picture } from 'astro:assets';
+import imgAbout from '@images/img-b.png';
+
+interface Props {
+  services: string;
+}
+
+const {services} = Astro.props;
+---
+
 <!-- Approach -->
 <div class="bg-(--color-deep-space-blue-900) dark:bg-(--color-deep-space-blue-800)">
   <!-- Approach -->
@@ -6,27 +17,32 @@
     <div class="mb-10 max-w-3xl lg:mb-14">
       <h2 class="text-3xl font-bold text-white lg:text-4xl dark:text-white">Our approach</h2>
       <p class="mt-3 text-neutral-300">
-        Berbeda dengan pendekatan reaktif, Alur Kriya mengedepankan preventive management —
-        pendekatan proaktif dalam memantau, mengelola, dan mengoptimalkan sistem sejak awal untuk
-        meminimalkan risiko, mencegah gangguan operasional, dan menjaga keberlangsungan bisnis
-        secara berkelanjutan.
+        Bisnis Anda bergantung pada teknologi – pastikan teknologi tersebut dirancang untuk berkinerja optimal. Kriya menyediakan layanan jasa {services} yang disesuaikan dengan kebutuhan Anda, dirancang untuk berkembang seiring permintaan dan memenuhi standar keamanan yang baik.
       </p>
     </div>
     <!-- End Title -->
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
-      <div class="aspect-w-16 aspect-h-9 lg:aspect-none">
-        <img
-          class="w-full rounded-xl object-cover"
-          src="https://images.unsplash.com/photo-1587614203976-365c74645e83?q=80&w=480&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Features Image"
-        />
+    <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+      <div>
+                {
+          (
+            <Picture
+              src={imgAbout}
+              alt="PT Alur Kriya Teknologi"
+              class="w-full rounded-xl object-cover"
+              draggable="false"
+              decoding="async"
+              loading="lazy"
+              formats={['avif', 'webp']}
+            />
+          )
+        }
       </div>
       <!-- End Col -->
 
       <!-- Timeline -->
-      <div>
+      <div class="mt-10 sm:mt-10 lg:mt-0">
         <!-- Item -->
         <div class="ms-1 flex gap-x-5">
           <!-- Icon -->

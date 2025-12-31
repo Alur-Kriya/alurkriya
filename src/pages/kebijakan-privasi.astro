@@ -1,0 +1,140 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroBanner from '@components/pages/HeroBanner.astro';
+import { pages } from '@contents/pages/pages.mjs';
+
+const pageData = pages.find((page) => page.slug === 'kebijakan-privasi');
+
+const { title, heading, desc } = pageData || {};
+---
+
+<BaseLayout title={title}>
+  <HeroBanner heading={heading} description={desc} />
+
+  <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <article
+        class="prose prose-lg prose-gray dark:prose-invert prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 max-w-none"
+      >
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Pendahuluan</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Selamat datang di halaman Kebijakan Privasi Alurkriya. Kami berkomitmen untuk melindungi
+          privasi pengunjung dan pengguna situs web kami. Kebijakan Privasi ini menjelaskan
+          bagaimana kami mengumpulkan, menggunakan, mengungkapkan, dan melindungi informasi Anda
+          ketika Anda mengunjungi situs web kami <a href="https://alurkriya.com">alurkriya.com</a>.
+          Harap baca kebijakan privasi ini dengan cermat. Jika Anda tidak setuju dengan ketentuan
+          kebijakan privasi ini, mohon jangan mengakses situs web.
+        </p>
+
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Informasi yang Kami Kumpulkan</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Kami dapat mengumpulkan informasi tentang Anda dalam berbagai cara. Informasi yang mungkin
+          kami kumpulkan di Situs termasuk:
+        </p>
+        <h3 class="text-sm font-semibold text-(--color-ink-black-800) dark:text-white">Data Pribadi</h3>
+        <p class="mt-1 dark:text-neutral-300">
+          Informasi identifikasi pribadi, seperti nama, alamat pengiriman, alamat email, dan nomor
+          telepon, dan informasi demografis, seperti usia, jenis kelamin, kota asal, dan minat, yang
+          secara sukarela Anda berikan kepada kami ketika Anda mendaftar di Situs atau ketika Anda
+          memilih untuk berpartisipasi dalam berbagai kegiatan yang berkaitan dengan Situs, seperti
+          obrolan online dan papan pesan.
+        </p>
+        <h3>Data Derivatif</h3>
+        <p class="mt-1 dark:text-neutral-300">
+          Informasi yang secara otomatis dikumpulkan ketika Anda mengakses Situs kami, seperti
+          alamat IP Anda, jenis browser Anda, sistem operasi Anda, waktu akses Anda, dan halaman
+          yang telah Anda lihat langsung sebelum dan sesudah mengakses Situs.
+        </p>
+
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Bagaimana Kami Menggunakan Informasi Anda</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Memiliki informasi yang akurat tentang Anda memungkinkan kami untuk memberikan Anda
+          pengalaman yang lancar, efisien, dan disesuaikan. Secara khusus, kami dapat menggunakan
+          informasi yang dikumpulkan tentang Anda melalui Situs untuk:
+        </p>
+        <ul class="list-disc ms-6 mt-3 space-y-1.5">
+          <li>Mengelola undian, promosi, dan kontes.</li>
+          <li>Membantu penegakan hukum dan menanggapi panggilan pengadilan.</li>
+          <li>
+            Mengkompilasi data statistik anonim dan analisis untuk penggunaan internal atau dengan
+            pihak ketiga.
+          </li>
+          <li>Membuat dan mengelola akun Anda.</li>
+          <li>Mengirimkan email mengenai akun atau pesanan Anda.</li>
+          <li>Memungkinkan komunikasi pengguna-ke-pengguna.</li>
+          <li>Meminta umpan balik dan menghubungi Anda tentang penggunaan Situs.</li>
+          <li>Menganalisis penggunaan dan tren untuk meningkatkan pengalaman Anda dengan Situs.</li>
+          <li>Memberi tahu Anda tentang pembaruan pada Situs.</li>
+        </ul>
+
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Pengungkapan Informasi Anda</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Kami dapat membagikan informasi yang telah kami kumpulkan tentang Anda dalam situasi
+          tertentu. Informasi Anda dapat diungkapkan sebagai berikut:
+        </p>
+        <h3>Oleh Hukum atau untuk Melindungi Hak</h3>
+        <p class="mt-1 dark:text-neutral-300">
+          Jika kami yakin rilis informasi tentang Anda diperlukan untuk menanggapi proses hukum,
+          untuk menyelidiki atau memperbaiki potensi pelanggaran kebijakan kami, atau untuk
+          melindungi hak, properti, dan keamanan orang lain, kami dapat membagikan informasi Anda
+          sebagaimana diizinkan atau disyaratkan oleh hukum, aturan, atau regulasi yang berlaku.
+        </p>
+        <h3>Penyedia Layanan Pihak Ketiga</h3>
+        <p class="mt-1 dark:text-neutral-300">
+          Kami dapat membagikan informasi Anda dengan pihak ketiga yang melakukan layanan untuk kami
+          atau atas nama kami, termasuk pemrosesan pembayaran, analisis data, pengiriman email,
+          layanan hosting, layanan pelanggan, dan bantuan pemasaran.
+        </p>
+        <h3>Komunikasi Pemasaran</h3>
+        <p class="mt-1 dark:text-neutral-300">
+          Dengan persetujuan Anda, atau dengan kesempatan bagi Anda untuk menarik persetujuan, kami
+          dapat membagikan informasi Anda dengan pihak ketiga untuk tujuan pemasaran, sebagaimana
+          diizinkan oleh hukum.
+        </p>
+
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Keamanan Informasi Anda</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Kami menggunakan langkah-langkah keamanan administratif, teknis, dan fisik untuk membantu
+          melindungi informasi pribadi Anda. Meskipun kami telah mengambil langkah-langkah yang
+          wajar untuk mengamankan informasi pribadi yang Anda berikan kepada kami, perlu diketahui
+          bahwa tidak ada langkah-langkah keamanan yang sempurna atau tidak dapat ditembus, dan
+          tidak ada metode transmisi data yang dapat dijamin terhadap intersepsi atau jenis
+          penyalahgunaan lainnya.
+        </p>
+
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Kebijakan untuk Anak-anak</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Kami tidak secara sengaja meminta informasi dari atau memasarkan kepada anak-anak di bawah
+          usia 13 tahun. Jika Anda mengetahui adanya data yang kami kumpulkan dari anak-anak di
+          bawah 13 tahun, harap hubungi kami menggunakan informasi kontak yang disediakan di bawah
+          ini.
+        </p>
+
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Perubahan pada Kebijakan Privasi Ini</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Kami berhak untuk membuat perubahan pada Kebijakan Privasi ini kapan saja dan untuk alasan
+          apa pun. Kami akan memberitahu Anda tentang setiap perubahan dengan memperbarui tanggal
+          "Terakhir Diperbarui" dari Kebijakan Privasi ini. Setiap perubahan atau modifikasi akan
+          segera berlaku setelah publikasi di Situs, dan Anda melepaskan hak untuk menerima
+          pemberitahuan khusus tentang setiap perubahan atau modifikasi tersebut.
+        </p>
+        <p class="mt-1 dark:text-neutral-300">
+          Anda didorong untuk secara berkala meninjau Kebijakan Privasi ini untuk tetap mendapatkan
+          informasi tentang pembaruan. Anda akan dianggap telah diberi tahu, akan tunduk pada, dan
+          akan dianggap telah menerima perubahan dalam Kebijakan Privasi yang direvisi oleh
+          penggunaan Anda yang terus-menerus atas Situs setelah tanggal Kebijakan Privasi yang
+          direvisi tersebut dipublikasikan.
+        </p>
+
+        <h2 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">Hubungi Kami</h2>
+        <p class="mt-1 dark:text-neutral-300">
+          Jika Anda memiliki pertanyaan atau komentar tentang Kebijakan Privasi ini, silakan hubungi
+          kami di:
+        </p>
+        <p class="mt-1 dark:text-neutral-300">
+          <a href="mailto:info@alurkriya.com">info@alurkriya.com</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

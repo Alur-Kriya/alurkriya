@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HeroBanner from "@components/pages/HeroBanner.astro";
+import { pages } from "@contents/pages/pages.mjs";
+
+const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan");
+---
+
+<BaseLayout title={ketentuanLayanan?.title}>
+  <HeroBanner
+    heading={ketentuanLayanan?.heading}
+    description={ketentuanLayanan?.desc}
+  />
+  <main class="container mx-auto mt-8 px-4 py-8 md:px-6 lg:px-8">
+    <!-- You can add specific content for Ketentuan Layanan here -->
+    <div class="prose dark:prose-invert max-w-none">
+      <h2>1. Pengantar</h2>
+      <p>Selamat datang di layanan kami. Dengan mengakses atau menggunakan situs web dan layanan kami, Anda menyetujui untuk terikat oleh syarat dan ketentuan berikut ini. Jika Anda tidak menyetujui bagian mana pun dari syarat dan ketentuan ini, jangan gunakan layanan kami.</p>
+
+      <h2>2. Penggunaan Layanan</h2>
+      <p>Layanan kami disediakan untuk penggunaan pribadi dan non-komersial Anda. Anda tidak boleh menggunakan layanan kami untuk tujuan ilegal atau tidak sah.</p>
+
+      <h2>3. Kebijakan Privasi</h2>
+      <p>Penggunaan layanan kami juga diatur oleh Kebijakan Privasi kami, yang dapat Anda temukan di [Link ke Kebijakan Privasi].</p>
+
+      <h2>4. Hak Kekayaan Intelektual</h2>
+      <p>Semua konten, merek dagang, logo, dan materi lain yang ditampilkan di situs web kami adalah milik kami atau pemberi lisensi kami dan dilindungi oleh undang-undang kekayaan intelektual.</p>
+
+      <h2>5. Pembatasan Tanggung Jawab</h2>
+      <p>Kami tidak bertanggung jawab atas kerugian atau kerusakan apa pun yang timbul dari penggunaan atau ketidakmampuan Anda untuk menggunakan layanan kami, kecuali diwajibkan oleh hukum.</p>
+
+      <h2>6. Perubahan Ketentuan</h2>
+      <p>Kami berhak untuk mengubah syarat dan ketentuan ini kapan saja. Perubahan akan berlaku segera setelah diposting di situs web ini.</p>
+
+      <h2>7. Hukum yang Berlaku</h2>
+      <p>Syarat dan ketentuan ini diatur oleh dan ditafsirkan sesuai dengan hukum Negara Republik Indonesia.</p>
+    </div>
+  </main>
+</BaseLayout>

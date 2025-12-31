@@ -4,10 +4,25 @@ import HeroBanner from '@components/pages/HeroBanner.astro';
 import Portofolio from '@components/pages/Portofolio.astro';
 import RichSnippets from '@components/RichSnippets.astro';
 import Clients from '@components/Clients.astro';
+import { pages } from '@contents/pages/pages.mjs';
+
+// Get the slug from Astro's params
+const slug = 'portfolio';
+// Find the matching item
+const content = pages.find((item: any) => item.slug === slug);
+
+if (!content) {
+  throw new Error(`Page with slug "${slug}" not found`);
+}
+
+interface Props {
+  heading?: string;
+  description?: string;
+}
 ---
 
 <BaseLayout>
-  <HeroBanner />
+  <HeroBanner heading={content.heading} description={content.desc} />
   <Portofolio />
   <RichSnippets />
   <Clients />
