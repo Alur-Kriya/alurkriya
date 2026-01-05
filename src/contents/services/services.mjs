@@ -4,6 +4,8 @@ import srvcC from '@images/srvc-c.png';
 import srvcD from '@images/srvc-d.png';
 import srvcE from '@images/srvc-e.png';
 import srvcF from '@images/srvc-f.png';
+import srvcG from '@images/srvc-g.png';
+
 
 export const services = [
   {
@@ -26,6 +28,28 @@ export const services = [
     poind: 'Minim Integrasi & Maintenance',
     descd:
       'Website tidak terintegrasi dengan sistem bisnis dan tidak memiliki pengelolaan berkelanjutan.',
+  },
+  {
+    slug: 'software-development',
+    title: 'Jasa Software Development untuk Solusi Bisnis Terdepan',
+    description:
+      'Solusi aplikasi bisnis yang efisien, scalable, dan mendukung pertumbuhan perusahaan.',
+    images: srvcG,
+    heading: 'Software Development',
+    problem:
+      'Pengembangan software tanpa perencanaan dan kontrol yang tepat sering menghasilkan sistem yang tidak efisien dan sulit berkembang.',
+    poina: 'Kebutuhan Bisnis Tidak Terdefinisi Jelas',
+    desca:
+      'Kurangnya analisis awal menyebabkan software tidak sepenuhnya menjawab kebutuhan operasional bisnis.',
+    poinb: 'Arsitektur Sistem Tidak Scalable',
+    descb:
+      'Desain teknis yang tidak matang membuat aplikasi sulit dikembangkan seiring pertumbuhan bisnis.',
+    poinc: 'Integrasi dengan Sistem Existing',
+    descc:
+      'Software baru sering mengalami kendala saat dihubungkan dengan sistem yang sudah berjalan.',
+    poind: 'Maintenance dan Keamanan Jangka Panjang',
+    descd:
+      'Tanpa pengelolaan berkelanjutan, software rentan terhadap bug, downtime, dan risiko keamanan.',
   },
   {
     slug: 'it-consulting',

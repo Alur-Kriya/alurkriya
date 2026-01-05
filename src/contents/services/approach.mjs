@@ -4,6 +4,10 @@ export const approach = [
     services: 'Website Development',
   },
   {
+    slug: 'software-development',
+    services: 'Software Development',
+  },
+  {
     slug: 'it-consulting',
     services: 'IT Consulting',
   },
@@ -23,4 +27,4 @@ export const approach = [
     slug: 'saas-partners',
     services: 'SaaS Partners',
   },
-]
+];
