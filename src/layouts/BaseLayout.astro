@@ -2,6 +2,7 @@
 import '@styles/global.css';
 import NavigationBar from '@components/NavigationBar.astro';
 import Footer from '@components/Footer.astro';
+import Analytics from '@vercel/analytics/astro';
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ import Footer from '@components/Footer.astro';
     class="bg-(--color-deep-space-blue-50) dark:bg-(--color-deep-space-blue-900)"
     cz-shortcut-listen="true"
   >
+  <Analytics />
     <NavigationBar />
     <main id="content">
       <slot />
