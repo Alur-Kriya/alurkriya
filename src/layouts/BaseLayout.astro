@@ -11,12 +11,15 @@ import Analytics from '@vercel/analytics/astro';
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    import '@scripts/lenisSmoothScroll.js';
+  </script>
 
   <body
     class="bg-(--color-deep-space-blue-50) dark:bg-(--color-deep-space-blue-900)"
     cz-shortcut-listen="true"
   >
-  <Analytics />
+    <Analytics />
     <NavigationBar />
     <main id="content">
       <slot />

@@ -20,9 +20,9 @@ export const services = [
     poina: 'Kebutuhan Bisnis Tidak Terdefinisi Jelas',
     desca:
       'Website dibuat tanpa tujuan bisnis yang jelas sehingga tidak menghasilkan lead atau konversi.',
-    poinb: 'Performa & Keamanan Kurang Optimal',
+    poinb: 'Performa dan Keamanan Kurang',
     descb: 'Website lambat, rentan peretasan, dan berisiko terhadap keamanan data perusahaan.',
-    poinc: 'Arsitektur & Teknologi Tidak Scalable',
+    poinc: 'Arsitektur Teknologi Tidak Scalable',
     descc:
       'Pemilihan teknologi yang keliru membuat website sulit dikembangkan dan mahal saat di-upgrade.',
     poind: 'Minim Integrasi & Maintenance',
@@ -47,7 +47,7 @@ export const services = [
     poinc: 'Integrasi dengan Sistem Existing',
     descc:
       'Software baru sering mengalami kendala saat dihubungkan dengan sistem yang sudah berjalan.',
-    poind: 'Maintenance dan Keamanan Jangka Panjang',
+    poind: 'Maintenance dan Keamanan',
     descd:
       'Tanpa pengelolaan berkelanjutan, software rentan terhadap bug, downtime, dan risiko keamanan.',
   },
@@ -126,7 +126,7 @@ export const services = [
     heading: 'IT Procurement & Support',
     problem:
       'Pengadaan dan dukungan IT yang tidak terkelola dengan baik dapat menghambat operasional bisnis serta meningkatkan risiko biaya dan downtime.',
-    poina: 'Pemilihan Perangkat Tidak Sesuai Kebutuhan',
+    poina: 'Pemilihan Perangkat Tidak Sesuai',
     desca:
       'Pengadaan tanpa analisis yang tepat menyebabkan perangkat tidak optimal dan cepat usang.',
     poinb: 'Proses Pengadaan Tidak Efisien',
