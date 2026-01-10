@@ -1,6 +1,7 @@
 ---
 import '@styles/global.css';
 import NavigationBar from '@components/NavigationBar.astro';
+import LiveChat from '@components/LiveChat.astro';
 import Footer from '@components/Footer.astro';
 import Analytics from '@vercel/analytics/astro';
 ---
@@ -25,6 +26,7 @@ import Analytics from '@vercel/analytics/astro';
       <slot />
     </main>
     <Footer />
+    <LiveChat />
 
     <!-- Preline UI -->
     <script>
