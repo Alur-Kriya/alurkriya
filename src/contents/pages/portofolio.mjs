@@ -8,7 +8,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Ecofix - Website Company Profile',
+    title: 'Ecofix - Company Profile Website',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
@@ -16,7 +16,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Alena - Shipping Management System',
+    title: 'Software - Shipping Management System',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
@@ -24,7 +24,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Sabili - Website News Portal',
+    title: 'Sabili - News Portal Website',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
@@ -32,7 +32,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Software - ZISWAF Management System',
+    title: 'Kecleng Masjid - Fundraising Website',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
@@ -40,7 +40,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Ecofix - Website Company Profile',
+    title: 'Software - Sekolah Management System',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
@@ -48,7 +48,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Alena - Shipping Management System',
+    title: 'Pesantren BIK - Company Profile Website',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
