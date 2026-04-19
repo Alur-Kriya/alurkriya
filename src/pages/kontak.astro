@@ -1,8 +1,15 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import HeroBanner from '@components/pages/HeroBanner.astro';
+import { pages } from '@contents/pages/pages.mjs';
+
+const content = pages.find((item: any) => item.slug === 'kontak');
+
+if (!content) {
+  throw new Error('Page with slug "kontak" not found');
+}
 ---
 
-<BaseLayout>
-  <HeroBanner />
+<BaseLayout title={content.title} description={content.desc}>
+  <HeroBanner heading={content.heading} description={content.desc} />
 </BaseLayout>

@@ -6,7 +6,7 @@ import { pages } from "@contents/pages/pages.mjs";
 const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan");
 ---
 
-<BaseLayout title={ketentuanLayanan?.title}>
+<BaseLayout title={ketentuanLayanan?.title} description={ketentuanLayanan?.desc}>
   <HeroBanner
     heading={ketentuanLayanan?.heading}
     description={ketentuanLayanan?.desc}

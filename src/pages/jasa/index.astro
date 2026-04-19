@@ -6,15 +6,18 @@ import Approach from '@components/services/Approach.astro';
 import Faq from '@components/Faq.astro';
 import RichSnipetts from '@components/RichSnippets.astro';
 import srvcA from '@images/srvc-a.png';
+import { pages } from '@contents/pages/pages.mjs';
+
+const pageData = pages.find((item: any) => item.slug === 'jasa');
 
 const content = {
-  heading: 'Layanan Kami',
-  description: 'Temukan solusi teknologi terbaik untuk mendukung pertumbuhan bisnis Anda.',
+  heading: pageData?.heading || 'Layanan Kami',
+  description: pageData?.desc || 'Temukan solusi teknologi terbaik untuk mendukung pertumbuhan bisnis Anda.',
   images: srvcA,
 };
 ---
 
-<BaseLayout>
+<BaseLayout title={pageData?.title} description={pageData?.desc}>
   <HeroBanner {...content} />
   <Partners />
   <Approach />

@@ -1,10 +1,10 @@
 export const SEOS = {
-  name: 'Ecofix',
-  title: 'Solusi Maintenance & Engineering Services di Jabodetabek | Ecofix',
+  name: 'Kriya',
+  title: 'Solusi IT & Digital Terpercaya untuk Bisnis',
   image: 'https://ecofix.id/img/ogimage.png',
   tagline: 'Efficient, Expert, Eco-Friendly',
   description:
-    'Solusi paling lengkap untuk masalah saluran air mampet, grease trap, service ac, dan pengendalian hama. Layanan lebih cepat, profesional, dan bergaransi.',
+    'Kriya menyediakan layanan website development, software development, IT consulting, cloud hosting, dan dukungan teknologi untuk mendukung transformasi digital bisnis Anda.',
   url: import.meta.env.SITE_URL,
   author: 'PT Gama Abyakta Sejahtera',
 };
