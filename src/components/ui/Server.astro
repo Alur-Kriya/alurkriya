@@ -17,11 +17,6 @@
     margin: auto;
     perspective: 1000px;
     transform: rotateX(0deg) rotateY(0deg);
-    transition: transform 0.8s var(--ease-in-out);
-  }
-
-  .server-rack:hover {
-    transform: rotateX(0deg) rotateY(0deg) scale(2);
   }
 
   .server {
@@ -57,10 +52,6 @@
 
   .server {
     transform: translateY(calc(var(--i) * 50px));
-  }
-
-  .server-rack:hover .server {
-    transform: translateY(calc(var(--i) * 60px)) translateZ(calc(var(--i) * 10px));
   }
 
   @keyframes blink {
