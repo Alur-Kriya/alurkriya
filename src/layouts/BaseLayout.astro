@@ -1,4 +1,5 @@
 ---
+import SpeedInsights from "@vercel/speed-insights/astro"
 import '@styles/global.css';
 import NavigationBar from '@components/NavigationBar.astro';
 import LiveChat from '@components/LiveChat.astro';
@@ -81,5 +82,6 @@ const imageHeight = imageIsString ? 675 : ogimage.height;
     <script>
       import 'preline/preline.js';
     </script>
+    <SpeedInsights />
   </body>
 </html>
