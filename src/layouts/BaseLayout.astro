@@ -1,11 +1,11 @@
 ---
-import SpeedInsights from "@vercel/speed-insights/astro"
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '@styles/global.css';
 import NavigationBar from '@components/NavigationBar.astro';
 import LiveChat from '@components/LiveChat.astro';
 import Footer from '@components/Footer.astro';
 import { SEO } from 'astro-seo';
-import {SEOS} from '@lib/seos';
+import { SEOS } from '@lib/seos';
 import Analytics from '@vercel/analytics/astro';
 
 interface Props {
@@ -14,6 +14,8 @@ interface Props {
   ogimage?: ImageMetadata | string;
   description?: string;
   structuredData?: object;
+  hideNav?: boolean;
+  hideFooter?: boolean;
 }
 
 const {
@@ -22,6 +24,8 @@ const {
   ogimage = SEOS.image,
   description = SEOS.description,
   structuredData,
+  hideNav = false,
+  hideFooter = false,
 } = Astro.props;
 
 const imageIsString = typeof ogimage === 'string';
@@ -71,11 +75,11 @@ const imageHeight = imageIsString ? 675 : ogimage.height;
     cz-shortcut-listen="true"
   >
     <Analytics />
-    <NavigationBar />
+    {!hideNav && <NavigationBar />}
     <main id="content">
       <slot />
     </main>
-    <Footer />
+    {!hideFooter && <Footer />}
     <LiveChat />
 
     <!-- Preline UI -->
