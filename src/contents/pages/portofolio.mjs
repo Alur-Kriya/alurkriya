@@ -1,30 +1,30 @@
 export const portfolio = [
   {
-    title: 'Software - ZISWAF Management System',
+    title: 'Software ZISWAF - Laznas DDII',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      'Software ini dibangun untuk kebutuhan pengelolaan zakat, infak, sedekah, wakaf, qurban, serta berbagai program kebaikan lainnya oleh Lembaga Amil Zakat Nasional Dewan Dawah Islamiyah Indonesia.',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Laravel', 'NuxtJS', 'Tailwind', 'NodeJS'],
+    tags: ['Laravel', 'NuxtJS', 'Bootstrap', 'NodeJS'],
     link: '#',
   },
   {
-    title: 'Ecofix - Website Company Profile',
+    title: 'Website Company Profile - Ecofix',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      'Website company profile yang dibangun khusus untuk perusahaan Ecofix, perusahaan yang berfokus pada maintenance services seperti, plumbing, grease trap, service ac di wilayah Jabodetabek.',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Astro', 'Ghost', 'Vue.js', 'Firebase'],
+    tags: ['Astro', 'Ghost', 'Tailwind', 'Firebase'],
     link: '#',
   },
   {
-    title: 'Alena - Shipping Management System',
+    title: 'Shipping Management System - Alena Kargo',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      'Software shipping management system yang dibangun khusus untuk perusahaan PT. Alena Mega Kargo, sebuah perusahaan ekspedisi layanan pengiriman barang dengan jumlah berat dan ukuran yang besar.',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
     tags: ['Figma', 'UI/UX', 'Tailwind', 'NodeJS'],
     link: '#',
   },
   {
-    title: 'Sabili - Website News Portal',
+    title: 'Website News Portal - Sabili',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
@@ -32,7 +32,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Software - ZISWAF Management System',
+    title: 'Website Company Profile - ID Adventure',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
@@ -40,7 +40,7 @@ export const portfolio = [
     link: '#',
   },
   {
-    title: 'Ecofix - Website Company Profile',
+    title: 'Website Company Profile - Pesantren BIK',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',

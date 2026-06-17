@@ -1,74 +1,25 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroBanner from '@components/homes/HeroBanner.astro';
+import Partners from '@components/Partners.astro';
+import Threats from '@components/Threats.astro';
+import AboutUs from '@components/AboutUs.astro';
+import Services from '@components/Services.astro';
+import Faq from '@components/Faq.astro';
+import Clients from '@components/Clients.astro';
+import RichSnippets from '@components/pages/RichSnippets.astro';
 ---
 
 <BaseLayout
-  title="Halaman Sedang Dikembangkan"
-  description="Kami sedang menyiapkan sesuatu yang luar biasa. Halaman ini akan segera tersedia untuk memberikan solusi teknologi terbaik bagi bisnis Anda."
-  hideNav={true}
-  hideFooter={true}
+  title="Solusi IT & Digital Terpercaya untuk Bisnis"
+  description="Kriya menyediakan layanan website development, software development, IT consulting, cloud hosting, dan dukungan teknologi untuk mendukung transformasi digital bisnis Anda."
 >
-  <div class="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
-    <!-- Efek Background Glow -->
-    <div
-      class="bg-fresh-sky-500/20 dark:bg-fresh-sky-500/10 absolute top-1/2 left-1/2 -z-10 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]"
-    >
-    </div>
-
-    <section class="mx-auto max-w-3xl py-20 text-center">
-      <!-- Ikon Visual -->
-      <div class="mb-10 inline-flex items-center justify-center">
-        <div
-          class="dark:bg-deep-space-blue-800 relative flex h-24 w-24 items-center justify-center rounded-3xl bg-white shadow-xl"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="text-fresh-sky-600 dark:text-fresh-sky-400"
-          >
-            <path
-              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-            ></path>
-          </svg>
-          <!-- Animasi Dot -->
-          <span class="absolute -top-1 -right-1 flex h-4 w-4">
-            <span
-              class="bg-fresh-sky-400 absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
-            ></span>
-            <span class="bg-fresh-sky-500 relative inline-flex h-4 w-4 rounded-full"></span>
-          </span>
-        </div>
-      </div>
-
-      <!-- Teks Utama -->
-      <h1
-        class="font-heading text-deep-space-blue-900 mb-6 text-4xl font-bold tracking-tight md:text-6xl dark:text-white"
-      >
-        Sedang Dalam <span class="text-fresh-sky-500">Pengembangan</span>
-      </h1>
-
-      <p
-        class="text-ink-black-700 dark:text-deep-space-blue-200 mx-auto max-w-xl text-lg leading-relaxed"
-      >
-        Kriya sedang membangun pengalaman digital yang lebih baik untuk Anda. Kami sedang bekerja
-        keras di balik layar untuk memastikan setiap detail sempurna. Silakan kembali lagi nanti.
-      </p>
-      
-      </div>
-    </section>
-  </div>
+  <HeroBanner />
+  <Partners />
+  <Threats />
+  <AboutUs />
+  <Services />
+  <Faq />
+  <Clients />
+  <RichSnippets />
 </BaseLayout>
-
-<style>
-  /* Memastikan font heading diterapkan secara eksplisit jika perlu */
-  h1 {
-    font-family: var(--font-heading);
-  }
-</style>
