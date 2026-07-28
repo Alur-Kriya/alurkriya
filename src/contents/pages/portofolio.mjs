@@ -12,7 +12,7 @@ export const portfolio = [
     description:
       'Website company profile yang dibangun khusus untuk perusahaan Ecofix, perusahaan yang berfokus pada maintenance services seperti, plumbing, grease trap, service ac di wilayah Jabodetabek.',
     image: '/images/portofolio/porto-b.png',
-    tags: ['Astro', 'Ghost', 'Tailwind', 'Firebase'],
+    tags: ['Astro', 'Ghost', 'Tailwind', 'Analytics'],
     link: '#',
   },
   {
@@ -20,13 +20,13 @@ export const portfolio = [
     description:
       'Software shipping management system yang dibangun khusus untuk perusahaan PT. Alena Mega Kargo, sebuah perusahaan ekspedisi layanan pengiriman barang dengan jumlah berat dan ukuran yang besar.',
     image: '/images/portofolio/porto-c.png',
-    tags: ['Figma', 'UI/UX', 'Tailwind', 'NodeJS'],
+    tags: ['Bootstrap', 'Litespeed', 'Laravel'],
     link: '#',
   },
   {
     title: 'Website News Portal - Sabili',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      'Sabili.id merupakan media independent yang di bangun dari jaringan komunitas kontributor yang berada di Indonesia dan mancanegara seperti Saudi Arabia, Jepang, Jerman, Sudan, dll.',
     image: '/images/portofolio/porto-d.png',
     tags: ['Ghost', 'Cloudflare', 'NodeJS'],
     link: '#',
@@ -34,129 +34,25 @@ export const portfolio = [
   {
     title: 'Situs Profil Perusahaan - ID Adventure',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Laravel', 'NuxtJS', 'Tailwind', 'NodeJS'],
+      'ID ADVENTURE® adalah platform inspiratif yang dirancang untuk memberikan solusi profesional melalui event khusus, pelatihan, workshop, perjalanan petualangan, dan dalam satu kata: pengalaman',
+    image: '/images/portofolio/porto-e.png',
+    tags: ['HTML', 'Tailwind', 'Apache'],
     link: '#',
   },
   {
     title: 'Situs Profil Yayasan - Pesantren BIK',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      'Pesantren BIK ada adalah sebuah lembaga yang melahirkan juru dakwah, pendidik dan juga menghasilkan para pemimpin yang mumpuni, berakhlak dan menjadi teladan.',
     image: '/images/portofolio/porto-f.png',
-    tags: ['Astro', 'Ghost', 'Vue.js', 'Firebase'],
+    tags: ['Wordpress', 'PHP', 'Ubuntu', 'Analytics'],
     link: '#',
   },
   {
-    title: 'Alena - Shipping Management System',
+    title: 'Website Apps - Tagar AI',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Figma', 'UI/UX', 'Tailwind', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Sabili - Website News Portal',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Ghost', 'Cloudflare', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Software - ZISWAF Management System',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Laravel', 'NuxtJS', 'Tailwind', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Ecofix - Website Company Profile',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Astro', 'Ghost', 'Vue.js', 'Firebase'],
-    link: '#',
-  },
-  {
-    title: 'Alena - Shipping Management System',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Figma', 'UI/UX', 'Tailwind', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Sabili - Website News Portal',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Ghost', 'Cloudflare', 'NodeJS', 'Laravel', 'NuxtJS'],
-    link: '#',
-  },
-  {
-    title: 'Software - ZISWAF Management System',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Laravel', 'NuxtJS', 'Tailwind', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Ecofix - Website Company Profile',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Astro', 'Ghost', 'Vue.js', 'Firebase'],
-    link: '#',
-  },
-  {
-    title: 'Alena - Shipping Management System',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Figma', 'UI/UX', 'Tailwind', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Sabili - Website News Portal',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Ghost', 'Cloudflare', 'NodeJS', 'Laravel', 'NuxtJS'],
-    link: '#',
-  },
-  {
-    title: 'Software - ZISWAF Management System',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Laravel', 'NuxtJS', 'Tailwind', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Ecofix - Website Company Profile',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Astro', 'Ghost', 'Vue.js', 'Firebase'],
-    link: '#',
-  },
-  {
-    title: 'Alena - Shipping Management System',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Figma', 'UI/UX', 'Tailwind', 'NodeJS'],
-    link: '#',
-  },
-  {
-    title: 'Sabili - Website News Portal',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    image: 'https://images.unsplash.com/photo-1661956600655-e772b2b97db4',
-    tags: ['Ghost', 'Cloudflare', 'NodeJS', 'Laravel', 'NuxtJS'],
+      'Tagar AI adalah sebuah situ aplikasi berbasis kecerdasan buatan yang dapat digunakan untuk membuat hashtag yang relevan, berpotensi viral, terukur untuk Instagram, TikTok, LinkedIn, dan YouTube.',
+    image: '/images/portofolio/porto-g.png',
+    tags: ['ReactJS', 'Tailwind', 'ExpressJS'],
     link: '#',
   },
 ];

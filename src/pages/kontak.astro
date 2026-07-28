@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import HeroBanner from '@components/pages/HeroBanner.astro';
+import Contact from '@components/pages/Contact.astro';
 import { pages } from '@contents/pages/pages.mjs';
 
 const content = pages.find((item: any) => item.slug === 'kontak');
@@ -12,4 +13,5 @@ if (!content) {
 
 <BaseLayout title={content.title} description={content.desc}>
   <HeroBanner heading={content.heading} description={content.desc} />
+  <Contact />
 </BaseLayout>

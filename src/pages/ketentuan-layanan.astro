@@ -11,29 +11,213 @@ const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan")
     heading={ketentuanLayanan?.heading}
     description={ketentuanLayanan?.desc}
   />
-  <main class="container mx-auto mt-8 px-4 py-8 md:px-6 lg:px-8">
-    <!-- You can add specific content for Ketentuan Layanan here -->
-    <div class="prose dark:prose-invert max-w-none">
-      <h2>1. Pengantar</h2>
-      <p>Selamat datang di layanan kami. Dengan mengakses atau menggunakan situs web dan layanan kami, Anda menyetujui untuk terikat oleh syarat dan ketentuan berikut ini. Jika Anda tidak menyetujui bagian mana pun dari syarat dan ketentuan ini, jangan gunakan layanan kami.</p>
+  <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <article class="tos-article">
 
-      <h2>2. Penggunaan Layanan</h2>
-      <p>Layanan kami disediakan untuk penggunaan pribadi dan non-komersial Anda. Anda tidak boleh menggunakan layanan kami untuk tujuan ilegal atau tidak sah.</p>
+        <h2>1. Penerimaan Ketentuan</h2>
+        <p>
+          Dengan mengakses situs web <a href="https://kriya.click">kriya.click</a> atau menggunakan
+          layanan PT. Alur Kriya Teknologi ("Kriya"), Anda menyatakan telah membaca, memahami, dan
+          menyetujui untuk terikat oleh Ketentuan Layanan ini. Jika Anda tidak menyetujui ketentuan
+          ini, harap tidak menggunakan layanan kami.
+        </p>
 
-      <h2>3. Kebijakan Privasi</h2>
-      <p>Penggunaan layanan kami juga diatur oleh Kebijakan Privasi kami, yang dapat Anda temukan di [Link ke Kebijakan Privasi].</p>
+        <h2>2. Deskripsi Layanan</h2>
+        <p>
+          PT. Alur Kriya Teknologi menyediakan berbagai layanan teknologi informasi untuk kebutuhan
+          bisnis, antara lain:
+        </p>
+        <ul>
+          <li><strong>Website Development</strong> — Perancangan dan pengembangan situs web profesional, landing page, company profile, dan aplikasi berbasis web.</li>
+          <li><strong>Software Development</strong> — Pengembangan perangkat lunak kustom sesuai kebutuhan bisnis klien.</li>
+          <li><strong>IT Consulting</strong> — Konsultasi strategis terkait arsitektur sistem, transformasi digital, dan pemilihan teknologi yang tepat.</li>
+          <li><strong>Cloud Hosting &amp; Infrastructure</strong> — Pengelolaan, konfigurasi, dan pemeliharaan infrastruktur cloud (server, jaringan, keamanan).</li>
+          <li><strong>Data &amp; System Migration</strong> — Layanan migrasi data dan sistem dengan meminimalkan downtime dan risiko kehilangan data.</li>
+          <li><strong>IT Procurement &amp; Support</strong> — Pengadaan perangkat keras dan perangkat lunak, serta dukungan teknis berkelanjutan.</li>
+          <li><strong>SaaS Partners</strong> — Implementasi dan dukungan produk SaaS dari mitra seperti Mekari, Google Workspace, dan Microsoft 365.</li>
+        </ul>
 
-      <h2>4. Hak Kekayaan Intelektual</h2>
-      <p>Semua konten, merek dagang, logo, dan materi lain yang ditampilkan di situs web kami adalah milik kami atau pemberi lisensi kami dan dilindungi oleh undang-undang kekayaan intelektual.</p>
+        <h2>3. Penggunaan Layanan</h2>
+        <p>
+          Layanan Kriya diperuntukkan bagi entitas bisnis dan profesional. Anda setuju untuk:
+        </p>
+        <ul>
+          <li>Memberikan informasi yang akurat dan lengkap saat melakukan permintaan layanan atau konsultasi.</li>
+          <li>Tidak menggunakan layanan kami untuk kegiatan yang melanggar hukum atau peraturan yang berlaku di Republik Indonesia.</li>
+          <li>Tidak menyalahgunakan akses ke sistem, server, atau infrastruktur yang dikelola oleh Kriya.</li>
+          <li>Menjaga kerahasiaan akses (username/password) yang diberikan dalam rangka pelaksanaan proyek.</li>
+        </ul>
 
-      <h2>5. Pembatasan Tanggung Jawab</h2>
-      <p>Kami tidak bertanggung jawab atas kerugian atau kerusakan apa pun yang timbul dari penggunaan atau ketidakmampuan Anda untuk menggunakan layanan kami, kecuali diwajibkan oleh hukum.</p>
+        <h2>4. Perjanjian Proyek dan Pembayaran</h2>
+        <p>
+          Setiap layanan yang dipesan akan dituangkan dalam Perjanjian Kerja Sama (PKS) atau Surat
+          Perintah Kerja (SPK) yang ditandatangani oleh kedua belah pihak. Ketentuan spesifik
+          mengenai lingkup pekerjaan, jadwal, dan biaya diatur dalam dokumen tersebut.
+        </p>
+        <h3>Pembayaran</h3>
+        <p>
+          Pembayaran dilakukan sesuai termin yang disepakati dalam PKS/SPK. Keterlambatan pembayaran
+          dapat mengakibatkan penundaan pekerjaan. Kriya berhak menghentikan layanan sementara jika
+          terjadi tunggakan yang melampaui batas waktu yang telah disepakati.
+        </p>
+        <h3>Revisi dan Perubahan Lingkup</h3>
+        <p>
+          Permintaan perubahan lingkup pekerjaan (change request) di luar kesepakatan awal akan
+          dikenakan biaya tambahan yang dinegosiasikan secara terpisah dan dikonfirmasi secara
+          tertulis oleh kedua belah pihak.
+        </p>
 
-      <h2>6. Perubahan Ketentuan</h2>
-      <p>Kami berhak untuk mengubah syarat dan ketentuan ini kapan saja. Perubahan akan berlaku segera setelah diposting di situs web ini.</p>
+        <h2>5. Hak Kekayaan Intelektual</h2>
+        <p>
+          Seluruh hasil karya yang dibuat oleh Kriya dalam rangka pelaksanaan proyek akan menjadi
+          milik klien setelah seluruh kewajiban pembayaran diselesaikan, kecuali ditentukan lain
+          dalam PKS. Aset, kode, dan komponen milik Kriya yang digunakan sebagai bagian dari
+          pengembangan (seperti template internal, library, atau framework) tetap menjadi milik Kriya
+          dan hanya dilisensikan kepada klien untuk keperluan proyek tersebut.
+        </p>
+        <p>
+          Kriya berhak mencantumkan nama klien dan deskripsi umum proyek sebagai referensi portofolio,
+          kecuali klien secara tertulis meminta kerahasiaan.
+        </p>
 
-      <h2>7. Hukum yang Berlaku</h2>
-      <p>Syarat dan ketentuan ini diatur oleh dan ditafsirkan sesuai dengan hukum Negara Republik Indonesia.</p>
+        <h2>6. Kerahasiaan Data</h2>
+        <p>
+          Kriya berkomitmen untuk menjaga kerahasiaan informasi bisnis dan data klien yang diperoleh
+          selama proses konsultasi maupun pelaksanaan proyek. Kriya tidak akan mengungkapkan informasi
+          tersebut kepada pihak ketiga tanpa persetujuan tertulis dari klien, kecuali diwajibkan oleh
+          ketentuan hukum yang berlaku.
+        </p>
+
+        <h2>7. Jaminan Layanan (SLA)</h2>
+        <p>
+          Untuk layanan cloud hosting dan managed infrastructure, Kriya memberikan jaminan uptime
+          sesuai dengan Service Level Agreement (SLA) yang tertera dalam PKS. Kompensasi atas
+          pelanggaran SLA akan diatur sesuai ketentuan dalam perjanjian masing-masing klien.
+        </p>
+
+        <h2>8. Pembatasan Tanggung Jawab</h2>
+        <p>
+          Kriya tidak bertanggung jawab atas kerugian yang timbul akibat:
+        </p>
+        <ul>
+          <li>Kesalahan atau kelalaian dalam informasi yang diberikan oleh klien.</li>
+          <li>Gangguan layanan yang disebabkan oleh pihak ketiga (penyedia infrastruktur cloud, ISP, dll.) di luar kendali Kriya.</li>
+          <li>Force majeure, termasuk bencana alam, gangguan jaringan nasional, atau peristiwa tak terduga lainnya.</li>
+          <li>Kerusakan data akibat tindakan klien yang tidak mengikuti rekomendasi teknis dari Kriya.</li>
+        </ul>
+
+        <h2>9. Kebijakan Privasi</h2>
+        <p>
+          Penggunaan layanan kami juga diatur oleh <a href="/kebijakan-privasi">Kebijakan Privasi</a>
+          kami, yang merupakan bagian tidak terpisahkan dari Ketentuan Layanan ini.
+        </p>
+
+        <h2>10. Penyelesaian Sengketa</h2>
+        <p>
+          Apabila timbul perselisihan antara klien dan Kriya terkait pelaksanaan layanan, kedua belah
+          pihak sepakat untuk terlebih dahulu menyelesaikannya secara musyawarah. Jika tidak tercapai
+          kesepakatan, penyelesaian akan dilakukan melalui jalur hukum sesuai dengan ketentuan
+          hukum yang berlaku di Republik Indonesia.
+        </p>
+
+        <h2>11. Perubahan Ketentuan</h2>
+        <p>
+          Kriya berhak memperbarui Ketentuan Layanan ini sewaktu-waktu. Perubahan signifikan akan
+          diinformasikan melalui situs web atau media komunikasi lainnya. Penggunaan layanan secara
+          berkelanjutan setelah perubahan diterbitkan dianggap sebagai persetujuan atas ketentuan
+          yang diperbarui.
+        </p>
+
+        <h2>12. Hubungi Kami</h2>
+        <p>
+          Jika Anda memiliki pertanyaan mengenai Ketentuan Layanan ini, silakan hubungi kami melalui:
+        </p>
+        <ul>
+          <li>Email: <a href="mailto:info@kriya.click">info@kriya.click</a></li>
+          <li>WhatsApp: <a href="https://wa.me/6287785511995">0877 8551 1995</a></li>
+          <li>Alamat: Sunter Kemayoran No. 22 RT.001/003, Tanjung Priok, Jakarta Utara 14350</li>
+        </ul>
+
+      </article>
     </div>
-  </main>
+  </div>
 </BaseLayout>
+
+<style>
+  .tos-article {
+    color: #374151;
+    line-height: 1.75;
+    font-size: 1rem;
+  }
+
+  :global(.dark) .tos-article {
+    color: #d1d5db;
+  }
+
+  .tos-article h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  :global(.dark) .tos-article h2 {
+    color: #f9fafb;
+    border-bottom-color: #374151;
+  }
+
+  .tos-article h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.dark) .tos-article h3 {
+    color: #e5e7eb;
+  }
+
+  .tos-article p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tos-article ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tos-article ul li {
+    margin-top: 0.375rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .tos-article a {
+    color: #2563eb;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .tos-article a:hover {
+    color: #1d4ed8;
+  }
+
+  :global(.dark) .tos-article a {
+    color: #60a5fa;
+  }
+
+  :global(.dark) .tos-article a:hover {
+    color: #93c5fd;
+  }
+
+  .tos-article h2:first-child {
+    margin-top: 0;
+  }
+</style>
