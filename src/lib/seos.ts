@@ -1,10 +1,26 @@
 export const SEOS = {
   name: 'Kriya',
-  title: 'Solusi IT & Digital Terpercaya untuk Bisnis',
-  image: 'https://ecofix.id/img/ogimage.png',
-  tagline: 'Efficient, Expert, Eco-Friendly',
+  legalName: 'PT. Alur Kriya Teknologi',
+  title: 'Solusi IT & Transformasi Digital Terpercaya untuk Bisnis',
+  image: 'https://kriya.click/img/ogimage.png',
+  tagline: 'Mitra Strategis Transformasi Digital Bisnis Anda',
   description:
-    'Kriya menyediakan layanan website development, software development, IT consulting, cloud hosting, dan dukungan teknologi untuk mendukung transformasi digital bisnis Anda.',
-  url: import.meta.env.SITE_URL,
-  author: 'PT Gama Abyakta Sejahtera',
+    'PT. Alur Kriya Teknologi (Kriya) menyediakan layanan website development, software development, IT consulting, cloud hosting & infrastructure, data migration, dan dukungan teknologi untuk mendukung transformasi digital bisnis Anda.',
+  url: import.meta.env.SITE_URL ?? 'https://kriya.click',
+  author: 'PT. Alur Kriya Teknologi',
+  email: 'info@kriya.click',
+  phone: '+6287785511995',
+  address: {
+    streetAddress: 'Sunter Kemayoran No.22 RT.001/003',
+    addressLocality: 'Tanjung Priok',
+    addressRegion: 'Jakarta Utara',
+    postalCode: '14350',
+    addressCountry: 'ID',
+  },
+  socialLinks: [
+    'https://www.instagram.com/kriya.click',
+    'https://www.facebook.com/kriya.click',
+    'https://www.youtube.com/@kriyaclick',
+    'https://github.com/Alur-Kriya',
+  ],
 };

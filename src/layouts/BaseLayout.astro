@@ -30,9 +30,52 @@ const {
 
 const imageIsString = typeof ogimage === 'string';
 const imageUrl = imageIsString ? ogimage : ogimage.src;
-const absoluteImageUrl = new URL(imageUrl, Astro.site).href;
+const absoluteImageUrl = new URL(imageUrl, Astro.site ?? SEOS.url).href;
 const imageWidth = imageIsString ? 1200 : ogimage.width;
 const imageHeight = imageIsString ? 675 : ogimage.height;
+
+// Default Organization structured data
+const defaultStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SEOS.legalName,
+  alternateName: SEOS.name,
+  url: SEOS.url ?? 'https://kriya.click',
+  logo: `${SEOS.url ?? 'https://kriya.click'}/favicon.svg`,
+  description: SEOS.description,
+  email: SEOS.email,
+  telephone: SEOS.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SEOS.address.streetAddress,
+    addressLocality: SEOS.address.addressLocality,
+    addressRegion: SEOS.address.addressRegion,
+    postalCode: SEOS.address.postalCode,
+    addressCountry: SEOS.address.addressCountry,
+  },
+  sameAs: SEOS.socialLinks,
+  knowsAbout: [
+    'Website Development',
+    'Software Development',
+    'IT Consulting',
+    'Cloud Hosting',
+    'IT Infrastructure',
+    'Data Migration',
+    'IT Procurement',
+    'SaaS Implementation',
+    'Digital Transformation',
+  ],
+  areaServed: {
+    '@type': 'Country',
+    name: 'Indonesia',
+  },
+  foundingLocation: {
+    '@type': 'Place',
+    name: 'Jakarta, Indonesia',
+  },
+};
+
+const finalStructuredData = structuredData ?? defaultStructuredData;
 ---
 
 <!doctype html>
@@ -66,6 +109,7 @@ const imageHeight = imageIsString ? 675 : ogimage.height;
       },
     }}
   />
+  <script type="application/ld+json" set:html={JSON.stringify(finalStructuredData)} />
   <script>
     import '@scripts/lenisSmoothScroll.js';
   </script>
@@ -74,7 +118,7 @@ const imageHeight = imageIsString ? 675 : ogimage.height;
     class="bg-(--color-deep-space-blue-50) dark:bg-(--color-deep-space-blue-900)"
     cz-shortcut-listen="true"
   >
-    <Analytics />
+  
     {!hideNav && <NavigationBar />}
     <main id="content">
       <slot />
@@ -86,6 +130,6 @@ const imageHeight = imageIsString ? 675 : ogimage.height;
     <script>
       import 'preline/preline.js';
     </script>
-    <SpeedInsights />
+
   </body>
 </html>

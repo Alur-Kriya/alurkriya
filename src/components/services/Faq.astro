@@ -16,7 +16,33 @@ interface Props {
 }
 
 const { q1, a1, q2, a2, q3, a3, q4, a4, q5, a5, q6, a6, heading } = Astro.props;
+
+// Build FAQ pairs, filtering out any empty entries
+const faqPairs = [
+  { q: q1, a: a1 },
+  { q: q2, a: a2 },
+  { q: q3, a: a3 },
+  { q: q4, a: a4 },
+  { q: q5, a: a5 },
+  { q: q6, a: a6 },
+].filter(({ q, a }) => q && a);
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqPairs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: a,
+    },
+  })),
+};
 ---
+
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <!-- FAQ -->
 <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">

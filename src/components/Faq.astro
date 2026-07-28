@@ -1,3 +1,54 @@
+---
+const faqs = [
+  {
+    question: 'Apa itu jasa teknologi informasi dan software development?',
+    answer:
+      'Layanan ini mencakup pengembangan aplikasi, pengelolaan sistem IT, dan solusi digital untuk meningkatkan efisiensi dan kinerja bisnis.',
+  },
+  {
+    question: 'Apa saja layanan yang biasanya ditawarkan perusahaan IT?',
+    answer:
+      'Umumnya meliputi website dan aplikasi development, IT consulting, cloud infrastructure, data migration, serta IT support.',
+  },
+  {
+    question: 'Bagaimana cara memilih perusahaan software development yang tepat?',
+    answer:
+      'Pilih penyedia yang memahami kebutuhan bisnis, memiliki portofolio relevan, dan menawarkan solusi yang scalable.',
+  },
+  {
+    question: 'Berapa biaya jasa software development?',
+    answer:
+      'Biaya tergantung pada kompleksitas fitur, teknologi yang digunakan, dan skala proyek, biasanya dihitung per proyek.',
+  },
+  {
+    question: 'Berapa lama proses pengembangan software?',
+    answer:
+      'Durasi pengembangan bervariasi, mulai dari beberapa minggu hingga beberapa bulan, tergantung ruang lingkup dan kebutuhan bisnis.',
+  },
+  {
+    question: 'Apakah layanan IT cocok untuk perusahaan menengah dan B2B?',
+    answer:
+      'Layanan IT membantu perusahaan menengah dan B2B mengoptimalkan operasional dan mendukung pertumbuhan jangka panjang.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
 <!-- FAQ -->
 <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
   <!-- Title -->
@@ -11,65 +62,16 @@
   <div class="mx-auto max-w-5xl">
     <!-- Grid -->
     <div class="grid gap-6 sm:grid-cols-2 md:gap-12">
-      <div>
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-          Apa itu jasa teknologi informasi dan software development?
-        </h3>
-        <p class="mt-2 text-gray-600 dark:text-neutral-400">
-          Layanan ini mencakup pengembangan aplikasi, pengelolaan sistem IT, dan solusi digital untuk meningkatkan efisiensi dan kinerja bisnis.
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-          Apa saja layanan yang biasanya ditawarkan perusahaan IT?
-        </h3>
-        <p class="mt-2 text-gray-600 dark:text-neutral-400">
-          Umumnya meliputi website dan aplikasi development, IT consulting, cloud infrastructure, data migration, serta IT support.
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-          Bagaimana cara memilih perusahaan software development yang tepat?
-        </h3>
-        <p class="mt-2 text-gray-600 dark:text-neutral-400">
-          Pilih penyedia yang memahami kebutuhan bisnis, memiliki portofolio relevan, dan menawarkan solusi yang scalable.
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-          Berapa biaya jasa software development?
-        </h3>
-        <p class="mt-2 text-gray-600 dark:text-neutral-400">
-          Biaya tergantung pada kompleksitas fitur, teknologi yang digunakan, dan skala proyek, biasanya dihitung per proyek.
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-          Berapa lama proses pengembangan software?
-        </h3>
-        <p class="mt-2 text-gray-600 dark:text-neutral-400">
-          Durasi pengembangan bervariasi, mulai dari beberapa minggu hingga beberapa bulan, tergantung ruang lingkup dan kebutuhan bisnis.
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
-          Apakah layanan IT cocok untuk perusahaan menengah dan B2B?
-        </h3>
-        <p class="mt-2 text-gray-600 dark:text-neutral-400">
-          Layanan IT membantu perusahaan menengah dan B2B mengoptimalkan operasional dan mendukung pertumbuhan jangka panjang.
-        </p>
-      </div>
-      <!-- End Col -->
+      {
+        faqs.map((faq) => (
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
+              {faq.question}
+            </h3>
+            <p class="mt-2 text-gray-600 dark:text-neutral-400">{faq.answer}</p>
+          </div>
+        ))
+      }
     </div>
     <!-- End Grid -->
   </div>

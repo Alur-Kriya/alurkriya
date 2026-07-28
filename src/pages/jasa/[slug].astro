@@ -8,6 +8,7 @@ import Features from '@components/services/Features.astro';
 import Approach from '@components/services/Approach.astro';
 import Faq from '@components/services/Faq.astro';
 import RichSnipetts from '@components/RichSnippets.astro';
+import { SEOS } from '@lib/seos';
 
 export async function getStaticPaths() {
   return services.map((url) => ({
@@ -36,13 +37,56 @@ if (!approachData) {
   throw new Error(`Services not found`);
 }
 
+// Service schema markup (schema.org)
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: content.heading,
+  alternateName: content.title,
+  description: content.description,
+  url: `${SEOS.url}/jasa/${slug}`,
+  provider: {
+    '@type': 'Organization',
+    name: SEOS.legalName,
+    alternateName: SEOS.name,
+    url: SEOS.url,
+    logo: `${SEOS.url}/favicon.svg`,
+    email: SEOS.email,
+    telephone: SEOS.phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SEOS.address.streetAddress,
+      addressLocality: SEOS.address.addressLocality,
+      addressRegion: SEOS.address.addressRegion,
+      postalCode: SEOS.address.postalCode,
+      addressCountry: SEOS.address.addressCountry,
+    },
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Indonesia',
+  },
+  serviceType: content.heading,
+  category: 'Information Technology',
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceUrl: `${SEOS.url}/kontak`,
+    servicePhone: SEOS.phone,
+    serviceSmsNumber: SEOS.phone,
+    availableLanguage: {
+      '@type': 'Language',
+      name: 'Indonesian',
+    },
+  },
+};
+
 interface Props {
   title?: string;
   description?: string;
 }
 ---
 
-<BaseLayout title={content.title} description={content.description}>
+<BaseLayout title={content.title} description={content.description} structuredData={serviceSchema}>
   <HeroBanner {...content} />
 
   <Features {...content} />

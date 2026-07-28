@@ -2,9 +2,10 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import HeroBanner from '@components/services/HeroBanner.astro';
 import Partners from '@components/Partners.astro';
+import Services from '@components/Services.astro';
 import Approach from '@components/services/Approach.astro';
-import Faq from '@components/Faq.astro';
-import RichSnipetts from '@components/RichSnippets.astro';
+import Faq from '@components/services/Faq.astro';
+import RichSnippets from '@components/RichSnippets.astro';
 import srvcA from '@images/srvc-a.png';
 import { pages } from '@contents/pages/pages.mjs';
 
@@ -19,8 +20,23 @@ const content = {
 
 <BaseLayout title={pageData?.title} description={pageData?.desc}>
   <HeroBanner {...content} />
+  <Services />
   <Partners />
-  <Approach />
-  <Faq />
-  <RichSnipetts />
+  <Approach services="IT profesional" />
+  <Faq
+    heading="Layanan IT Kriya"
+    q1="Apa saja layanan IT yang disediakan oleh Kriya?"
+    a1="Kriya menyediakan layanan website development, software development, IT consulting, cloud hosting & infrastructure, data & system migration, IT procurement & support, serta implementasi SaaS."
+    q2="Apakah Kriya melayani konsultasi IT terlebih dahulu sebelum proyek dimulai?"
+    a2="Ya, kami menyediakan sesi konsultasi awal secara gratis untuk memahami kebutuhan bisnis Anda dan merekomendasikan solusi teknologi yang paling tepat."
+    q3="Bagaimana cara memulai kerja sama dengan Kriya?"
+    a3="Anda dapat menghubungi kami melalui halaman Kontak, mengirim email ke info@kriya.click, atau langsung via WhatsApp. Tim kami akan merespons dalam 1x24 jam."
+    q4="Apakah layanan Kriya tersedia untuk perusahaan skala menengah (SME) dan enterprise?"
+    a4="Kriya melayani berbagai skala bisnis, mulai dari perusahaan menengah (middle-up) hingga enterprise, dengan solusi yang disesuaikan dengan kebutuhan dan anggaran masing-masing."
+    q5="Apakah ada jaminan keamanan dan kerahasiaan data klien?"
+    a5="Kriya berkomitmen penuh terhadap kerahasiaan dan keamanan data klien. Seluruh engagement dilindungi oleh Non-Disclosure Agreement (NDA) dan praktik keamanan sistem yang ketat."
+    q6="Berapa lama durasi pengerjaan proyek IT?"
+    a6="Durasi proyek bervariasi tergantung kompleksitas dan ruang lingkup pekerjaan. Proyek website sederhana dapat selesai dalam 2–4 minggu, sementara pengembangan software atau implementasi infrastruktur bisa memakan waktu 1–6 bulan."
+  />
+  <RichSnippets />
 </BaseLayout>
