@@ -32,7 +32,7 @@ const imageIsString = typeof ogimage === 'string';
 const imageUrl = imageIsString ? ogimage : ogimage.src;
 const absoluteImageUrl = new URL(imageUrl, Astro.site ?? SEOS.url).href;
 const imageWidth = imageIsString ? 1200 : ogimage.width;
-const imageHeight = imageIsString ? 675 : ogimage.height;
+const imageHeight = imageIsString ? 630 : ogimage.height;
 
 // Default Organization structured data
 const defaultStructuredData = {

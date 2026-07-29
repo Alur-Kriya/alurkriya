@@ -2,7 +2,7 @@ export const SEOS = {
   name: 'Kriya',
   legalName: 'PT. Alur Kriya Teknologi',
   title: 'Solusi IT & Transformasi Digital Terpercaya untuk Bisnis',
-  image: 'https://kriya.click/img/ogimage.png',
+  image: 'https://kriya.click/images/og-index.png',
   tagline: 'Mitra Strategis Transformasi Digital Bisnis Anda',
   description:
     'PT. Alur Kriya Teknologi (Kriya) menyediakan layanan website development, software development, IT consulting, cloud hosting & infrastructure, data migration, dan dukungan teknologi untuk mendukung transformasi digital bisnis Anda.',

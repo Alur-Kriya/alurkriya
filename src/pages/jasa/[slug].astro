@@ -86,7 +86,7 @@ interface Props {
 }
 ---
 
-<BaseLayout title={content.title} description={content.description} structuredData={serviceSchema}>
+<BaseLayout title={content.title} description={content.description} ogimage={content.ogimage} structuredData={serviceSchema}>
   <HeroBanner {...content} />
 
   <Features {...content} />

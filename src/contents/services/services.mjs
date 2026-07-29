@@ -14,6 +14,7 @@ export const services = [
     description:
       'Website profesional, cepat, dan aman untuk meningkatkan citra dan performa bisnis Anda.',
     images: srvcA,
+    ogimage: '/images/og-a.png',
     heading: 'Website Development',
     problem:
       'Banyak website gagal memberikan dampak nyata karena perencanaan yang kurang matang, teknologi yang tidak tepat, serta minimnya pengelolaan berkelanjutan.',
@@ -35,6 +36,7 @@ export const services = [
     description:
       'Solusi aplikasi bisnis yang efisien, scalable, dan mendukung pertumbuhan perusahaan.',
     images: srvcG,
+    ogimage: '/images/og-g.png',
     heading: 'Software Development',
     problem:
       'Pengembangan software tanpa perencanaan dan kontrol yang tepat sering menghasilkan sistem yang tidak efisien dan sulit berkembang.',
@@ -57,6 +59,7 @@ export const services = [
     description:
       'Konsultasi IT strategis untuk optimasi sistem, efisiensi operasional, dan percepatan transformasi digital.',
     images: srvcB,
+    ogimage: '/images/og-b.png',
     heading: 'IT Consulting',
     problem:
       'Banyak perusahaan menghadapi tantangan dalam menyelaraskan teknologi dengan tujuan bisnis, sehingga investasi IT tidak memberikan dampak yang optimal.',
@@ -79,6 +82,7 @@ export const services = [
     description:
       'Layanan migrasi data aman dan minim downtime untuk mendukung kelancaran operasional perusahaan.',
     images: srvcC,
+    ogimage: '/images/og-c.png',
     heading: 'Data & System Migration',
     problem:
       'Migrasi data dan sistem yang tidak terencana dengan baik berisiko mengganggu operasional bisnis dan menimbulkan kehilangan data yang kritis.',
@@ -101,6 +105,7 @@ export const services = [
     description:
       'Solusi cloud hosting scalable dan aman untuk meningkatkan fleksibilitas infrastruktur IT Anda.',
     images: srvcD,
+    ogimage: '/images/og-d.png',
     heading: 'Cloud Hosting & Infrastructure',
     problem:
       'Pengelolaan cloud dan infrastruktur yang tidak tepat dapat meningkatkan biaya, menurunkan performa sistem, serta menimbulkan risiko keamanan bagi bisnis.',
@@ -123,6 +128,7 @@ export const services = [
     description:
       'Pengadaan perangkat IT terpercaya dengan proses efisien, transparan, dan sesuai kebutuhan bisnis.',
     images: srvcE,
+    ogimage: '/images/og-e.png',
     heading: 'IT Procurement & Support',
     problem:
       'Pengadaan dan dukungan IT yang tidak terkelola dengan baik dapat menghambat operasional bisnis serta meningkatkan risiko biaya dan downtime.',
@@ -145,6 +151,7 @@ export const services = [
     description:
       'Solusi SaaS premium yang terintegrasi untuk mendukung produktivitas, keamanan, dan pertumbuhan bisnis.',
     images: srvcF,
+    ogimage: '/images/og-f.png',
     heading: 'SaaS Partners',
     problem:
       'Pemilihan dan integrasi solusi SaaS yang tidak tepat dapat menghambat efisiensi operasional serta meningkatkan kompleksitas sistem bisnis.',
