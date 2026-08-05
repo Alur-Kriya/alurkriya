@@ -9,7 +9,7 @@ export const SEOS = {
   url: import.meta.env.SITE_URL ?? 'https://kriya.click',
   author: 'PT. Alur Kriya Teknologi',
   email: 'info@kriya.click',
-  phone: '+6287785511995',
+  phone: '+6285117428800',
   address: {
     streetAddress: 'Sunter Kemayoran No.22 RT.001/003',
     addressLocality: 'Tanjung Priok',
