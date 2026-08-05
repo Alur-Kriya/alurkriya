@@ -18,6 +18,7 @@ export const SEOS = {
     addressCountry: 'ID',
   },
   socialLinks: [
+    'https://www.linkedin.com/company/kriya.click',
     'https://www.instagram.com/kriya.click',
     'https://www.facebook.com/kriya.click',
     'https://www.youtube.com/@kriyaclick',
