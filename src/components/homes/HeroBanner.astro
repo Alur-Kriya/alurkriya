@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import heroImg from '../../../public/images/hero-image.png';
 import Net from '@components/ui/Net.astro';
 import Wabutton from '@components/ui/Wabutton.astro';
 ---
@@ -31,14 +33,15 @@ import Wabutton from '@components/ui/Wabutton.astro';
       </div>
       <!-- End Col -->
       <div class="relative ms-4">
-        <img
-          class="w-full h-auto rounded-md"
-          src="/images/hero-image.png"
+        <Picture
+          src={heroImg}
           alt="Tim Kriya berkolaborasi dalam sebuah proyek teknologi"
-          width="800"
-          height="600"
-          fetchpriority="high"
+          widths={[400, 600, 800]}
+          sizes="(max-width: 768px) 100vw, 600px"
+          formats={['avif', 'webp']}
+          class="w-full h-auto rounded-md object-cover"
           loading="eager"
+          fetchpriority="high"
         />
       </div>
       <!-- End Col -->
