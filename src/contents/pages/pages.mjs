@@ -13,9 +13,9 @@ export const pages = [
   },
   {
     slug: 'portfolio',
-    title: 'Portfolio',
-    desc: 'Lihat berbagai proyek dan portfolio Kriya dalam membangun solusi digital untuk klien di berbagai industri. Bukti nyata kualitas layanan kami.',
-    heading: 'Portfolio',
+    title: 'Portofolio',
+    desc: 'Lihat berbagai proyek dan portofolio Kriya dalam membangun solusi digital untuk klien di berbagai industri. Bukti nyata kualitas layanan kami.',
+    heading: 'Portofolio',
   },
   {
     slug: 'testimoni',
