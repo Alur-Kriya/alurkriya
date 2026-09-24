@@ -1,26 +1,22 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import HeroBanner from "@components/pages/HeroBanner.astro";
-import { pages } from "@contents/pages/pages.mjs";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroBanner from '@components/pages/HeroBanner.astro';
+import { pages } from '@contents/pages/pages.mjs';
 
-const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan");
+const ketentuanLayanan = pages.find((page) => page.slug === 'ketentuan-layanan');
 ---
 
 <BaseLayout title={ketentuanLayanan?.title} description={ketentuanLayanan?.desc}>
-  <HeroBanner
-    heading={ketentuanLayanan?.heading}
-    description={ketentuanLayanan?.desc}
-  />
+  <HeroBanner heading={ketentuanLayanan?.heading} description={ketentuanLayanan?.desc} />
   <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-3xl">
       <article class="tos-article">
-
         <h2>1. Penerimaan Ketentuan</h2>
         <p>
-          Dengan mengakses situs web <a href="https://kriya.click">kriya.click</a> atau menggunakan
-          layanan PT. Alur Kriya Teknologi <strong data-astro-cid-lmdxukux="">(Kriya)</strong>, Anda menyatakan telah membaca, memahami, dan
-          menyetujui untuk terikat oleh Ketentuan Layanan ini. Jika Anda tidak menyetujui ketentuan
-          ini, harap tidak menggunakan layanan kami.
+          Dengan mengakses situs web <a href="https://kriya.click">kriya.click</a> atau menggunakan layanan
+          PT. Alur Kriya Teknologi <strong data-astro-cid-lmdxukux="">(Kriya)</strong>, Anda
+          menyatakan telah membaca, memahami, dan menyetujui untuk terikat oleh Ketentuan Layanan
+          ini. Jika Anda tidak menyetujui ketentuan ini, harap tidak menggunakan layanan kami.
         </p>
 
         <h2>2. Deskripsi Layanan</h2>
@@ -29,24 +25,55 @@ const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan")
           bisnis, antara lain:
         </p>
         <ul>
-          <li><strong>Website Development</strong> — Perancangan dan pengembangan situs web profesional, landing page, company profile, dan aplikasi berbasis web.</li>
-          <li><strong>Software Development</strong> — Pengembangan perangkat lunak kustom sesuai kebutuhan bisnis klien.</li>
-          <li><strong>IT Consulting</strong> — Konsultasi strategis terkait arsitektur sistem, transformasi digital, dan pemilihan teknologi yang tepat.</li>
-          <li><strong>Cloud Hosting &amp; Infrastructure</strong> — Pengelolaan, konfigurasi, dan pemeliharaan infrastruktur cloud (server, jaringan, keamanan).</li>
-          <li><strong>Data &amp; System Migration</strong> — Layanan migrasi data dan sistem dengan meminimalkan downtime dan risiko kehilangan data.</li>
-          <li><strong>IT Procurement &amp; Support</strong> — Pengadaan perangkat keras dan perangkat lunak, serta dukungan teknis berkelanjutan.</li>
-          <li><strong>SaaS Partners</strong> — Implementasi dan dukungan produk SaaS dari mitra seperti Mekari, Google Workspace, dan Microsoft 365.</li>
+          <li>
+            <strong>Website Development</strong> — Perancangan dan pengembangan situs web profesional,
+            landing page, company profile, dan aplikasi berbasis web.
+          </li>
+          <li>
+            <strong>Software Development</strong> — Pengembangan perangkat lunak kustom sesuai kebutuhan
+            bisnis klien.
+          </li>
+          <li>
+            <strong>IT Consulting</strong> — Konsultasi strategis terkait arsitektur sistem, transformasi
+            digital, dan pemilihan teknologi yang tepat.
+          </li>
+          <li>
+            <strong>Cloud Hosting &amp; Infrastructure</strong> — Pengelolaan, konfigurasi, dan pemeliharaan
+            infrastruktur cloud (server, jaringan, keamanan).
+          </li>
+          <li>
+            <strong>Data &amp; System Migration</strong> — Layanan migrasi data dan sistem dengan meminimalkan
+            downtime dan risiko kehilangan data.
+          </li>
+          <li>
+            <strong>IT Procurement &amp; Support</strong> — Pengadaan perangkat keras dan perangkat lunak,
+            serta dukungan teknis berkelanjutan.
+          </li>
+          <li>
+            <strong>SaaS Partners</strong> — Implementasi dan dukungan produk SaaS dari mitra seperti
+            Google Workspace dan Microsoft 365.
+          </li>
         </ul>
 
         <h2>3. Penggunaan Layanan</h2>
-        <p>
-          Layanan Kriya diperuntukkan bagi entitas bisnis dan profesional. Anda setuju untuk:
-        </p>
+        <p>Layanan Kriya diperuntukkan bagi entitas bisnis dan profesional. Anda setuju untuk:</p>
         <ul>
-          <li>Memberikan informasi yang akurat dan lengkap saat melakukan permintaan layanan atau konsultasi.</li>
-          <li>Tidak menggunakan layanan kami untuk kegiatan yang melanggar hukum atau peraturan yang berlaku di Republik Indonesia.</li>
-          <li>Tidak menyalahgunakan akses ke sistem, server, atau infrastruktur yang dikelola oleh Kriya.</li>
-          <li>Menjaga kerahasiaan akses (username/password) yang diberikan dalam rangka pelaksanaan proyek.</li>
+          <li>
+            Memberikan informasi yang akurat dan lengkap saat melakukan permintaan layanan atau
+            konsultasi.
+          </li>
+          <li>
+            Tidak menggunakan layanan kami untuk kegiatan yang melanggar hukum atau peraturan yang
+            berlaku di Republik Indonesia.
+          </li>
+          <li>
+            Tidak menyalahgunakan akses ke sistem, server, atau infrastruktur yang dikelola oleh
+            Kriya.
+          </li>
+          <li>
+            Menjaga kerahasiaan akses (username/password) yang diberikan dalam rangka pelaksanaan
+            proyek.
+          </li>
         </ul>
 
         <h2>4. Perjanjian Proyek dan Pembayaran</h2>
@@ -73,20 +100,20 @@ const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan")
           Seluruh hasil karya yang dibuat oleh Kriya dalam rangka pelaksanaan proyek akan menjadi
           milik klien setelah seluruh kewajiban pembayaran diselesaikan, kecuali ditentukan lain
           dalam PKS. Aset, kode, dan komponen milik Kriya yang digunakan sebagai bagian dari
-          pengembangan (seperti template internal, library, atau framework) tetap menjadi milik Kriya
-          dan hanya dilisensikan kepada klien untuk keperluan proyek tersebut.
+          pengembangan (seperti template internal, library, atau framework) tetap menjadi milik
+          Kriya dan hanya dilisensikan kepada klien untuk keperluan proyek tersebut.
         </p>
         <p>
-          Kriya berhak mencantumkan nama klien dan deskripsi umum proyek sebagai referensi portofolio,
-          kecuali klien secara tertulis meminta kerahasiaan.
+          Kriya berhak mencantumkan nama klien dan deskripsi umum proyek sebagai referensi
+          portofolio, kecuali klien secara tertulis meminta kerahasiaan.
         </p>
 
         <h2>6. Kerahasiaan Data</h2>
         <p>
           Kriya berkomitmen untuk menjaga kerahasiaan informasi bisnis dan data klien yang diperoleh
-          selama proses konsultasi maupun pelaksanaan proyek. Kriya tidak akan mengungkapkan informasi
-          tersebut kepada pihak ketiga tanpa persetujuan tertulis dari klien, kecuali diwajibkan oleh
-          ketentuan hukum yang berlaku.
+          selama proses konsultasi maupun pelaksanaan proyek. Kriya tidak akan mengungkapkan
+          informasi tersebut kepada pihak ketiga tanpa persetujuan tertulis dari klien, kecuali
+          diwajibkan oleh ketentuan hukum yang berlaku.
         </p>
 
         <h2>7. Jaminan Layanan (SLA)</h2>
@@ -97,28 +124,36 @@ const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan")
         </p>
 
         <h2>8. Pembatasan Tanggung Jawab</h2>
-        <p>
-          Kriya tidak bertanggung jawab atas kerugian yang timbul akibat:
-        </p>
+        <p>Kriya tidak bertanggung jawab atas kerugian yang timbul akibat:</p>
         <ul>
           <li>Kesalahan atau kelalaian dalam informasi yang diberikan oleh klien.</li>
-          <li>Gangguan layanan yang disebabkan oleh pihak ketiga (penyedia infrastruktur cloud, ISP, dll.) di luar kendali Kriya.</li>
-          <li>Force majeure, termasuk bencana alam, gangguan jaringan nasional, atau peristiwa tak terduga lainnya.</li>
-          <li>Kerusakan data akibat tindakan klien yang tidak mengikuti rekomendasi teknis dari Kriya.</li>
+          <li>
+            Gangguan layanan yang disebabkan oleh pihak ketiga (penyedia infrastruktur cloud, ISP,
+            dll.) di luar kendali Kriya.
+          </li>
+          <li>
+            Force majeure, termasuk bencana alam, gangguan jaringan nasional, atau peristiwa tak
+            terduga lainnya.
+          </li>
+          <li>
+            Kerusakan data akibat tindakan klien yang tidak mengikuti rekomendasi teknis dari Kriya.
+          </li>
         </ul>
 
         <h2>9. Kebijakan Privasi</h2>
         <p>
-          Penggunaan layanan kami juga diatur oleh <a href="/kebijakan-privasi">Kebijakan Privasi </a>
+          Penggunaan layanan kami juga diatur oleh <a href="/kebijakan-privasi"
+            >Kebijakan Privasi
+          </a>
           kami, yang merupakan bagian tidak terpisahkan dari Ketentuan Layanan ini.
         </p>
 
         <h2>10. Penyelesaian Sengketa</h2>
         <p>
-          Apabila timbul perselisihan antara klien dan Kriya terkait pelaksanaan layanan, kedua belah
-          pihak sepakat untuk terlebih dahulu menyelesaikannya secara musyawarah. Jika tidak tercapai
-          kesepakatan, penyelesaian akan dilakukan melalui jalur hukum sesuai dengan ketentuan
-          hukum yang berlaku di Republik Indonesia.
+          Apabila timbul perselisihan antara klien dan Kriya terkait pelaksanaan layanan, kedua
+          belah pihak sepakat untuk terlebih dahulu menyelesaikannya secara musyawarah. Jika tidak
+          tercapai kesepakatan, penyelesaian akan dilakukan melalui jalur hukum sesuai dengan
+          ketentuan hukum yang berlaku di Republik Indonesia.
         </p>
 
         <h2>11. Perubahan Ketentuan</h2>
@@ -131,14 +166,14 @@ const ketentuanLayanan = pages.find((page) => page.slug === "ketentuan-layanan")
 
         <h2>12. Hubungi Kami</h2>
         <p>
-          Jika Anda memiliki pertanyaan mengenai Ketentuan Layanan ini, silakan hubungi kami melalui:
+          Jika Anda memiliki pertanyaan mengenai Ketentuan Layanan ini, silakan hubungi kami
+          melalui:
         </p>
         <ul>
           <li>Email: <a href="mailto:saraho@kriya.click">sarah@kriya.click</a></li>
           <li>WhatsApp: <a href="https://wa.me/6285117428800">0851 1742 8800</a></li>
           <li>Alamat: Sunter Kemayoran No. 22 RT.001/003, Tanjung Priok, Jakarta Utara 14350</li>
         </ul>
-
       </article>
     </div>
   </div>

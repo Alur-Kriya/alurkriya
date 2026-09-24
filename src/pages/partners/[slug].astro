@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import RichSnippets from '@components/RichSnippets.astro';
 import { partners } from '@contents/partners/partners.mjs';
-import { Image } from 'astro:assets';
 
 export function getStaticPaths() {
   return partners.map((partner) => {
@@ -13,36 +13,208 @@ export function getStaticPaths() {
 }
 
 const { partner } = Astro.props;
+
+const pageTitle = `${partner.name} - Solusi & Kemitraan Strategis`;
+const pageDesc = `Kolaborasi resmi PT. Alur Kriya Teknologi bersama ${partner.name}. ${partner.shortDesc}`;
+
+const partnerSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Solusi ${partner.name} oleh Kriya`,
+  description: partner.description,
+  provider: {
+    '@type': 'Organization',
+    name: 'PT. Alur Kriya Teknologi',
+    url: 'https://kriya.click',
+  },
+  serviceType: partner.category,
+};
 ---
 
-<BaseLayout title={partner.name} description={`Profil lengkap ${partner.name}, mitra strategis Kriya dalam menghadirkan solusi teknologi terbaik.`}>
-  <section class="py-20">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <Image
-          src={partner.logo}
-          alt={`Logo of ${partner.name}`}
-          width={200}
-          height={100}
-          class="mx-auto h-24 w-auto object-contain"
-        />
-        <h1 class="mt-8 text-4xl font-extrabold text-gray-900 sm:text-5xl">
-          {partner.name}
-        </h1>
-      </div>
-      <div class="prose lg:prose-xl mt-12 max-w-none">
-        <p class="text-lg leading-relaxed text-gray-700">
-          {partner.description}
-        </p>
-      </div>
-      <div class="mt-12 text-center">
-        <a
-          href="/partners"
-          class="inline-block rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white hover:bg-indigo-700"
+<BaseLayout title={pageTitle} description={pageDesc} structuredData={partnerSchema}>
+  <!-- Breadcrumb -->
+  <div
+    class="border-b border-gray-200 bg-white/50 py-4 backdrop-blur-xs dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)/50"
+  >
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <nav
+        class="flex items-center text-xs font-medium text-gray-500 dark:text-neutral-400"
+        aria-label="Breadcrumb"
+      >
+        <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Beranda</a>
+        <svg
+          class="mx-2 size-3.5 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          Back to Partners
-        </a>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+        <a href="/partners" class="hover:text-blue-600 dark:hover:text-blue-400">Kemitraan</a>
+        <svg
+          class="mx-2 size-3.5 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+        <span class="font-semibold text-gray-900 dark:text-white">{partner.name}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Detail Content -->
+  <section class="py-12 lg:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <!-- Partner Header Card -->
+      <div
+        class="rounded-3xl border border-gray-200 bg-white p-8 shadow-xs md:p-12 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)"
+      >
+        <div class="flex flex-col items-center text-center">
+          <!-- Logo Display -->
+          <div
+            class="flex h-24 items-center justify-center rounded-2xl bg-gray-50/80 px-8 py-4 dark:bg-neutral-900/60"
+          >
+            <img
+              src={partner.logo}
+              alt={`Logo ${partner.name}`}
+              class="max-h-16 w-auto object-contain"
+              loading="eager"
+            />
+          </div>
+
+          <!-- Badges -->
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+            <span
+              class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-950/60 dark:text-blue-300"
+            >
+              {partner.badge}
+            </span>
+            <span
+              class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-neutral-800 dark:text-neutral-300"
+            >
+              {partner.category}
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h1
+            class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
+          >
+            {partner.name}
+          </h1>
+          <p class="mt-4 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-neutral-300">
+            {partner.shortDesc}
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <hr class="my-8 border-gray-100 dark:border-neutral-800" />
+
+        <!-- Description -->
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">
+            Tentang Kolaborasi Kemitraan
+          </h2>
+          <p class="mt-3 text-base leading-relaxed text-gray-700 dark:text-neutral-300">
+            {partner.description}
+          </p>
+        </div>
+
+        <!-- Capabilities Checklist -->
+        <div class="mt-10 rounded-2xl bg-gray-50 p-6 dark:bg-neutral-900/50">
+          <h3 class="text-base font-bold text-gray-900 dark:text-white">
+            Cakupan Layanan & Kapabilitas Kriya:
+          </h3>
+          <ul class="mt-4 grid gap-3 sm:grid-cols-1 md:grid-cols-2">
+            {
+              partner.capabilities.map((cap: string) => (
+                <li class="flex items-start gap-2.5 text-sm text-gray-700 dark:text-neutral-300">
+                  <svg
+                    class="mt-0.5 size-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>{cap}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- Target Solusi -->
+        {
+          partner.targetSolutions && (
+            <div class="mt-8 border-l-4 border-blue-600 py-1 pl-4 dark:border-blue-400">
+              <h4 class="text-sm font-semibold tracking-wider text-gray-900 uppercase dark:text-white">
+                Target Penggunaan Bisnis
+              </h4>
+              <p class="mt-1 text-sm text-gray-600 dark:text-neutral-400">
+                {partner.targetSolutions}
+              </p>
+            </div>
+          )
+        }
+
+        <!-- Action CTAs -->
+        <div
+          class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-gray-100 pt-6 dark:border-neutral-800"
+        >
+          <a
+            href="/partners"
+            class="inline-flex items-center gap-x-2 text-sm font-semibold text-gray-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
+          >
+            <svg
+              class="size-4 shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
+            </svg>
+            Kembali ke Daftar Kemitraan
+          </a>
+
+          <a
+            href={`https://wa.me/6285117428800?text=Halo%20Kriya,%20saya%20ingin%20konsultasi%20solusi%20kemitraan%20${encodeURIComponent(partner.name)}`}
+            class="inline-flex items-center gap-x-2 rounded-xl bg-(--color-steel-blue-800) px-5 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-(--color-steel-blue-700) focus:outline-hidden dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600)"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              class="size-4 text-emerald-400"
+              stroke="currentColor"
+              stroke-width="2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              fill="currentColor"
+            >
+              <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+              ></path>
+            </svg>
+            Konsultasi Solusi {partner.name}
+          </a>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- RichSnippets -->
+  <RichSnippets />
 </BaseLayout>
