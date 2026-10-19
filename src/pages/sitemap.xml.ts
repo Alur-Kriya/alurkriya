@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { services } from '@contents/services/services.mjs';
 import { partners } from '@contents/partners/partners.mjs';
+import { solutions } from '@contents/solutions/solutions.mjs';
 
 const SITE_URL = 'https://kriya.click';
 
@@ -8,6 +9,7 @@ const staticPages = [
   '/',
   '/tentang-kami',
   '/jasa',
+  '/solusi',
   '/portfolio',
   '/partners',
   '/testimoni',
@@ -19,8 +21,14 @@ const staticPages = [
 export const GET: APIRoute = () => {
   const dynamicJasaPages = services.map((s: { slug: string }) => `/jasa/${s.slug}`);
   const dynamicPartnerPages = partners.map((p: { slug: string }) => `/partners/${p.slug}`);
+  const dynamicSolutionPages = solutions.map((s: { slug: string }) => `/solusi/${s.slug}`);
 
-  const allPages = [...staticPages, ...dynamicJasaPages, ...dynamicPartnerPages];
+  const allPages = [
+    ...staticPages,
+    ...dynamicJasaPages,
+    ...dynamicPartnerPages,
+    ...dynamicSolutionPages,
+  ];
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

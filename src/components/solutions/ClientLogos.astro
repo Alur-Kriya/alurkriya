@@ -1,0 +1,47 @@
+---
+import { Users } from '@lucide/astro';
+
+interface Props {
+  clients?: Array<{ name: string; type: string }>;
+}
+
+const {
+  clients = [
+    { name: 'Lembaga Amil Zakat Nasional', type: 'LAZNAS Mitra' },
+    { name: 'LAZ Provinsi & Daerah', type: 'LAZ Daerah Mitra' },
+    { name: 'Unit Pengumpul Zakat (UPZ)', type: 'UPZ Korporasi & Kampus' },
+    { name: 'Yayasan Filantropi Islam', type: 'Yayasan Sosial Mandiri' },
+    { name: 'Lembaga Pengelola Wakaf', type: 'Nazhir Wakaf Produktif' },
+  ],
+} = Astro.props;
+---
+
+<section
+  class="border-y border-gray-100 bg-gray-50/70 py-10 dark:border-neutral-800/80 dark:bg-neutral-900/40"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-xs font-bold tracking-widest text-gray-500 uppercase dark:text-neutral-400">
+        Telah Diimplementasikan & Dipercaya oleh Berbagai Lembaga Pengelola Dana ZISWAF
+      </h2>
+    </div>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+      {
+        clients.map((c) => (
+          <div class="group flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white px-5 py-3 shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-500/30 hover:shadow-md dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
+            <div class="flex size-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400">
+              <Users class="size-5" />
+            </div>
+            <div>
+              <p class="text-xs font-bold text-gray-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
+                {c.name}
+              </p>
+              <p class="text-[10px] font-medium text-gray-500 dark:text-neutral-400">{c.type}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

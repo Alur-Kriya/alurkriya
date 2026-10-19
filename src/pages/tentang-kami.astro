@@ -4,6 +4,7 @@ import HeroBanner from '@components/pages/HeroBanner.astro';
 import { pages } from '@contents/pages/pages.mjs';
 import { Image } from 'astro:assets';
 import imgAbout from '@images/img-a.png';
+import { Eye, Target, Shield, CircleCheck, Zap, Users } from '@lucide/astro';
 
 const content = pages.find((item: any) => item.slug === 'tentang-kami');
 
@@ -35,22 +36,24 @@ if (!content) {
           <h2 class="about-title">PT. Alur Kriya Teknologi</h2>
           <div class="about-body">
             <p>
-              PT. Alur Kriya Teknologi <strong>(Kriya)</strong> adalah perusahaan teknologi informasi yang berfokus
-              pada penyediaan solusi digital terintegrasi untuk membantu perusahaan meningkatkan efisiensi
-              operasional, memperkuat infrastruktur teknologi, dan mendukung transformasi digital yang berkelanjutan.
+              PT. Alur Kriya Teknologi <strong>(Kriya)</strong> adalah perusahaan teknologi informasi
+              yang berfokus pada penyediaan solusi digital terintegrasi untuk membantu perusahaan meningkatkan
+              efisiensi operasional, memperkuat infrastruktur teknologi, dan mendukung transformasi digital
+              yang berkelanjutan.
             </p>
             <p>
               Kami hadir sebagai <strong>mitra strategis</strong> yang mendampingi bisnis Anda dalam merancang,
               membangun, mengelola, serta mengoptimalkan berbagai kebutuhan teknologi informasi.
             </p>
             <p>
-              Dengan pendekatan yang berorientasi pada kebutuhan bisnis, Kriya tidak hanya menghadirkan solusi yang
-              unggul secara teknis, tetapi juga memastikan setiap implementasi mampu memberikan nilai tambah yang
-              nyata bagi pertumbuhan bisnis Anda.
+              Dengan pendekatan yang berorientasi pada kebutuhan bisnis, Kriya tidak hanya
+              menghadirkan solusi yang unggul secara teknis, tetapi juga memastikan setiap
+              implementasi mampu memberikan nilai tambah yang nyata bagi pertumbuhan bisnis Anda.
             </p>
             <p>
-              Melalui pengelolaan sistem yang <strong>proaktif dan preventif</strong>, Kami membantu meminimalkan
-              risiko operasional, meningkatkan keamanan sistem, serta menjaga keberlangsungan bisnis Anda.
+              Melalui pengelolaan sistem yang <strong>proaktif dan preventif</strong>, Kami membantu
+              meminimalkan risiko operasional, meningkatkan keamanan sistem, serta menjaga
+              keberlangsungan bisnis Anda.
             </p>
           </div>
         </div>
@@ -70,27 +73,43 @@ if (!content) {
         <!-- Visi -->
         <div class="vismis-card vismis-card--visi">
           <div class="vismis-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <Eye class="size-7" />
           </div>
           <h3 class="vismis-title">Visi</h3>
           <p class="vismis-body">
-            Menjadi mitra transformasi digital terpercaya bagi perusahaan di Indonesia — menghadirkan
-            solusi teknologi yang inovatif, andal, dan berdampak nyata bagi pertumbuhan bisnis setiap klien.
+            Menjadi mitra transformasi digital terpercaya bagi perusahaan di Indonesia —
+            menghadirkan solusi teknologi yang inovatif, andal, dan berdampak nyata bagi pertumbuhan
+            bisnis setiap klien.
           </p>
         </div>
 
         <!-- Misi -->
         <div class="vismis-card vismis-card--misi">
           <div class="vismis-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"></path><path d="M12 8v4l3 3"></path></svg>
+            <Target class="size-7" />
           </div>
           <h3 class="vismis-title">Misi</h3>
           <ul class="vismis-list">
-            <li>Menyediakan layanan IT terintegrasi yang mendukung efisiensi dan pertumbuhan bisnis klien.</li>
-            <li>Membangun infrastruktur teknologi yang aman, skalabel, dan siap menghadapi tantangan masa depan.</li>
-            <li>Mendampingi klien secara proaktif dalam mengelola, memantau, dan mengoptimalkan sistem teknologi mereka.</li>
-            <li>Menjalin kemitraan jangka panjang yang dilandasi kepercayaan, transparansi, dan komitmen terhadap kualitas.</li>
-            <li>Terus berinovasi dan mengadopsi teknologi terkini demi memberikan solusi terbaik bagi setiap kebutuhan bisnis.</li>
+            <li>
+              Menyediakan layanan IT terintegrasi yang mendukung efisiensi dan pertumbuhan bisnis
+              klien.
+            </li>
+            <li>
+              Membangun infrastruktur teknologi yang aman, skalabel, dan siap menghadapi tantangan
+              masa depan.
+            </li>
+            <li>
+              Mendampingi klien secara proaktif dalam mengelola, memantau, dan mengoptimalkan sistem
+              teknologi mereka.
+            </li>
+            <li>
+              Menjalin kemitraan jangka panjang yang dilandasi kepercayaan, transparansi, dan
+              komitmen terhadap kualitas.
+            </li>
+            <li>
+              Terus berinovasi dan mengadopsi teknologi terkini demi memberikan solusi terbaik bagi
+              setiap kebutuhan bisnis.
+            </li>
           </ul>
         </div>
       </div>
@@ -107,36 +126,47 @@ if (!content) {
       <div class="values-grid">
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <Shield class="size-6" />
           </div>
           <h4 class="value-title">Kepercayaan</h4>
-          <p class="value-body">Kami membangun hubungan jangka panjang berdasarkan transparansi, kejujuran, dan integritas dalam setiap interaksi dengan klien.</p>
+          <p class="value-body">
+            Kami membangun hubungan jangka panjang berdasarkan transparansi, kejujuran, dan
+            integritas dalam setiap interaksi dengan klien.
+          </p>
         </div>
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+            <CircleCheck class="size-6" />
           </div>
           <h4 class="value-title">Kualitas</h4>
-          <p class="value-body">Setiap solusi yang kami hadirkan dirancang dengan standar teknis tinggi, diuji secara menyeluruh, dan berorientasi pada hasil yang optimal.</p>
+          <p class="value-body">
+            Setiap solusi yang kami hadirkan dirancang dengan standar teknis tinggi, diuji secara
+            menyeluruh, dan berorientasi pada hasil yang optimal.
+          </p>
         </div>
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            <Zap class="size-6" />
           </div>
           <h4 class="value-title">Inovasi</h4>
-          <p class="value-body">Kami senantiasa mengikuti perkembangan teknologi terkini dan berani berinovasi untuk menghadirkan solusi yang relevan dan kompetitif.</p>
+          <p class="value-body">
+            Kami senantiasa mengikuti perkembangan teknologi terkini dan berani berinovasi untuk
+            menghadirkan solusi yang relevan dan kompetitif.
+          </p>
         </div>
         <div class="value-card">
           <div class="value-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <Users class="size-6" />
           </div>
           <h4 class="value-title">Kemitraan</h4>
-          <p class="value-body">Kami percaya bahwa kesuksesan klien adalah kesuksesan kami. Kami hadir bukan sekadar vendor, melainkan sebagai mitra strategis bisnis Anda.</p>
+          <p class="value-body">
+            Kami percaya bahwa kesuksesan klien adalah kesuksesan kami. Kami hadir bukan sekadar
+            vendor, melainkan sebagai mitra strategis bisnis Anda.
+          </p>
         </div>
       </div>
     </div>
   </section>
-
 </BaseLayout>
 
 <style>
@@ -178,7 +208,9 @@ if (!content) {
       padding-left: 2rem;
       padding-right: 2rem;
     }
-    .about-section, .vismis-section, .values-section {
+    .about-section,
+    .vismis-section,
+    .values-section {
       padding: 5rem 0;
     }
   }
@@ -201,7 +233,7 @@ if (!content) {
     width: 100%;
     border-radius: 1rem;
     object-fit: cover;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
   .about-label {
@@ -391,11 +423,13 @@ if (!content) {
     border-radius: 1rem;
     border: 1px solid #e5e7eb;
     background-color: #ffffff;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    transition:
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
   }
 
   .value-card:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
   }
 
@@ -405,7 +439,7 @@ if (!content) {
   }
 
   :global(.dark) .value-card:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
   .value-icon {

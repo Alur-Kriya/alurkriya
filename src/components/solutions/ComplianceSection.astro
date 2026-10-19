@@ -1,0 +1,87 @@
+---
+import { Check } from '@lucide/astro';
+
+const compliances = [
+  {
+    title: 'Standar Akuntansi Syariah PSAK 109',
+    category: 'Kepatuhan Finansial',
+    desc: 'Pemisahan pos dana Zakat, Infaq/Sedekah terikat & tidak terikat, Wakaf, serta Dana Amil secara otomatis sesuai standar Ikatan Akuntan Indonesia (IAI).',
+    icon: 'book',
+  },
+  {
+    title: 'Metrik Kepatuhan ACR Standar BAZNAS',
+    category: 'Regulasi Pengawasan',
+    desc: 'Monitoring Allocation to Collection Ratio (ACR) dan standar penyaluran 8 Asnaf untuk memenuhi audit kepatuhan syariah berkala oleh regulator.',
+    icon: 'award',
+  },
+  {
+    title: 'Role-Based Access Control (RBAC)',
+    category: 'Keamanan Data',
+    desc: 'Hak akses bertingkat memastikan amil hanya dapat melihat data sesuai wewenangnya. Mencegah kebocoran data gaji, riwayat muzaki, dan saldo internal.',
+    icon: 'lock',
+  },
+  {
+    title: 'Kanal Pelaporan Gratifikasi Independen',
+    category: 'Tata Kelola Amanah',
+    desc: 'Mekanisme pelaporan pemberian dari pihak ketiga untuk menjaga amil dari benturan kepentingan (conflict of interest) dan menjaga integritas dakwah.',
+    icon: 'shield',
+  },
+  {
+    title: 'Audit Trail Digital yang Tidak Dapat Dihapus',
+    category: 'Integritas Sistem',
+    desc: 'Setiap penginputan donasi, perubahan status PPD, pencairan kasir, hingga persetujuan pimpinan terekam permanen untuk kebutuhan audit KAP independen.',
+    icon: 'file-check',
+  },
+  {
+    title: 'Enkripsi Data & Backup Terjadwal',
+    category: 'Infrastruktur Cloud',
+    desc: 'Database terlindungi enkripsi standar industri, transmisi HTTPS/SSL aman, dan pencadangan data otomatis multi-zona mencegah kehilangan data.',
+    icon: 'server',
+  },
+];
+---
+
+<section
+  class="bg-gradient-to-b from-white to-gray-50/70 py-16 sm:py-24 dark:from-(--color-deep-space-blue-900) dark:to-neutral-900/60"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+
+      <h2
+        class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
+      >
+        Menjaga Amanah Umat dengan Standar Kepatuhan Tertinggi
+      </h2>
+      <p class="mt-4 text-base text-gray-600 sm:text-lg dark:text-neutral-300">
+        Software ZISWAF ERP dibangun dengan fondasi syariah dan tata kelola nirlaba yang kokoh, siap
+        menghadapi audit internal maupun eksternal.
+      </p>
+    </div>
+
+    <!-- Compliances Grid -->
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        compliances.map((c) => (
+          <div class="flex flex-col justify-between rounded-3xl border border-gray-200 bg-white p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-emerald-400 hover:shadow-xl sm:p-7 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
+            <div>
+              <div class="flex items-center justify-between border-b border-gray-100 pb-3 dark:border-neutral-800">
+                <span class="text-[10px] font-bold tracking-wider text-emerald-700 uppercase dark:text-emerald-400">
+                  {c.category}
+                </span>
+                <span class="flex size-7 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-300">
+                  <Check class="size-4" />
+                </span>
+              </div>
+
+              <h3 class="mt-4 text-base font-bold text-gray-900 dark:text-white">{c.title}</h3>
+
+              <p class="mt-2 text-xs leading-relaxed text-gray-600 dark:text-neutral-400">
+                {c.desc}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

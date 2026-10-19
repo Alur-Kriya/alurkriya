@@ -1,0 +1,108 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroBanner from '@components/pages/HeroBanner.astro';
+import RichSnippets from '@components/RichSnippets.astro';
+import SolutionCard from '@components/solutions/SolutionCard.astro';
+import { solutions } from '@contents/solutions/solutions.mjs';
+import { pages } from '@contents/pages/pages.mjs';
+import { SEOS } from '@lib/seos';
+import { Plus } from '@lucide/astro';
+
+const pageData = pages.find((item: any) => item.slug === 'solusi');
+
+const pageTitle = pageData?.title || 'Solusi Produk & Sistem Terintegrasi';
+const pageDesc =
+  pageData?.desc ||
+  'Katalog produk solusi teknologi siap pakai dari Kriya: Software ZISWAF ERP untuk lembaga amil zakat, sistem manajemen nirlaba, dan solusi digital terpadu.';
+
+// Schema.org structured data
+const solutionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Produk & Solusi Sistem Terintegrasi PT. Alur Kriya Teknologi',
+  description: pageDesc,
+  itemListElement: solutions.map((sol, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      name: sol.name,
+      url: `${SEOS.url}/solusi/${sol.slug}`,
+      description: sol.description,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+    },
+  })),
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDesc} structuredData={solutionSchema}>
+  <!-- Hero Banner -->
+  <HeroBanner heading={pageData?.heading || 'Solusi Teknologi Kriya'} description={pageDesc} />
+
+  <!-- Main Solutions Section -->
+  <section class="py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3.5 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300"
+        >
+          Produk Siap Pakai & Teruji
+        </span>
+        <h2
+          class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
+        >
+          Platform Siap Pakai untuk Mengakselerasi Efisiensi Organisasi Anda
+        </h2>
+        <p class="mt-4 text-base text-gray-600 sm:text-lg dark:text-neutral-300">
+          Dirancang berdasarkan best practices industri, teruji pada puluhan ribu transaksi, dan
+          siap diimplementasikan secara cepat.
+        </p>
+      </div>
+
+      <!-- Solutions Grid -->
+      <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+        {solutions.map((item) => <SolutionCard solution={item} />)}
+
+        <!-- Custom Solution Inquire Card -->
+        <div
+          class="flex flex-col justify-between rounded-3xl border-2 border-dashed border-gray-300 bg-gray-50/50 p-8 text-center dark:border-neutral-700 dark:bg-neutral-900/30"
+        >
+          <div class="my-auto py-8">
+            <div
+              class="mx-auto flex size-14 items-center justify-center rounded-2xl bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
+            >
+              <Plus class="size-7" />
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-gray-900 dark:text-white">
+              Membutuhkan Solusi Custom Lainnya?
+            </h3>
+            <p class="mx-auto mt-3 max-w-md text-sm text-gray-600 dark:text-neutral-400">
+              Kriya juga melayani perancangan dan pengembangan software kustom sesuai alur bisnis
+              unik instansi atau perusahaan Anda.
+            </p>
+          </div>
+
+          <div
+            class="flex flex-wrap items-center justify-center gap-3 border-t border-gray-200 pt-6 dark:border-neutral-800"
+          >
+            <a
+              href="/jasa/software-development"
+              class="inline-flex items-center gap-2 rounded-xl bg-(--color-steel-blue-800) px-5 py-2.5 text-xs font-semibold text-white transition-all hover:bg-(--color-steel-blue-700)"
+            >
+              Lihat Jasa Software Development
+            </a>
+            <a
+              href="/kontak"
+              class="inline-flex items-center gap-2 rounded-xl border border-gray-300 px-5 py-2.5 text-xs font-semibold text-gray-700 hover:bg-gray-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
+            >
+              Konsultasi Kebutuhan Anda
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <RichSnippets />
+</BaseLayout>

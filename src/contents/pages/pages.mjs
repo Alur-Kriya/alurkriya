@@ -12,6 +12,12 @@ export const pages = [
     heading: 'Layanan Kami',
   },
   {
+    slug: 'solusi',
+    title: 'Solusi Produk & Sistem Terintegrasi',
+    desc: 'Katalog produk solusi teknologi siap pakai dari Kriya: Software ZISWAF ERP untuk lembaga zakat, sistem manajemen nirlaba, dan solusi digital terpadu.',
+    heading: 'Solusi Teknologi Kriya',
+  },
+  {
     slug: 'portfolio',
     title: 'Portofolio',
     desc: 'Lihat berbagai proyek dan portofolio Kriya dalam membangun solusi digital untuk klien di berbagai industri. Bukti nyata kualitas layanan kami.',

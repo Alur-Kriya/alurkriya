@@ -1,0 +1,72 @@
+---
+import DemoButton from './DemoButton.astro';
+import { ChevronRight } from '@lucide/astro';
+
+interface Props {
+  title?: string;
+  desc?: string;
+  message?: string;
+}
+
+const {
+  title = 'Siap Menyatukan Seluruh Operasional Lembaga ZISWAF Anda dalam Satu Sistem ERP?',
+  desc = 'Jadwalkan sesi presentasi dan demonstrasi langsung bersama konsultan sistem kami. Kami tunjukkan bagaimana Software ZISWAF ERP bekerja mengotomasi tata kelola lembaga Anda.',
+  message = 'Halo Kriya, saya ingin request sesi demo Software ZISWAF ERP untuk jajaran pimpinan lembaga kami.',
+} = Astro.props;
+---
+
+<section class="py-16 sm:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div
+      class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-(--color-deep-space-blue-950) via-neutral-900 to-emerald-950 px-6 py-16 text-center text-white shadow-2xl sm:px-12 sm:py-20 lg:px-16"
+    >
+      <!-- Atmospheric decorative elements -->
+      <div
+        class="pointer-events-none absolute -top-24 -left-24 size-96 rounded-full bg-emerald-500/20 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -right-24 -bottom-24 size-96 rounded-full bg-blue-500/20 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative mx-auto max-w-3xl">
+
+        <h2
+          class="mt-6 text-3xl leading-tight font-extrabold tracking-tight sm:text-4xl lg:text-5xl"
+        >
+          {title}
+        </h2>
+
+        <p class="mt-5 text-base leading-relaxed text-neutral-300 sm:text-lg">
+          {desc}
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <DemoButton
+            label="Minta Demo via WhatsApp"
+            size="lg"
+            variant="emerald"
+            id="bottom-wa-demo-cta"
+            message={message}
+          />
+
+          <a
+            href="/kontak"
+            class="inline-flex items-center justify-center gap-x-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/20"
+          >
+            <span>Hubungi Kami via Form</span>
+            <ChevronRight class="size-4 shrink-0" />
+          </a>
+        </div>
+
+        <p class="mt-6 text-xs text-neutral-400">
+          Tim konsultan Kriya siap merespons permohonan demo dalam waktu 1x24 jam kerja.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

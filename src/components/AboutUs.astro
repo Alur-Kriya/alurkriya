@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import imgAbout from '@images/img-a.png';
+import { ChevronRight } from '@lucide/astro';
 ---
 
 <div class="bg-(--color-deep-space-blue-900) dark:bg-(--color-deep-space-blue-800)">
@@ -31,8 +32,8 @@ import imgAbout from '@images/img-a.png';
           <div class="space-y-2 md:space-y-4">
             <h2 class="text-3xl font-bold text-white lg:text-4xl">About Us</h2>
             <p class="text-neutral-300">
-              <strong class="dark:text-neutral-200">Kriya</strong> adalah perusahaan teknologi yang
-              mendampingi bisnis Anda dalam merancang, membangun, dan mengelola solusi digital secara menyeluruh.
+              <strong class="dark:text-neutral-200">Kriya</strong> adalah perusahaan teknologi yang mendampingi
+              bisnis Anda dalam merancang, membangun, dan mengelola solusi digital secara menyeluruh.
               Mulai dari pengembangan software, manajemen infrastruktur IT, hingga konsultasi teknologi.
               Memastikan setiap solusi tidak hanya berfungsi secara teknis, tetapi juga mendukung tujuan
               dan strategi bisnis mitra kami.
@@ -48,18 +49,9 @@ import imgAbout from '@images/img-a.png';
                 href="#"
               >
                 Selengkapnya Tentang Kami
-                <svg
+                <ChevronRight
                   class="size-4 shrink-0 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
-                >
+                />
               </a>
             </p>
           </div>

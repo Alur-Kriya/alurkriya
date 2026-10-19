@@ -6,7 +6,6 @@ import srvcE from '@images/srvc-e.png';
 import srvcF from '@images/srvc-f.png';
 import srvcG from '@images/srvc-g.png';
 
-
 export const services = [
   {
     slug: 'website-development',

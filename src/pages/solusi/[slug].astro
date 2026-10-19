@@ -1,0 +1,135 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import RichSnippets from '@components/RichSnippets.astro';
+import Faq from '@components/services/Faq.astro';
+import SolutionHero from '@components/solutions/SolutionHero.astro';
+import ClientLogos from '@components/solutions/ClientLogos.astro';
+import PainPoints from '@components/solutions/PainPoints.astro';
+import RootCause from '@components/solutions/RootCause.astro';
+import ComparisonTable from '@components/solutions/ComparisonTable.astro';
+import PainSolution from '@components/solutions/PainSolution.astro';
+import RoleBenefits from '@components/solutions/RoleBenefits.astro';
+import ModuleExplorer from '@components/solutions/ModuleExplorer.astro';
+import ComplianceSection from '@components/solutions/ComplianceSection.astro';
+import SolutionTestimonials from '@components/solutions/SolutionTestimonials.astro';
+import SolutionCta from '@components/solutions/SolutionCta.astro';
+import { solutions } from '@contents/solutions/solutions.mjs';
+import { SEOS } from '@lib/seos';
+
+export function getStaticPaths() {
+  return solutions.map((solution) => ({
+    params: { slug: solution.slug },
+    props: { solution },
+  }));
+}
+
+const { solution } = Astro.props;
+
+if (!solution) {
+  throw new Error('Solution data not found');
+}
+
+const pageTitle = solution.title;
+const pageDesc = solution.description;
+
+// Structured data for SoftwareApplication schema
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: solution.name,
+  alternateName: 'Sistem ERP Lembaga Amil Zakat Kriya',
+  description: solution.description,
+  applicationCategory: 'BusinessApplication',
+  applicationSubCategory: 'Enterprise Resource Planning (ERP)',
+  operatingSystem: 'Web-based Cloud ERP',
+  url: `${SEOS.url}/solusi/${solution.slug}`,
+  provider: {
+    '@type': 'Organization',
+    name: SEOS.legalName,
+    alternateName: SEOS.name,
+    url: SEOS.url,
+    logo: `${SEOS.url}/favicon.svg`,
+    telephone: SEOS.phone,
+    email: SEOS.email,
+  },
+  featureList: solution.modules.map((m: { title: string }) => m.title),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '28',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'IDR',
+    description: 'Sesi konsultasi kebutuhan dan demonstrasi sistem gratis via WhatsApp.',
+  },
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  ogimage={solution.ogimage}
+  structuredData={softwareSchema}
+>
+  <!-- 1. Hero Section (Matching /jasa/website-development layout & styling) -->
+  <SolutionHero
+    heading={solution.name}
+    description={solution.description}
+    waMessage={solution.waMessage}
+  />
+
+  <!-- 2. Client & Institution Trust Banner -->
+  <ClientLogos clients={solution.clientInstitutions} />
+
+  <!-- 3. Pain Points: Apakah Lembaga Anda Mengalami Ini? -->
+  <PainPoints painPoints={solution.painPoints} />
+
+  <!-- 4. Root Cause Analysis: Silo Apps vs Integrated ERP Hub -->
+  <RootCause rootCause={solution.rootCause} />
+
+  <!-- 5. Comparison: Excel vs Ordinary Apps vs Software ZISWAF ERP -->
+  <ComparisonTable comparison={solution.comparison} />
+
+  <!-- 6. Jawaban Konkret per Bidang (Ringkas & Cepat Dipahami) -->
+  <PainSolution deepDives={solution.deepDives} />
+
+  <!-- 7. Role-Based Advantages -->
+  <RoleBenefits roles={solution.roles} />
+
+  <!-- 8. Complete 11 Modules Explorer (All Sub-features) -->
+  <ModuleExplorer modules={solution.modules} />
+
+  <!-- 9. Sharia & Regulatory Compliance (PSAK 109, BAZNAS ACR, Audit Trail) -->
+  <ComplianceSection />
+
+  <!-- 10. User & Practitioner Testimonials -->
+  <SolutionTestimonials testimonials={solution.testimonials} />
+
+  <!-- 11. FAQ Section -->
+  <Faq
+    heading="Pertanyaan yang Sering Diajukan Seputar Software ZISWAF ERP"
+    q1={solution.faqs[0]?.q || ''}
+    a1={solution.faqs[0]?.a || ''}
+    q2={solution.faqs[1]?.q || ''}
+    a2={solution.faqs[1]?.a || ''}
+    q3={solution.faqs[2]?.q || ''}
+    a3={solution.faqs[2]?.a || ''}
+    q4={solution.faqs[3]?.q || ''}
+    a4={solution.faqs[3]?.a || ''}
+    q5={solution.faqs[4]?.q || ''}
+    a5={solution.faqs[4]?.a || ''}
+    q6={solution.faqs[5]?.q || ''}
+    a6={solution.faqs[5]?.a || ''}
+  />
+
+  <!-- 12. High-Conversion Closing CTA -->
+  <SolutionCta
+    title="Siap Mengintegrasikan Seluruh Tata Kelola Lembaga ZISWAF Anda?"
+    desc="Dapatkan sesi demonstrasi langsung dan konsultasi sistem bersama tim ahli Kriya. Temukan bagaimana Software ZISWAF ERP membantu lembaga Anda bertumbuh lebih amanah dan akuntabel."
+    message={solution.waMessage}
+  />
+
+  <RichSnippets />
+</BaseLayout>
