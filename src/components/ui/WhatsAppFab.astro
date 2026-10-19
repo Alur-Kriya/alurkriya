@@ -1,0 +1,46 @@
+---
+import { getWaUrl } from '@lib/whatsapp';
+import { MessageCircle } from '@lucide/astro';
+
+interface Props {
+  message?: string;
+}
+
+const {
+  message = 'Halo Kriya, saya ingin berkonsultasi mengenai layanan dan solusi teknologi dari Kriya.',
+} = Astro.props;
+
+const waUrl = getWaUrl(message);
+---
+
+<div class="fixed right-5 bottom-5 z-40 sm:right-6 sm:bottom-6">
+  <a
+    href={waUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Hubungi kami melalui WhatsApp"
+    class="group flex items-center gap-x-2.5 rounded-full bg-[#25D366] p-3.5 text-white shadow-xl shadow-emerald-950/20 transition-all duration-300 hover:scale-105 hover:bg-[#20ba59] hover:shadow-2xl hover:shadow-emerald-900/30 focus:ring-4 focus:ring-emerald-400/40 focus:outline-hidden"
+    id="whatsapp-fab"
+  >
+    <!-- Notification indicator pulse -->
+    <span class="absolute -top-1 -right-1 flex size-3.5">
+      <span
+        class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+      ></span>
+      <span
+        class="relative inline-flex size-3.5 rounded-full border-2 border-white bg-emerald-500 dark:border-(--color-deep-space-blue-950)"
+      ></span>
+    </span>
+
+    <div class="flex size-6 items-center justify-center">
+      <MessageCircle class="size-6 stroke-[2.2] text-white" />
+    </div>
+
+    <!-- Slide-out text label on hover (desktop) -->
+    <span
+      class="inline-block max-w-0 overflow-hidden text-sm font-semibold whitespace-nowrap transition-all duration-300 ease-in-out group-hover:max-w-48 group-hover:pe-2"
+    >
+      Chat via WhatsApp
+    </span>
+  </a>
+</div>

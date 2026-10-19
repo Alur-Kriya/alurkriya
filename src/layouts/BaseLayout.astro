@@ -2,6 +2,7 @@
 import '@styles/global.css';
 import NavigationBar from '@components/NavigationBar.astro';
 import Footer from '@components/Footer.astro';
+import WhatsAppFab from '@components/ui/WhatsAppFab.astro';
 import { SEO } from 'astro-seo';
 import { SEOS } from '@lib/seos';
 import Analytics from '@vercel/analytics/astro';
@@ -157,6 +158,7 @@ const finalStructuredData = structuredData ?? defaultStructuredData;
       <slot />
     </main>
     {!hideFooter && <Footer />}
+    <WhatsAppFab />
 
     <!-- Preline UI -->
     <script>
