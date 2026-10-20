@@ -14,7 +14,7 @@ export const SEOS = {
     streetAddress: 'Sunter Kemayoran No.22 RT.001/003',
     addressLocality: 'Tanjung Priok',
     addressRegion: 'Jakarta Utara',
-    postalCode: '14350',
+    postalCode: '14360',
     addressCountry: 'ID',
   },
   socialLinks: [
