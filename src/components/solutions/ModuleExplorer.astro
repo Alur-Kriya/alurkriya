@@ -1,5 +1,7 @@
 ---
-import { Check } from '@lucide/astro';
+import { Check, Sparkles, ArrowRight, ArrowLeft, MessageCircle } from '@lucide/astro';
+import { getWaUrl } from '@lib/whatsapp';
+import 'swiper/css';
 
 interface Props {
   modules: Array<{
@@ -20,7 +22,14 @@ const { modules } = Astro.props;
 
 <section id="modul-lengkap" class="scroll-mt-20 py-16 sm:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
     <div class="mx-auto max-w-3xl text-center">
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/70 px-3.5 py-1 text-xs font-semibold text-emerald-800 backdrop-blur-xs dark:border-emerald-800/60 dark:bg-emerald-950/40 dark:text-emerald-300"
+      >
+        <Sparkles class="size-3.5 text-emerald-600 dark:text-emerald-400" />
+        <span>11 Modul ERP ZISWAF Terintegrasi</span>
+      </div>
       <h2
         class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white"
       >
@@ -32,102 +41,254 @@ const { modules } = Astro.props;
       </p>
     </div>
 
-    <!-- Modul Explorer (Tabs Layout on Desktop, Card Flow on Mobile) -->
-    <div class="mt-14">
+    <!-- Modul Explorer Root -->
+    <div
+      id="module-explorer-root"
+      class="mx-auto mt-12 max-w-full"
+      data-total-modules={modules.length}
+    >
       <!-- Tabs Navigation -->
-      <div class="border-b border-gray-200 dark:border-neutral-800">
-        <nav
-          class="-mb-px flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-600"
-          aria-label="Tabs Modul ERP"
-          role="tablist"
+      <div
+        class="mb-6 flex items-center justify-center gap-2 sm:gap-4"
+        aria-label="Navigasi Modul ERP"
+      >
+        <!-- Top Prev Button -->
+        <button
+          type="button"
+          class="nav-btn-prev inline-flex items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-700 shadow-2xs transition-all hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-700 disabled:pointer-events-none disabled:border-transparent disabled:bg-transparent disabled:text-gray-400 disabled:opacity-50 sm:px-4 sm:py-2.5 sm:text-sm dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:border-emerald-400 dark:hover:bg-neutral-700 dark:disabled:border-transparent dark:disabled:bg-transparent dark:disabled:text-neutral-600"
+          disabled
         >
-          {
-            modules.map((m, idx) => (
-              <button
-                type="button"
-                class={`hs-tab-active:border-emerald-600 hs-tab-active:text-emerald-600 dark:hs-tab-active:border-emerald-400 dark:hs-tab-active:text-emerald-400 inline-flex shrink-0 items-center gap-x-2 border-b-2 px-4 py-3 text-xs font-semibold text-gray-500 hover:text-gray-700 sm:text-sm dark:text-neutral-400 dark:hover:text-neutral-300 ${
-                  idx === 0
-                    ? 'active border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400'
-                    : 'border-transparent'
-                }`}
-                id={`tab-item-${m.id}`}
-                data-hs-tab={`#tab-panel-${m.id}`}
-                aria-controls={`tab-panel-${m.id}`}
-                role="tab"
-              >
-                <span class="font-mono text-xs opacity-60">{m.number}</span>
-                <span>{m.title.split('&')[0].trim()}</span>
-              </button>
-            ))
-          }
-        </nav>
+          <ArrowLeft class="size-3.5 sm:size-4" />
+          <span class="nav-prev-label">Awal Modul</span>
+        </button>
+
+        <!-- Current Step Indicator -->
+        <span
+          class="nav-step-indicator px-2 font-mono text-xs font-bold text-gray-700 sm:text-sm dark:text-neutral-300"
+        >
+          01 / {modules.length}
+        </span>
+
+        <!-- Top Next Button -->
+        <button
+          type="button"
+          class="nav-btn-next inline-flex items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-800 shadow-2xs transition-all hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-700 disabled:pointer-events-none disabled:border-transparent disabled:bg-transparent disabled:text-gray-400 disabled:opacity-50 sm:px-4 sm:py-2.5 sm:text-sm dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:border-emerald-400 dark:hover:bg-neutral-700 dark:disabled:border-transparent dark:disabled:bg-transparent dark:disabled:text-neutral-600"
+        >
+          <span class="nav-next-label">Modul Selanjutnya (02)</span>
+          <ArrowRight class="size-3.5 sm:size-4" />
+        </button>
       </div>
 
+      <!-- Tab Content Panels (Swipeable with Swiper) -->
       <!-- Tab Content Panels -->
-      <div class="mt-8">
-        {
-          modules.map((m, idx) => (
-            <div
-              id={`tab-panel-${m.id}`}
-              class={idx === 0 ? '' : 'hidden'}
-              role="tabpanel"
-              aria-labelledby={`tab-item-${m.id}`}
-            >
-              <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-lg sm:p-10 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
-                <div class="flex flex-col justify-between gap-4 border-b border-gray-100 pb-6 sm:flex-row sm:items-center dark:border-neutral-800">
-                  <div>
-                    <div class="flex items-center gap-2">
-                      <span class="rounded-md bg-emerald-100 px-2.5 py-0.5 font-mono text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
-                        Modul {m.number}
-                      </span>
-                      <span class="text-xs font-semibold text-gray-500 dark:text-neutral-400">
-                        Standar ERP ZISWAF
-                      </span>
-                    </div>
-                    <h3 class="mt-2 text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white">
-                      {m.title}
-                    </h3>
-                    <p class="mt-2 max-w-2xl text-sm text-gray-600 dark:text-neutral-300">
-                      {m.summary}
-                    </p>
-                  </div>
+      <div class="swiper module-swiper overflow-hidden rounded-3xl">
+        <div class="swiper-wrapper">
+          {
+            modules.map((m, idx) => {
+              const waText = `Halo Kriya, saya ingin konsultasi mengenai Modul ${m.number}: ${m.title} Software ZISWAF ERP.`;
+              const waUrl = getWaUrl(waText);
 
-                  <div class="shrink-0">
-                    <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
-                      ✓ Siap Digunakan & Dapat Disesuaikan
-                    </span>
-                  </div>
-                </div>
-
-                <div class="mt-8">
-                  <h4 class="mb-4 text-xs font-bold tracking-wider text-gray-400 uppercase dark:text-neutral-500">
-                    Sub-Fitur & Kapabilitas Terpadu:
-                  </h4>
-                  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {m.features.map((f) => (
-                      <div class="rounded-2xl border border-gray-100 bg-gray-50/60 p-4 transition-all duration-200 hover:border-emerald-200 hover:bg-white hover:shadow-sm dark:border-neutral-800/80 dark:bg-neutral-900/40 dark:hover:border-emerald-900/40 dark:hover:bg-neutral-900">
-                        <div class="flex items-start gap-2.5">
-                          <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
-                            <Check class="size-3" />
+              return (
+                <div
+                  id={`tab-panel-${m.id}`}
+                  class="swiper-slide module-panel h-auto"
+                  role="tabpanel"
+                  data-panel-module-id={m.id}
+                  data-index={idx}
+                  data-module-number={m.number}
+                  data-module-title={m.title}
+                >
+                  <div class="h-full rounded-3xl border border-gray-200 bg-white p-6 shadow-lg sm:p-10 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
+                    {/* Module Header */}
+                    <div class="flex flex-col justify-between gap-4 border-b border-gray-100 pb-6 sm:flex-row sm:items-center dark:border-neutral-800">
+                      <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                          <span class="rounded-md bg-emerald-100 px-2.5 py-0.5 font-mono text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
+                            Modul {m.number}
                           </span>
-                          <div>
-                            <h5 class="text-sm font-bold text-gray-900 dark:text-white">
-                              {f.name}
-                            </h5>
-                            <p class="mt-1 text-xs leading-relaxed text-gray-600 dark:text-neutral-400">
-                              {f.desc}
-                            </p>
+                          <span class="text-xs font-semibold text-gray-500 dark:text-neutral-400">
+                            Standar ERP ZISWAF
+                          </span>
+                        </div>
+                        <h3 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
+                          {m.title}
+                        </h3>
+                        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base dark:text-neutral-300">
+                          {m.summary}
+                        </p>
+                      </div>
+
+                      <div class="shrink-0">
+                        <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
+                          ✓ Siap Digunakan & Dapat Disesuaikan
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Sub-Features Section */}
+                    <div class="mt-8">
+                      <div class="mb-4 flex items-center justify-between">
+                        <h4 class="text-xs font-bold tracking-wider text-gray-400 uppercase dark:text-neutral-500">
+                          Sub-Fitur & Kapabilitas Terpadu ({m.features.length} Fitur):
+                        </h4>
+                      </div>
+                      <div class="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+                        {m.features.map((f) => (
+                          <div class="rounded-2xl border border-gray-100 bg-gray-50/60 p-4 transition-all duration-200 hover:border-emerald-200 hover:bg-white hover:shadow-sm dark:border-neutral-800/80 dark:bg-neutral-900/40 dark:hover:border-emerald-900/40 dark:hover:bg-neutral-900">
+                            <div class="flex items-start gap-2.5">
+                              <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
+                                <Check class="size-3" />
+                              </span>
+                              <div>
+                                <h5 class="text-sm font-bold text-gray-900 dark:text-white">
+                                  {f.name}
+                                </h5>
+                                <p class="mt-1 text-xs leading-relaxed text-gray-600 dark:text-neutral-400">
+                                  {f.desc}
+                                </p>
+                              </div>
+                            </div>
                           </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bottom Walkthrough Navigation & CTA Bar */}
+                    <div class="mt-10 border-t border-gray-100 pt-6 dark:border-neutral-800">
+                      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+                        {/* WhatsApp Consultation CTA */}
+                        <div>
+                          <a
+                            href={waUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white shadow-xs transition-all hover:bg-emerald-700 focus:outline-hidden sm:w-auto sm:text-sm dark:bg-emerald-500 dark:hover:bg-emerald-600"
+                          >
+                            <MessageCircle class="size-3.5 sm:size-4" />
+                            <span>Konsultasi Modul {m.number} via WA</span>
+                          </a>
                         </div>
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))
-        }
+              );
+            })
+          }
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Keyboard, A11y } from 'swiper/modules';
+
+  function initModuleExplorer() {
+    const root = document.getElementById('module-explorer-root');
+    if (!root) return;
+
+    const prevBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('.nav-btn-prev'));
+    const nextBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('.nav-btn-next'));
+    const prevLabels = Array.from(root.querySelectorAll<HTMLElement>('.nav-prev-label'));
+    const nextLabels = Array.from(root.querySelectorAll<HTMLElement>('.nav-next-label'));
+    const stepIndicators = Array.from(root.querySelectorAll<HTMLElement>('.nav-step-indicator'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('.module-panel'));
+
+    const total = panels.length;
+
+    // Initialize Swiper instance
+    const swiper = new Swiper('.module-swiper', {
+      modules: [Keyboard, A11y],
+      slidesPerView: 1,
+      spaceBetween: 32,
+      autoHeight: true,
+      speed: 400,
+      grabCursor: true,
+      touchEventsTarget: 'container',
+      resistanceRatio: 0.85,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+      },
+      on: {
+        slideChange: function () {
+          updateNavState(this.activeIndex);
+        },
+      },
+    });
+
+    function updateNavState(currentIndex: number, shouldScroll = false) {
+      // 1. Update Prev Buttons
+      const hasPrev = currentIndex > 0;
+      const prevNum = hasPrev ? panels[currentIndex - 1]?.getAttribute('data-module-number') : null;
+      const prevTextDesktop = hasPrev ? `Modul Sebelumnya (${prevNum})` : 'Awal Modul';
+      const prevTextMobile = hasPrev ? `Modul (${prevNum})` : 'Awal Modul';
+
+      prevBtns.forEach((btn) => (btn.disabled = !hasPrev));
+      prevLabels.forEach((label) => {
+        label.innerHTML = `<span class="hidden sm:inline">${prevTextDesktop}</span><span class="sm:hidden">${prevTextMobile}</span>`;
+      });
+
+      // 2. Update Next Buttons
+      const hasNext = currentIndex < total - 1;
+      const nextNum = hasNext ? panels[currentIndex + 1]?.getAttribute('data-module-number') : null;
+      const nextTextDesktop = hasNext ? `Modul Selanjutnya (${nextNum})` : 'Modul Akhir';
+      const nextTextMobile = hasNext ? `Modul (${nextNum})` : 'Modul Akhir';
+
+      nextBtns.forEach((btn) => (btn.disabled = !hasNext));
+      nextLabels.forEach((label) => {
+        label.innerHTML = `<span class="hidden sm:inline">${nextTextDesktop}</span><span class="sm:hidden">${nextTextMobile}</span>`;
+      });
+
+      // 3. Update Step Indicators
+      const currentNum =
+        panels[currentIndex]?.getAttribute('data-module-number') || `${currentIndex + 1}`;
+      stepIndicators.forEach((ind) => {
+        ind.textContent = `${currentNum} / ${total}`;
+      });
+
+      // 4. Smooth scroll on mobile if triggered from bottom button
+      if (shouldScroll) {
+        const sec = document.getElementById('modul-lengkap');
+        sec?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Prev Button Click Handlers
+    prevBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isBottom = btn.closest('.mt-10') !== null;
+        swiper.slidePrev();
+        if (isBottom && window.innerWidth < 768) {
+          const sec = document.getElementById('modul-lengkap');
+          sec?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Next Button Click Handlers
+    nextBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isBottom = btn.closest('.mt-10') !== null;
+        swiper.slideNext();
+        if (isBottom && window.innerWidth < 768) {
+          const sec = document.getElementById('modul-lengkap');
+          sec?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Initial state update
+    updateNavState(0);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initModuleExplorer);
+  } else {
+    initModuleExplorer();
+  }
+  document.addEventListener('astro:page-load', initModuleExplorer);
+</script>
