@@ -1,6 +1,5 @@
 ---
 import { Check, Sparkles, ArrowRight, ArrowLeft, MessageCircle } from '@lucide/astro';
-import { getWaUrl } from '@lib/whatsapp';
 import 'swiper/css';
 
 interface Props {
@@ -85,9 +84,6 @@ const { modules } = Astro.props;
         <div class="swiper-wrapper">
           {
             modules.map((m, idx) => {
-              const waText = `Halo Kriya, saya ingin konsultasi mengenai Modul ${m.number}: ${m.title} Software ZISWAF ERP.`;
-              const waUrl = getWaUrl(waText);
-
               return (
                 <div
                   id={`tab-panel-${m.id}`}
@@ -153,24 +149,6 @@ const { modules } = Astro.props;
                       </div>
                     </div>
 
-                    {/* Bottom Walkthrough Navigation & CTA Bar */}
-                    <div class="mt-10 border-t border-gray-100 pt-6 dark:border-neutral-800">
-                      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-
-                        {/* WhatsApp Consultation CTA */}
-                        <div>
-                          <a
-                            href={waUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white shadow-xs transition-all hover:bg-emerald-700 focus:outline-hidden sm:w-auto sm:text-sm dark:bg-emerald-500 dark:hover:bg-emerald-600"
-                          >
-                            <MessageCircle class="size-3.5 sm:size-4" />
-                            <span>Konsultasi Modul {m.number} via WA</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               );
