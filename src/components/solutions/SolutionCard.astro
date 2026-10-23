@@ -77,28 +77,6 @@ const { solution } = Astro.props;
       </p>
     </div>
 
-    <!-- Modules / Services Pill List -->
-    {
-      solution.modules && (
-        <div class="mt-6 border-t border-gray-100 pt-5 dark:border-neutral-800/80">
-          <span class="text-xs font-bold tracking-wider text-gray-500 uppercase dark:text-neutral-400">
-            {solution.modulesLabel || `Cakupan ${solution.modules.length} Layanan Inti:`}
-          </span>
-          <div class="mt-2.5 flex flex-wrap gap-1.5">
-            {solution.modules.slice(0, 5).map((mod) => (
-              <span class="rounded-md bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-700 dark:bg-neutral-800 dark:text-neutral-300">
-                {mod.title}
-              </span>
-            ))}
-            {solution.modules.length > 5 && (
-              <span class="rounded-md bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300">
-                +{solution.modules.length - 5} Layanan Lainnya
-              </span>
-            )}
-          </div>
-        </div>
-      )
-    }
   </div>
 
   <!-- Action CTAs -->
