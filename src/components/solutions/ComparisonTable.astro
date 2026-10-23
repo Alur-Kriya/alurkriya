@@ -18,7 +18,6 @@ const { comparison } = Astro.props;
 const subheadline =
   comparison.subheadline ||
   'Lihat bagaimana solusi terpadu dari Kriya menaikkan keandalan dan efisiensi operasional Anda.';
-const highlightBadge = comparison.badge || 'Terpadu';
 ---
 
 <section class="py-16 sm:py-24">
@@ -57,11 +56,6 @@ const highlightBadge = comparison.badge || 'Terpadu';
             >
               <div class="flex items-center justify-between">
                 <span>{comparison.columns[3]}</span>
-                <span
-                  class="rounded-full bg-emerald-600 px-2.5 py-0.5 text-[10px] font-bold tracking-wider text-white uppercase"
-                >
-                  {highlightBadge}
-                </span>
               </div>
             </th>
           </tr>
