@@ -13,6 +13,9 @@ import ModuleExplorer from '@components/solutions/ModuleExplorer.astro';
 import ComplianceSection from '@components/solutions/ComplianceSection.astro';
 import SolutionTestimonials from '@components/solutions/SolutionTestimonials.astro';
 import SolutionCta from '@components/solutions/SolutionCta.astro';
+import NetworkSegmentCards from '@components/solutions/NetworkSegmentCards.astro';
+import HardwareEcosystem from '@components/solutions/HardwareEcosystem.astro';
+import ImplementationWorkflow from '@components/solutions/ImplementationWorkflow.astro';
 import { solutions } from '@contents/solutions/solutions.mjs';
 import { SEOS } from '@lib/seos';
 
@@ -32,84 +35,170 @@ if (!solution) {
 const pageTitle = solution.title;
 const pageDesc = solution.description;
 
-// Structured data for SoftwareApplication schema
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: solution.name,
-  alternateName: 'Sistem ERP Lembaga Amil Zakat Kriya',
-  description: solution.description,
-  applicationCategory: 'BusinessApplication',
-  applicationSubCategory: 'Enterprise Resource Planning (ERP)',
-  operatingSystem: 'Web-based Cloud ERP',
-  url: `${SEOS.url}/solusi/${solution.slug}`,
-  provider: {
-    '@type': 'Organization',
-    name: SEOS.legalName,
-    alternateName: SEOS.name,
-    url: SEOS.url,
-    logo: `${SEOS.url}/favicon.svg`,
-    telephone: SEOS.phone,
-    email: SEOS.email,
-  },
-  featureList: solution.modules.map((m: { title: string }) => m.title),
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '28',
-  },
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'IDR',
-    description: 'Sesi konsultasi kebutuhan dan demonstrasi sistem gratis via WhatsApp.',
-  },
-};
+// Structured data schema: Service for Network Infrastructure or SoftwareApplication for ERP
+const isService = solution.schemaType === 'Service' || !solution.compliance;
+
+const structuredData = isService
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: solution.name,
+      alternateName: solution.title,
+      description: solution.description,
+      serviceType: solution.category,
+      provider: {
+        '@type': 'Organization',
+        name: SEOS.legalName,
+        alternateName: SEOS.name,
+        url: SEOS.url,
+        logo: `${SEOS.url}/favicon.svg`,
+        telephone: SEOS.phone,
+        email: SEOS.email,
+      },
+      areaServed: 'ID',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: solution.name,
+        itemListElement: solution.modules.map(
+          (m: { title: string; summary: string }, idx: number) => ({
+            '@type': 'Offer',
+            position: idx + 1,
+            itemOffered: {
+              '@type': 'Service',
+              name: m.title,
+              description: m.summary,
+            },
+          })
+        ),
+      },
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: solution.name,
+      alternateName: 'Sistem ERP Lembaga Amil Zakat Kriya',
+      description: solution.description,
+      applicationCategory: 'BusinessApplication',
+      applicationSubCategory: 'Enterprise Resource Planning (ERP)',
+      operatingSystem: 'Web-based Cloud ERP',
+      url: `${SEOS.url}/solusi/${solution.slug}`,
+      provider: {
+        '@type': 'Organization',
+        name: SEOS.legalName,
+        alternateName: SEOS.name,
+        url: SEOS.url,
+        logo: `${SEOS.url}/favicon.svg`,
+        telephone: SEOS.phone,
+        email: SEOS.email,
+      },
+      featureList: solution.modules.map((m: { title: string }) => m.title),
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'IDR',
+        description: 'Sesi konsultasi kebutuhan dan demonstrasi sistem gratis via WhatsApp.',
+      },
+    };
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDesc}
   ogimage={solution.ogimage}
-  structuredData={softwareSchema}
+  url={`${SEOS.url}/solusi/${solution.slug}`}
+  structuredData={structuredData}
 >
-  <!-- 1. Hero Section (Matching /jasa/website-development layout & styling) -->
+  <!-- 1. Hero Section -->
   <SolutionHero
+    eyebrow={solution.hero?.eyebrow || solution.badge}
     heading={solution.name}
+    headline={solution.hero?.headline}
     description={solution.description}
+    subheadline={solution.hero?.subheadline}
     waMessage={solution.waMessage}
+    primaryCtaText={solution.hero?.primaryCta}
+    secondaryCtaText={solution.hero?.secondaryCta}
+    secondaryCtaHref={solution.hero?.secondaryCtaHref || '#pain-points'}
+    image={solution.images?.hero}
+    imageAlt={solution.name}
   />
 
   <!-- 2. Client & Institution Trust Banner -->
-  <ClientLogos clients={solution.clientInstitutions} />
+  <ClientLogos heading={solution.trustBannerHeading} clients={solution.clientInstitutions} />
 
-  <!-- 3. Pain Points: Apakah Lembaga Anda Mengalami Ini? -->
-  <PainPoints painPoints={solution.painPoints} />
+  <!-- 3. Pain Points -->
+  <PainPoints
+    title={solution.painPointsTitle}
+    subtitle={solution.painPointsSubtitle}
+    painPoints={solution.painPoints}
+  />
 
-  <!-- 4. Root Cause Analysis: Silo Apps vs Integrated ERP Hub -->
+  <!-- 4. Specific Segments (SME vs Residential) -->
+  {solution.segments && <NetworkSegmentCards segments={solution.segments} />}
+
+  <!-- 5. Root Cause Analysis -->
   <RootCause rootCause={solution.rootCause} />
 
-  <!-- 5. Comparison: Excel vs Ordinary Apps vs Software ZISWAF ERP -->
+  <!-- 6. Comparison Table -->
   <ComparisonTable comparison={solution.comparison} />
 
-  <!-- 6. Jawaban Konkret per Bidang (Ringkas & Cepat Dipahami) -->
-  <PainSolution deepDives={solution.deepDives} />
+  <!-- 7. Concise Concrete Solutions per Area -->
+  <PainSolution
+    heading={solution.deepDivesHeading}
+    subheading={solution.deepDivesSubheading}
+    deepDives={solution.deepDives}
+  />
 
-  <!-- 7. Role-Based Advantages -->
-  <RoleBenefits roles={solution.roles} />
+  <!-- 8. Role-Based Advantages -->
+  {
+    solution.roles && (
+      <RoleBenefits
+        headline={solution.rolesHeading}
+        subheadline={solution.rolesSubheading}
+        roles={solution.roles}
+      />
+    )
+  }
 
-  <!-- 8. Complete 11 Modules Explorer (All Sub-features) -->
-  <ModuleExplorer modules={solution.modules} />
+  <!-- 9. Complete Modules Explorer -->
+  <ModuleExplorer
+    badge={solution.modulesBadge}
+    title={solution.modulesTitle}
+    subtitle={solution.modulesSubtitle}
+    modules={solution.modules}
+  />
 
-  <!-- 9. Sharia & Regulatory Compliance (PSAK 109, BAZNAS ACR, Audit Trail) -->
-  <ComplianceSection />
+  <!-- 10. Sharia & Regulatory Compliance (Only rendered for solutions requiring compliance) -->
+  {solution.compliance && <ComplianceSection />}
 
-  <!-- 10. User & Practitioner Testimonials -->
-  <SolutionTestimonials testimonials={solution.testimonials} />
+  <!-- 11. Hardware Ecosystem Showcase (Ubiquiti UniFi, MikroTik, Ruijie, Aruba) -->
+  {solution.hardwareEcosystem && <HardwareEcosystem hardware={solution.hardwareEcosystem} />}
 
-  <!-- 11. FAQ Section -->
+  <!-- 12. Implementation Workflow & Methodology -->
+  {
+    solution.implementationSteps && (
+      <ImplementationWorkflow
+        headline={solution.customizationHeadline}
+        subheadline={solution.customizationSubheadline}
+        steps={solution.implementationSteps}
+        waMessage={solution.waMessage}
+      />
+    )
+  }
+
+  <!-- 13. Real Impact & Practitioners Highlights -->
+  <SolutionTestimonials
+    title={solution.impactHeading}
+    subtitle={solution.impactSubheading}
+    highlights={solution.impactHighlights}
+    testimonials={solution.testimonials}
+  />
+
+  <!-- 14. FAQ Section -->
   <Faq
-    heading="Pertanyaan yang Sering Diajukan Seputar Software ZISWAF ERP"
+    title={solution.faqHeading || 'Pertanyaan yang Sering Diajukan'}
+    heading={solution.name}
+    subheading={`Pertanyaan umum seputar fitur, implementasi, dan kepatuhan ${solution.name}.`}
     q1={solution.faqs[0]?.q || ''}
     a1={solution.faqs[0]?.a || ''}
     q2={solution.faqs[1]?.q || ''}
@@ -124,11 +213,14 @@ const softwareSchema = {
     a6={solution.faqs[5]?.a || ''}
   />
 
-  <!-- 12. High-Conversion Closing CTA -->
+  <!-- 15. High-Conversion Closing CTA -->
   <SolutionCta
-    title="Siap Mengintegrasikan Seluruh Tata Kelola Lembaga ZISWAF Anda?"
-    desc="Dapatkan sesi demonstrasi langsung dan konsultasi sistem bersama tim ahli Kriya. Temukan bagaimana Software ZISWAF ERP membantu lembaga Anda bertumbuh lebih amanah dan akuntabel."
+    title={solution.ctaTitle || 'Siap Mengintegrasikan Seluruh Tata Kelola Lembaga Anda?'}
+    desc={solution.ctaDesc ||
+      'Dapatkan sesi demonstrasi langsung dan konsultasi sistem bersama tim ahli Kriya.'}
     message={solution.waMessage}
+    ctaLabel={solution.ctaButtonLabel}
+    note={solution.ctaNote}
   />
 
   <RichSnippets />

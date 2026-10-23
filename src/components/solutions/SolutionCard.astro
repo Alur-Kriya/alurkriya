@@ -15,6 +15,9 @@ interface Props {
     };
     stats?: Array<{ value: string; label: string }>;
     modules?: Array<{ title: string }>;
+    modulesLabel?: string;
+    demoButtonLabel?: string;
+    waMessage?: string;
   };
 }
 
@@ -30,7 +33,7 @@ const { solution } = Astro.props;
       <span
         class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300"
       >
-        <span class="size-1.5 animate-pulse rounded-full bg-emerald-500"></span>
+        <span class="size-1.5 rounded-full bg-emerald-500"></span>
         {solution.badge}
       </span>
       <span
@@ -74,22 +77,22 @@ const { solution } = Astro.props;
       </p>
     </div>
 
-    <!-- Key Modules Pill List -->
+    <!-- Modules / Services Pill List -->
     {
       solution.modules && (
         <div class="mt-6 border-t border-gray-100 pt-5 dark:border-neutral-800/80">
           <span class="text-xs font-bold tracking-wider text-gray-500 uppercase dark:text-neutral-400">
-            Cakupan 11 Modul Inti:
+            {solution.modulesLabel || `Cakupan ${solution.modules.length} Layanan Inti:`}
           </span>
           <div class="mt-2.5 flex flex-wrap gap-1.5">
-            {solution.modules.slice(0, 6).map((mod) => (
+            {solution.modules.slice(0, 5).map((mod) => (
               <span class="rounded-md bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-700 dark:bg-neutral-800 dark:text-neutral-300">
                 {mod.title}
               </span>
             ))}
-            {solution.modules.length > 6 && (
+            {solution.modules.length > 5 && (
               <span class="rounded-md bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300">
-                +{solution.modules.length - 6} Modul Lainnya
+                +{solution.modules.length - 5} Layanan Lainnya
               </span>
             )}
           </div>
@@ -104,17 +107,18 @@ const { solution } = Astro.props;
   >
     <a
       href={`/solusi/${solution.slug}`}
-      class="inline-flex items-center gap-x-1.5 text-sm font-semibold text-(--color-steel-blue-800) transition-colors hover:text-emerald-600 dark:text-blue-400 dark:hover:text-emerald-300"
+      class="inline-flex min-h-[44px] items-center gap-x-1.5 rounded-md py-2 text-sm font-semibold text-(--color-steel-blue-800) transition-colors hover:text-emerald-600 focus-visible:ring-2 focus-visible:ring-(--color-steel-blue-600) focus-visible:ring-offset-2 focus-visible:outline-hidden dark:text-blue-400 dark:hover:text-emerald-300 dark:focus-visible:ring-offset-neutral-900"
     >
       <span>Lihat Fitur & Solusi Lengkap</span>
       <ChevronRight class="size-4" />
     </a>
 
     <DemoButton
-      label="Minta Demo"
+      label={solution.demoButtonLabel || 'Minta Demo'}
       size="sm"
       variant="emerald"
-      message={`Halo Kriya, saya tertarik dan ingin minta sesi demo untuk ${solution.name}.`}
+      message={solution.waMessage ||
+        `Halo Kriya, saya tertarik dan ingin minta sesi konsultasi untuk ${solution.name}.`}
     />
   </div>
 </div>

@@ -1,8 +1,16 @@
 ---
-import { Star } from '@lucide/astro';
+import { CheckCircle2 } from '@lucide/astro';
 
 interface Props {
-  testimonials: Array<{
+  title?: string;
+  subtitle?: string;
+  highlights?: Array<{
+    topic: string;
+    impact: string;
+    desc: string;
+    metric: string;
+  }>;
+  testimonials?: Array<{
     quote: string;
     author: string;
     role: string;
@@ -10,55 +18,123 @@ interface Props {
   }>;
 }
 
-const { testimonials } = Astro.props;
+const defaultImpactHighlights = [
+  {
+    topic: 'Efisiensi Rekonsiliasi Bank & Akuntansi',
+    impact: 'Dari 5 hari kerja manual menjadi hitungan jam',
+    desc: 'Penggunaan modul Ayat Silang mengeliminasi proses pencocokan mutasi rekening koran secara manual. Jurnal akuntansi PSAK 109 terbentuk otomatis dari setiap transaksi kasir dan mutasi bank yang terverifikasi.',
+    metric: 'Audit Syariah Siap Kapan Saja',
+  },
+  {
+    topic: 'Kecepatan Otorisasi Bantuan (PPD)',
+    impact: 'Persetujuan PPD berjenjang dalam hitungan menit',
+    desc: 'Menggantikan nota kertas fisik dan chat grup yang rawan tercecer. Pimpinan dapat menyetujui pencairan dana darurat mustahik langsung dari smartphone dengan batas otorisasi berjenjang yang aman.',
+    metric: 'Penyaluran Mustahik Lebih Cepat',
+  },
+  {
+    topic: 'Retensi Muzaki & Kultur Amanah Amil',
+    impact: 'Pemberitahuan donasi otomatis & audit trail ketat',
+    desc: 'Muzaki menerima Bukti Setor Zakat resmi secara instan via WhatsApp/Email. Dilengkapi modul evaluasi amil dan pelaporan gratifikasi untuk menjaga kepatuhan tata kelola di seluruh gerai.',
+    metric: 'Transparansi Lembaga Terjaga',
+  },
+];
+
+const {
+  title = 'Dampak Nyata Implementasi Solusi Kriya',
+  subtitle = 'Hasil nyata yang dirasakan tim operasional setelah beralih ke arsitektur dan sistem terpadu dari Alur Kriya Teknologi.',
+  highlights,
+  testimonials,
+} = Astro.props;
+
+const items = highlights && highlights.length > 0 ? highlights : defaultImpactHighlights;
 ---
 
 <section class="py-16 sm:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <h2
-        class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
-      >
-        Dipercaya oleh Praktisi & Pimpinan Lembaga ZISWAF
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+        {title}
       </h2>
       <p class="mt-4 text-base text-gray-600 sm:text-lg dark:text-neutral-300">
-        Dengarkan bagaimana transformasi ke sistem Software ZISWAF ERP memberikan dampak nyata bagi
-        kelancaran operasional dan akuntabilitas mereka.
+        {subtitle}
       </p>
     </div>
 
-    <!-- Testimonials Grid -->
+    <!-- Impact Highlights Grid -->
     <div class="mt-14 grid gap-8 lg:grid-cols-3">
       {
-        testimonials.map((t) => (
-          <div class="flex flex-col justify-between rounded-3xl border border-gray-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
+        items.map((item) => (
+          <div class="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-7 shadow-xs transition-all duration-300 hover:border-emerald-500/40 hover:shadow-md dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
             <div>
-              <div class="flex items-center gap-1">
-                {Array.from({ length: 5 }).map(() => (
-                  <Star class="size-4 fill-amber-400 text-amber-400" />
-                ))}
+              <div class="flex items-center gap-2">
+                <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
+                  <CheckCircle2 class="size-4" />
+                </span>
+                <span class="text-xs font-bold tracking-wide text-emerald-700 uppercase dark:text-emerald-400">
+                  {item.topic}
+                </span>
               </div>
 
-              <p class="mt-5 text-sm leading-relaxed text-gray-700 italic dark:text-neutral-300">
-                "{t.quote}"
+              <h3 class="mt-4 text-base font-bold text-gray-900 dark:text-white">{item.impact}</h3>
+
+              <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-neutral-300">
+                {item.desc}
               </p>
             </div>
 
-            <div class="mt-8 flex items-center gap-3.5 border-t border-gray-100 pt-5 dark:border-neutral-800">
-              <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-                {t.author.charAt(0)}
-              </div>
-              <div>
-                <h4 class="text-xs font-bold text-gray-900 dark:text-white">{t.author}</h4>
-                <p class="text-[11px] font-medium text-emerald-700 dark:text-emerald-400">
-                  {t.role}
-                </p>
-                <p class="text-[10px] text-gray-500 dark:text-neutral-400">{t.institution}</p>
-              </div>
+            <div class="mt-8 border-t border-gray-100 pt-4 dark:border-neutral-800">
+              <span class="inline-flex items-center rounded-lg bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-neutral-900 dark:text-neutral-300">
+                {item.metric}
+              </span>
             </div>
           </div>
         ))
       }
     </div>
+
+    <!-- Real Customer Testimonials -->
+    {
+      testimonials && testimonials.length > 0 && (
+        <div class="mt-20">
+          <div class="mx-auto max-w-3xl text-center">
+            <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
+              Apa Kata Praktisi & Pengelola Lembaga Mitra?
+            </h3>
+            <p class="mt-3 text-sm text-gray-600 sm:text-base dark:text-neutral-400">
+              Pengalaman nyata tim keuangan, pendayagunaan, dan SDM setelah beralih ke Software ZISWAF ERP.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t) => (
+              <div class="flex flex-col justify-between rounded-3xl border border-gray-200 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-xl dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
+                <div>
+                  <!-- 5 Star Rating -->
+                  <div class="flex items-center gap-1 text-amber-400">
+                    {[...Array(5)].map(() => (
+                      <svg class="size-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  <!-- Quote Text -->
+                  <blockquote class="mt-4 text-sm leading-relaxed text-gray-700 italic dark:text-neutral-300">
+                    "{t.quote}"
+                  </blockquote>
+                </div>
+
+                <!-- Author Info -->
+                <div class="mt-6 border-t border-gray-100 pt-4 dark:border-neutral-800">
+                  <p class="text-sm font-bold text-gray-900 dark:text-white">{t.author}</p>
+                  <p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400">{t.role}</p>
+                  <p class="text-xs text-gray-500 dark:text-neutral-400">{t.institution}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
   </div>
 </section>

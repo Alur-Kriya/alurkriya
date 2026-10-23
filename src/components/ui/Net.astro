@@ -1,87 +1,28 @@
-<!-- Network Canvas -->
-<canvas id="network-canvas" class="absolute inset-0 -z-1 size-full opacity-40 dark:opacity-20"
-></canvas>
-<!-- End Network Canvas -->
-
-<script>
-  const canvas = document.getElementById('network-canvas') as HTMLCanvasElement;
-
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let w: number, h: number;
-    let particles: Particle[] = [];
-
-    // Konfigurasi
-    const particleCount = 60;
-    const connectionDistance = 150;
-    const moveSpeed = 0.5;
-
-    class Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-
-      constructor() {
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.vx = (Math.random() - 0.5) * moveSpeed;
-        this.vy = (Math.random() - 0.5) * moveSpeed;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > w) this.vx *= -1;
-        if (this.y < 0 || this.y > h) this.vy *= -1;
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = '#888888';
-        ctx.fill();
-      }
-    }
-
-    const init = () => {
-      w = canvas.width = canvas.parentElement?.offsetWidth || window.innerWidth;
-      h = canvas.height = canvas.parentElement?.offsetHeight || window.innerHeight;
-      particles = Array.from({ length: particleCount }, () => new Particle());
-    };
-
-    const animate = () => {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, w, h);
-
-      particles.forEach((p, index) => {
-        p.update();
-        p.draw();
-
-        // Draw connections
-        for (let i = index + 1; i < particles.length; i++) {
-          const p2 = particles[i];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < connectionDistance) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(136, 136, 136, ${1 - distance / connectionDistance})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        }
-      });
-      requestAnimationFrame(animate);
-    };
-
-    window.addEventListener('resize', init);
-    init();
-    animate();
-  }
-</script>
+<!-- Stationary Architectural Grid Background (Motion Dial 1 - Calm & Purposeful) -->
+<div
+  class="pointer-events-none absolute inset-0 -z-1 size-full overflow-hidden opacity-50 dark:opacity-25"
+  aria-hidden="true"
+>
+  <svg class="size-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <defs>
+      <pattern id="arch-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+        <path
+          d="M 48 0 L 0 0 0 48"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="0.75"
+          class="text-neutral-300 dark:text-neutral-700"
+          stroke-dasharray="2 4"></path>
+        <circle cx="0" cy="0" r="1.5" class="fill-neutral-400 dark:fill-neutral-600"></circle>
+      </pattern>
+      <radialGradient id="fade-mask" cx="50%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="white" stop-opacity="1"></stop>
+        <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+      </radialGradient>
+      <mask id="radial-fade">
+        <rect width="100%" height="100%" fill="url(#fade-mask)"></rect>
+      </mask>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#arch-grid)" mask="url(#radial-fade)"></rect>
+  </svg>
+</div>

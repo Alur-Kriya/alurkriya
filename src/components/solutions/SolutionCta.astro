@@ -1,17 +1,20 @@
 ---
 import DemoButton from './DemoButton.astro';
-import { ChevronRight } from '@lucide/astro';
 
 interface Props {
   title?: string;
   desc?: string;
   message?: string;
+  ctaLabel?: string;
+  note?: string;
 }
 
 const {
   title = 'Siap Menyatukan Seluruh Operasional Lembaga ZISWAF Anda dalam Satu Sistem ERP?',
   desc = 'Jadwalkan sesi presentasi dan demonstrasi langsung bersama konsultan sistem kami. Kami tunjukkan bagaimana Software ZISWAF ERP bekerja mengotomasi tata kelola lembaga Anda.',
   message = 'Halo Kriya, saya ingin request sesi demo Software ZISWAF ERP untuk jajaran pimpinan lembaga kami.',
+  ctaLabel = 'Minta Demo via WhatsApp',
+  note = 'Tim konsultan Kriya siap merespons permohonan Anda dalam waktu 1x24 jam kerja.',
 } = Astro.props;
 ---
 
@@ -46,7 +49,7 @@ const {
         <!-- CTA Buttons -->
         <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <DemoButton
-            label="Minta Demo via WhatsApp"
+            label={ctaLabel}
             size="lg"
             variant="emerald"
             id="bottom-wa-demo-cta"
@@ -55,15 +58,14 @@ const {
 
           <a
             href="/kontak"
-            class="inline-flex items-center justify-center gap-x-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/20"
+            class="inline-flex min-h-[48px] items-center justify-center gap-x-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 focus-visible:outline-hidden"
           >
             <span>Hubungi Kami via Form</span>
-            <ChevronRight class="size-4 shrink-0" />
           </a>
         </div>
 
         <p class="mt-6 text-xs text-neutral-400">
-          Tim konsultan Kriya siap merespons permohonan demo dalam waktu 1x24 jam kerja.
+          {note}
         </p>
       </div>
     </div>

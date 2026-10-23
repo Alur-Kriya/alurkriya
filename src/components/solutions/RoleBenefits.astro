@@ -1,7 +1,10 @@
 ---
-import { Check } from '@lucide/astro';
+import { Check, ArrowRight, ShieldCheck, TrendingUp, Wallet, Users, HeartHandshake, UserCheck, Wifi, Building2, Warehouse, House } from '@lucide/astro';
+import { getWaUrl } from '@lib/whatsapp';
 
 interface Props {
+  headline?: string;
+  subheadline?: string;
   roles: Array<{
     id: string;
     role: string;
@@ -10,64 +13,455 @@ interface Props {
   }>;
 }
 
-const { roles } = Astro.props;
+const {
+  headline = 'Manfaat Nyata untuk Seluruh Tim Lembaga Anda',
+  subheadline = 'Bukan sekadar fitur umum, sistem dirancang presisi memberikan kemudahan kerja spesifik bagi setiap divisi organisasi.',
+  roles = [],
+} = Astro.props;
 ---
 
-<section class="bg-gray-50/70 py-16 sm:py-24 dark:bg-neutral-900/40">
+<section id="manfaat-peran" class="scroll-mt-20 bg-gradient-to-b from-white via-gray-50/60 to-white py-16 sm:py-24 dark:from-(--color-deep-space-blue-900) dark:via-neutral-900/40 dark:to-(--color-deep-space-blue-950)">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
     <div class="mx-auto max-w-3xl text-center">
-      <h2
-        class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
+      <span
+        class="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50/70 px-3.5 py-1 text-xs font-semibold text-emerald-800 backdrop-blur-xs dark:border-emerald-800/60 dark:bg-emerald-950/40 dark:text-emerald-300"
       >
-        Manfaat Nyata untuk Seluruh Tim Lembaga Anda
+        <ShieldCheck class="size-3.5 text-emerald-600 dark:text-emerald-400" />
+        Dirancang Spesifik per Bidang Tanggung Jawab
+      </span>
+
+      <h2
+        class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white"
+      >
+        {headline}
       </h2>
       <p class="mt-4 text-base text-gray-600 sm:text-lg dark:text-neutral-300">
-        Dari pimpinan puncak yang membutuhkan ringkasan eksekutif, hingga amil lapangan yang
-        mencatat kuitansi donasi.
+        {subheadline}
       </p>
     </div>
 
-    <!-- Role Cards Grid -->
-    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Role Tab Selector -->
+    <div class="mt-12 flex flex-wrap items-center justify-center gap-2 sm:gap-3" id="role-tabs-nav">
+      {
+        roles.map((r, idx) => (
+          <button
+            type="button"
+            class={`role-tab-btn inline-flex min-h-[44px] items-center gap-2 rounded-2xl border px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-hidden ${
+              idx === 0
+                ? 'active border-emerald-500 bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
+                : 'border-gray-200 bg-white text-gray-700 shadow-2xs hover:border-emerald-400 hover:bg-emerald-50/60 hover:text-emerald-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:border-emerald-500 dark:hover:bg-neutral-700'
+            }`}
+            data-role-target={r.id}
+          >
+            <span class="inline-block size-2 rounded-full bg-current opacity-80" />
+            <span>{r.role}</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Role Panels Container -->
+    <div class="mt-10" id="role-panels-container">
       {
         roles.map((r, idx) => (
           <div
-            class={`flex flex-col justify-between rounded-3xl border bg-white p-6 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-xl sm:p-8 dark:bg-(--color-deep-space-blue-950) ${
-              idx === 0
-                ? 'border-emerald-300/80 ring-2 ring-emerald-500/20 dark:border-emerald-800'
-                : 'border-gray-200 dark:border-neutral-800'
-            }`}
+            id={`role-panel-${r.id}`}
+            class={`role-panel transition-opacity duration-300 ${idx === 0 ? 'block opacity-100' : 'hidden opacity-0'}`}
           >
-            <div>
-              <div class="flex items-center justify-between border-b border-gray-100 pb-4 dark:border-neutral-800">
-                <span class="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
-                  Peran {idx + 1}
-                </span>
-                {idx === 0 && (
-                  <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase dark:text-emerald-400">
-                    Eksekutif
-                  </span>
-                )}
+            <div class="grid items-center gap-8 rounded-3xl border border-gray-200/90 bg-white p-6 shadow-xl lg:grid-cols-12 lg:gap-12 lg:p-10 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
+              <!-- Left Column: Role Details & Benefits (5 cols) -->
+              <div class="lg:col-span-5 flex flex-col justify-between">
+                <div>
+                  <div class="inline-flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
+                    <span>Fokus: {r.role}</span>
+                  </div>
+
+                  <h3 class="mt-4 text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
+                    {r.role}
+                  </h3>
+
+                  <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-neutral-300">
+                    {r.summary}
+                  </p>
+
+                  <div class="mt-6 border-t border-gray-100 pt-5 dark:border-neutral-800">
+                    <h4 class="text-xs font-bold tracking-wider text-gray-400 uppercase dark:text-neutral-500">
+                      Keunggulan & Dampak Langsung:
+                    </h4>
+                    <ul class="mt-3.5 space-y-3">
+                      {r.benefits.map((b) => (
+                        <li class="flex items-start gap-3 rounded-xl border border-gray-100/80 bg-gray-50/50 p-2.5 text-xs font-medium text-gray-800 dark:border-neutral-800/80 dark:bg-neutral-900/40 dark:text-neutral-200">
+                          <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
+                            <Check class="size-3 stroke-[3]" />
+                          </span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-8 border-t border-gray-100 pt-5 dark:border-neutral-800">
+                  <a
+                    href={getWaUrl(`Halo Kriya, saya ingin konsultasi sistem untuk kebutuhan ${r.role}.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-(--color-steel-blue-800) px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-(--color-steel-blue-700) focus-visible:ring-2 focus-visible:ring-(--color-steel-blue-600) focus-visible:outline-hidden dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600)"
+                  >
+                    <span>Konsultasi Kebutuhan {r.role.split('&')[0].trim()}</span>
+                    <ArrowRight class="size-3.5" />
+                  </a>
+                </div>
               </div>
 
-              <h3 class="mt-4 text-lg font-bold text-gray-900 dark:text-white">{r.role}</h3>
+              <!-- Right Column: Bespoke Live UI Mockup Preview (7 cols) -->
+              <div class="lg:col-span-7">
+                <div class="overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-900 shadow-2xl dark:border-neutral-700">
+                  <!-- Browser / App Header Bar -->
+                  <div class="flex items-center justify-between border-b border-gray-800 bg-gray-950/80 px-4 py-3">
+                    <div class="flex items-center gap-1.5">
+                      <span class="size-2.5 rounded-full bg-red-500/80" />
+                      <span class="size-2.5 rounded-full bg-amber-500/80" />
+                      <span class="size-2.5 rounded-full bg-emerald-500/80" />
+                    </div>
+                    <div class="rounded-md bg-gray-800/60 px-3 py-0.5 font-mono text-[10px] text-gray-400">
+                      kriya-system://console/{r.id}
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="inline-block size-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span class="text-[10px] font-semibold text-emerald-400">Live Active</span>
+                    </div>
+                  </div>
 
-              <p class="mt-2 text-xs leading-relaxed text-gray-600 dark:text-neutral-400">
-                {r.summary}
-              </p>
+                  <!-- Mockup Content Canvas tailored per role -->
+                  <div class="p-5 sm:p-6 text-white font-sans">
+                    {r.id === 'direktur' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Ringkasan Eksekutif Yayasan</span>
+                            <h5 class="text-lg font-bold text-white">Executive Command Dashboard</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Status: Siap Audit WTP
+                          </span>
+                        </div>
 
-              <div class="mt-6 border-t border-gray-100 pt-4 dark:border-neutral-800">
-                <h4 class="text-[11px] font-bold tracking-wider text-gray-400 uppercase dark:text-neutral-500">
-                  Dampak Langsung:
-                </h4>
-                <ul class="mt-3 space-y-2.5">
-                  {r.benefits.map((b) => (
-                    <li class="flex items-start gap-2 text-xs font-medium text-gray-700 dark:text-neutral-300">
-                      <Check class="mt-0.5 size-3.5 shrink-0 stroke-[3] text-emerald-600 dark:text-emerald-400" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
+                        <!-- 3 Stat Widgets -->
+                        <div class="grid grid-cols-3 gap-3">
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Total Himpunan (YTD)</span>
+                            <span class="text-base font-extrabold text-emerald-400">Rp 4.280.500.000</span>
+                            <span class="text-[9px] text-emerald-500 block mt-0.5">▲ +24.8% vs tahun lalu</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Rasio Kepatuhan ACR</span>
+                            <span class="text-base font-extrabold text-blue-400">89.4%</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Standar BAZNAS (Aman)</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Serapan Pagu RKAT</span>
+                            <span class="text-base font-extrabold text-amber-400">68.2%</span>
+                            <span class="text-[9px] text-amber-500 block mt-0.5">Budget Alert: Normal</span>
+                          </div>
+                        </div>
+
+                        <!-- Action Center Queue -->
+                        <div class="rounded-xl border border-emerald-500/20 bg-emerald-950/20 p-3.5">
+                          <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-emerald-300">Action Center: 1 Otorisasi Dana Menunggu Persetujuan Direktur</span>
+                            <span class="rounded bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">Segera</span>
+                          </div>
+                          <div class="mt-2.5 flex items-center justify-between rounded-lg bg-gray-900/80 p-2.5 text-xs border border-gray-800">
+                            <div>
+                              <p class="font-bold text-white">PPD-2026-042: Bantuan Darurat Bencana Banjir (Fakir/Miskin)</p>
+                              <p class="text-[10px] text-gray-400">Diajukan: Div. Program Lapangan • Nominal: Rp 35.000.000</p>
+                            </div>
+                            <span class="rounded-md bg-emerald-600 px-3 py-1 text-xs font-bold text-white">✓ Setujui</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {r.id === 'keuangan' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Standar Akuntansi Syariah</span>
+                            <h5 class="text-lg font-bold text-white">Buku Besar & Jurnal Otomatis PSAK 109</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Rekonsiliasi: 100% Klop
+                          </span>
+                        </div>
+
+                        <div class="grid grid-cols-4 gap-2 text-center text-xs">
+                          <div class="rounded-lg border border-gray-800 bg-gray-800/40 p-2">
+                            <span class="text-[10px] text-gray-400 block">Dana Zakat (8 Asnaf)</span>
+                            <span class="font-bold text-emerald-400">Rp 1,84 M</span>
+                          </div>
+                          <div class="rounded-lg border border-gray-800 bg-gray-800/40 p-2">
+                            <span class="text-[10px] text-gray-400 block">Dana Infaq / Sedekah</span>
+                            <span class="font-bold text-blue-400">Rp 1,42 M</span>
+                          </div>
+                          <div class="rounded-lg border border-gray-800 bg-gray-800/40 p-2">
+                            <span class="text-[10px] text-gray-400 block">Dana Wakaf Terikat</span>
+                            <span class="font-bold text-purple-400">Rp 650 Jt</span>
+                          </div>
+                          <div class="rounded-lg border border-gray-800 bg-gray-800/40 p-2">
+                            <span class="text-[10px] text-gray-400 block">Hak Kelola Amil (1/8)</span>
+                            <span class="font-bold text-amber-400">11.8% (Sesuai)</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-3 space-y-2 text-xs">
+                          <div class="flex items-center justify-between border-b border-gray-800/60 pb-1.5 text-[11px] text-gray-400">
+                            <span>Modul Ayat Silang Bank (Mutasi Rekening Koran)</span>
+                            <span class="text-emerald-400">Match 142 Transaksi Hari Ini</span>
+                          </div>
+                          <div class="flex justify-between items-center text-[11px]">
+                            <span class="text-gray-300">Bank Syariah Indonesia (BSI) 7001-xxx</span>
+                            <span class="font-mono text-emerald-400">Klop Rp 84.500.000 ✓</span>
+                          </div>
+                          <div class="flex justify-between items-center text-[11px]">
+                            <span class="text-gray-300">Bank Muamalat 101-xxx</span>
+                            <span class="font-mono text-emerald-400">Klop Rp 42.100.000 ✓</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {r.id === 'fundraising' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Relationship Management (CRM)</span>
+                            <h5 class="text-lg font-bold text-white">Database Muzaki 360° & Otomasi WA</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Retensi: 82.4%
+                          </span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 text-xs">
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Total Muzaki Terdaftar</span>
+                            <span class="text-base font-extrabold text-white">14.820 Muzaki</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Schedule Donasi Rutin</span>
+                            <span class="text-base font-extrabold text-emerald-400">1.240 Komitmen</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Pipeline Telemarketing</span>
+                            <span class="text-base font-extrabold text-blue-400">86 Kontak Hari Ini</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-xl border border-emerald-500/20 bg-gray-900/90 p-3 text-xs">
+                          <div class="flex items-center justify-between text-[11px] text-emerald-300 font-bold">
+                            <span>WhatsApp Campaign Manager Auto-Dispatcher</span>
+                            <span class="text-emerald-400">Status: Sent 100%</span>
+                          </div>
+                          <p class="mt-1 text-[11px] text-gray-300">
+                            "Jazakallahu khair Bapak Irwan, bukti setor Zakat Penghasilan No. BSZ-2026-088 telah terbit resmi dan dana disalurkan ke Program Peduli Yatim."
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {r.id === 'program' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Pemberdayaan & Pendayagunaan</span>
+                            <h5 class="text-lg font-bold text-white">Monitoring Penyaluran 8 Asnaf & LPJ</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Penyaluran: Tepat Sasaran
+                          </span>
+                        </div>
+
+                        <!-- 8 Asnaf Progress Bar -->
+                        <div class="rounded-xl border border-gray-800 bg-gray-800/30 p-3">
+                          <span class="text-[10px] text-gray-400 block">Peta Alokasi 8 Asnaf Zakat:</span>
+                          <div class="mt-2 flex h-3 overflow-hidden rounded-full bg-gray-700">
+                            <div style="width: 40%" class="bg-emerald-500" title="Fakir (40%)"></div>
+                            <div style="width: 35%" class="bg-teal-400" title="Miskin (35%)"></div>
+                            <div style="width: 12%" class="bg-blue-400" title="Fisabilillah (12%)"></div>
+                            <div style="width: 8%" class="bg-amber-400" title="Ibnu Sabil (8%)"></div>
+                            <div style="width: 5%" class="bg-purple-400" title="Muallaf (5%)"></div>
+                          </div>
+                          <div class="mt-2 flex justify-between text-[10px] text-gray-400">
+                            <span>Fakir (40%)</span>
+                            <span>Miskin (35%)</span>
+                            <span>Fisabilillah (12%)</span>
+                            <span>Lainnya (13%)</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-xl border border-gray-800 bg-gray-900 p-3 text-xs flex items-center justify-between">
+                          <div>
+                            <p class="font-bold text-white">Validasi LPJ Mustahik Lapangan (Anti-Duplikasi NIK)</p>
+                            <p class="text-[10px] text-gray-400">Foto dokumentasi serah terima & koordinat GPS tervalidasi</p>
+                          </div>
+                          <span class="rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 font-mono text-xs">
+                            ✓ Terverifikasi
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {r.id === 'sdm' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Tata Kelola Kepegawaian & Spiritualitas</span>
+                            <h5 class="text-lg font-bold text-white">Presensi Wajah GPS & Mutabaah Yaumiyah</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Integritas: Terjaga
+                          </span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 text-xs">
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Presensi Wajah & GPS</span>
+                            <span class="text-sm font-bold text-emerald-400">07:54 WIB (Valid)</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Radius Kantor Cabang</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Mutabaah Yaumiyah</span>
+                            <span class="text-sm font-bold text-blue-400">Skor 96%</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Sholat Berjamaah, Tilawah</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Kanal Gratifikasi</span>
+                            <span class="text-sm font-bold text-purple-400">0 Laporan Fraud</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Kepatuhan Amanah 100%</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-xl border border-gray-800 bg-gray-900 p-3 text-xs">
+                          <p class="font-bold text-white">Laporan Kerja Harian (LKH) & Otorisasi SPPD Terpadu</p>
+                          <p class="mt-1 text-[11px] text-gray-300">Pengajuan cuti, jam lembur, dan dinas luar kota tersinkronisasi otomatis ke dashboard tanpa formulir kertas.</p>
+                        </div>
+                      </div>
+                    )}
+
+                    {r.id === 'sme-owner' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Infrastruktur Kantor UKM & Ruko</span>
+                            <h5 class="text-lg font-bold text-white">Gateway Router & Bandwidth Shaper QoS</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Throughput: 1.000 Mbps
+                          </span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 text-xs">
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Kasir POS & ERP Cloud</span>
+                            <span class="text-sm font-bold text-emerald-400">Prioritas 100% (High QoS)</span>
+                            <span class="text-[9px] text-emerald-500 block mt-0.5">Zero Lag saat Jam Sibuk</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Jaringan Tamu (VLAN)</span>
+                            <span class="text-sm font-bold text-blue-400">Terisolasi Aman</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Subnet Terpisah dari Server</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Konektivitas Lantai 1-3</span>
+                            <span class="text-sm font-bold text-purple-400">Fast Roaming Aktif</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">802.11k/v/r Handover</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-xl border border-emerald-500/20 bg-gray-900 p-3 text-xs flex justify-between items-center">
+                          <div>
+                            <p class="font-bold text-white">Multi-WAN Failover Siap Otomatis</p>
+                            <p class="text-[10px] text-gray-400">Bila ISP Utama gangguan, router otomatis pindah ke ISP Cadangan tanpa internet kantor mati.</p>
+                          </div>
+                          <span class="rounded bg-emerald-600 px-2 py-1 text-[11px] font-bold text-white">Standby</span>
+                        </div>
+                      </div>
+                    )}
+
+                    {r.id === 'warehouse-manager' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Area Logistik & Workshop</span>
+                            <h5 class="text-lg font-bold text-white">Penetrasi Sinyal Rak Besi & Gudang Luas</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Cakupan: 100% Area
+                          </span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 text-xs">
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Barcode Scanner Nirkabel</span>
+                            <span class="text-sm font-bold text-emerald-400">Koneksi Stabil 24/7</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Kamera CCTV NVR</span>
+                            <span class="text-sm font-bold text-blue-400">0 Frame Drop (PoE)</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Pelindung Fisik Kabel</span>
+                            <span class="text-sm font-bold text-amber-400">Conduit PVC Kokoh</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-xl border border-gray-800 bg-gray-900 p-3 text-xs">
+                          <p class="font-bold text-white">Access Point High-Power Industrial</p>
+                          <p class="mt-1 text-[11px] text-gray-300">Menembus partisi dinding bata tebal dan rak besi logistik tinggi tanpa sinyal blind spot.</p>
+                        </div>
+                      </div>
+                    )}
+
+                    {r.id === 'home-owner' && (
+                      <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                          <div>
+                            <span class="text-xs text-gray-400">Hunian Residensial Bertingkat</span>
+                            <h5 class="text-lg font-bold text-white">Whole-Home Wi-Fi 6 & Seamless Roaming</h5>
+                          </div>
+                          <span class="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+                            Roaming: Zero Drop
+                          </span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 text-xs">
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Jangkauan Sinyal</span>
+                            <span class="text-sm font-bold text-emerald-400">Lantai 1 s/d Rooftop</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Sinyal 5 GHz Penuh</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Video Call Naik Tangga</span>
+                            <span class="text-sm font-bold text-blue-400">Tanpa Jeda Putus</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Fast Handover &lt;50ms</span>
+                          </div>
+                          <div class="rounded-xl border border-gray-800 bg-gray-800/40 p-3">
+                            <span class="text-[10px] text-gray-400 block">Estetika Interior</span>
+                            <span class="text-sm font-bold text-purple-400">Kabel Tersembunyi</span>
+                            <span class="text-[9px] text-gray-400 block mt-0.5">Plafon Bersih & Rapi</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-xl border border-gray-800 bg-gray-900 p-3 text-xs">
+                          <p class="font-bold text-white">Smart Home & Parental Control Terjadwal</p>
+                          <p class="mt-1 text-[11px] text-gray-300">Kamera CCTV gerbang, smart lock, dan TV 4K terhubung stabil tanpa berebut sinyal dengan gawai keluarga.</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -76,3 +470,78 @@ const { roles } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  function initRoleTabs() {
+    const nav = document.getElementById('role-tabs-nav');
+    const container = document.getElementById('role-panels-container');
+    if (!nav || !container) return;
+
+    const btns = Array.from(nav.querySelectorAll<HTMLButtonElement>('.role-tab-btn'));
+    const panels = Array.from(container.querySelectorAll<HTMLElement>('.role-panel'));
+
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-role-target');
+
+        // Update Button States
+        btns.forEach((b) => {
+          b.classList.remove(
+            'active',
+            'border-emerald-500',
+            'bg-emerald-600',
+            'text-white',
+            'shadow-md',
+            'shadow-emerald-600/20'
+          );
+          b.classList.add(
+            'border-gray-200',
+            'bg-white',
+            'text-gray-700',
+            'dark:border-neutral-700',
+            'dark:bg-neutral-800',
+            'dark:text-neutral-300'
+          );
+        });
+
+        btn.classList.add(
+          'active',
+          'border-emerald-500',
+          'bg-emerald-600',
+          'text-white',
+          'shadow-md',
+          'shadow-emerald-600/20'
+        );
+        btn.classList.remove(
+          'border-gray-200',
+          'bg-white',
+          'text-gray-700',
+          'dark:border-neutral-700',
+          'dark:bg-neutral-800',
+          'dark:text-neutral-300'
+        );
+
+        // Update Panel States
+        panels.forEach((p) => {
+          if (p.id === `role-panel-${targetId}`) {
+            p.classList.remove('hidden');
+            setTimeout(() => {
+              p.classList.remove('opacity-0');
+              p.classList.add('opacity-100');
+            }, 10);
+          } else {
+            p.classList.add('hidden', 'opacity-0');
+            p.classList.remove('opacity-100');
+          }
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRoleTabs);
+  } else {
+    initRoleTabs();
+  }
+  document.addEventListener('astro:page-load', initRoleTabs);
+</script>

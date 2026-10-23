@@ -2,7 +2,7 @@ export const pages = [
   {
     slug: 'tentang-kami',
     title: 'Tentang Kami',
-    desc: 'Kenali Kriya lebih dekat — perusahaan IT yang berkomitmen menghadirkan solusi teknologi terbaik untuk mendukung pertumbuhan dan efisiensi bisnis Anda.',
+    desc: 'Kenali Kriya lebih dekat, perusahaan IT yang berkomitmen menghadirkan solusi teknologi terbaik untuk mendukung pertumbuhan dan efisiensi bisnis Anda.',
     heading: 'Tentang Kami',
   },
   {

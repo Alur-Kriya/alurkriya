@@ -4,10 +4,11 @@ import { Sun } from '@lucide/astro';
 
 <button
   type="button"
-  class="hs-dark-mode-active:block hs-dark-mode hidden rounded-full font-medium hover:bg-gray-200 focus:bg-gray-200 focus:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+  aria-label="Toggle light mode"
+  class="hs-dark-mode-active:inline-flex hs-dark-mode hidden size-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full font-medium text-neutral-300 hover:bg-neutral-800 focus:bg-neutral-800 focus-visible:ring-2 focus-visible:ring-(--color-steel-blue-500) focus-visible:ring-offset-2 focus-visible:outline-hidden dark:focus-visible:ring-offset-neutral-900"
   data-hs-theme-click-value="light"
 >
-  <span class="group inline-flex size-9 shrink-0 items-center justify-center">
-    <Sun class="size-4 shrink-0" />
+  <span class="inline-flex size-11 shrink-0 items-center justify-center">
+    <Sun class="size-5 shrink-0" />
   </span>
 </button>

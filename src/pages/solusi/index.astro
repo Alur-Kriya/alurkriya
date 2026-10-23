@@ -25,12 +25,13 @@ const solutionSchema = {
     '@type': 'ListItem',
     position: index + 1,
     item: {
-      '@type': 'SoftwareApplication',
+      '@type': (sol as any).schemaType === 'Service' ? 'Service' : 'SoftwareApplication',
       name: sol.name,
       url: `${SEOS.url}/solusi/${sol.slug}`,
       description: sol.description,
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web',
+      ...((sol as any).schemaType === 'Service'
+        ? { serviceType: sol.category }
+        : { applicationCategory: 'BusinessApplication', operatingSystem: 'Web' }),
     },
   })),
 };
@@ -44,19 +45,13 @@ const solutionSchema = {
   <section class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
-        <span
-          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3.5 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300"
-        >
-          Produk Siap Pakai & Teruji
-        </span>
-        <h2
-          class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
-        >
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
           Platform Siap Pakai untuk Mengakselerasi Efisiensi Organisasi Anda
         </h2>
         <p class="mt-4 text-base text-gray-600 sm:text-lg dark:text-neutral-300">
-          Dirancang berdasarkan best practices industri, teruji pada puluhan ribu transaksi, dan
-          siap diimplementasikan secara cepat.
+          Solusi produk sistem terintegrasi dan infrastruktur teknologi siap pakai dari PT Alur
+          Kriya Teknologi untuk mendukung efisiensi operasional organisasi, bisnis UKM, dan hunian
+          modern.
         </p>
       </div>
 

@@ -1,11 +1,25 @@
 ---
-import { Users } from '@lucide/astro';
+import {
+  Users,
+  Landmark,
+  Building2,
+  Coins,
+  HeartHandshake,
+  Scale,
+  Store,
+  Warehouse,
+  Home,
+  ShieldCheck,
+  Building,
+} from '@lucide/astro';
 
 interface Props {
+  heading?: string;
   clients?: Array<{ name: string; type: string }>;
 }
 
 const {
+  heading = 'Telah Diimplementasikan & Dipercaya oleh Berbagai Klien & Lembaga Mitra',
   clients = [
     { name: 'Lembaga Amil Zakat Nasional', type: 'LAZNAS Mitra' },
     { name: 'LAZ Provinsi & Daerah', type: 'LAZ Daerah Mitra' },
@@ -14,34 +28,58 @@ const {
     { name: 'Lembaga Pengelola Wakaf', type: 'Nazhir Wakaf Produktif' },
   ],
 } = Astro.props;
+
+function getIconComponent(name: string, type: string) {
+  const text = `${name} ${type}`.toLowerCase();
+  if (text.includes('laznas') || text.includes('nasional')) return Landmark;
+  if (text.includes('wakaf') || text.includes('nazhir')) return Scale;
+  if (text.includes('upz') || text.includes('zakat') || text.includes('koin')) return Coins;
+  if (text.includes('yayasan') || text.includes('sosial') || text.includes('filantropi')) return HeartHandshake;
+  if (text.includes('gudang') || text.includes('industrial') || text.includes('logistik')) return Warehouse;
+  if (text.includes('ruko') || text.includes('shophouse') || text.includes('ritel') || text.includes('kafe')) return Store;
+  if (text.includes('rumah') || text.includes('residential') || text.includes('villa') || text.includes('hunian')) return Home;
+  if (text.includes('perkantoran') || text.includes('office') || text.includes('korporasi')) return Building2;
+  if (text.includes('daerah') || text.includes('provinsi')) return Building;
+  return Users;
+}
 ---
 
 <section
-  class="border-y border-gray-100 bg-gray-50/70 py-10 dark:border-neutral-800/80 dark:bg-neutral-900/40"
+  class="relative border-y border-gray-100 bg-linear-to-b from-gray-50/90 via-white to-gray-50/50 py-10 dark:border-neutral-800/80 dark:from-neutral-900/60 dark:via-(--color-deep-space-blue-950) dark:to-neutral-900/40"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center">
+    <div class="flex items-center justify-center gap-2 text-center">
+      <ShieldCheck class="size-4 text-emerald-600 dark:text-emerald-400" />
       <h2 class="text-xs font-bold tracking-widest text-gray-500 uppercase dark:text-neutral-400">
-        Telah Diimplementasikan & Dipercaya oleh Berbagai Lembaga Pengelola Dana ZISWAF
+        {heading}
       </h2>
     </div>
 
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6">
       {
-        clients.map((c) => (
-          <div class="group flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white px-5 py-3 shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-500/30 hover:shadow-md dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
-            <div class="flex size-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400">
-              <Users class="size-5" />
+        clients.map((c) => {
+          const Icon = getIconComponent(c.name, c.type);
+          return (
+            <div class="group relative flex items-center gap-3.5 rounded-2xl border border-gray-200/90 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-lg sm:px-5 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-900)/60 dark:hover:border-emerald-500/40">
+              <div class="flex size-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 transition-colors group-hover:bg-emerald-600 group-hover:text-white dark:bg-emerald-950/70 dark:text-emerald-300 dark:group-hover:bg-emerald-600 dark:group-hover:text-white">
+                <Icon class="size-5 shrink-0 stroke-[2.2]" />
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <p class="text-xs font-bold text-gray-900 transition-colors group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-300">
+                    {c.name}
+                  </p>
+                  <span class="inline-flex items-center text-[10px] font-semibold text-emerald-600 dark:text-emerald-400" title="Terverifikasi">
+                    ✓
+                  </span>
+                </div>
+                <p class="text-[11px] font-medium text-gray-500 dark:text-neutral-400">{c.type}</p>
+              </div>
             </div>
-            <div>
-              <p class="text-xs font-bold text-gray-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
-                {c.name}
-              </p>
-              <p class="text-[10px] font-medium text-gray-500 dark:text-neutral-400">{c.type}</p>
-            </div>
-          </div>
-        ))
+          );
+        })
       }
     </div>
   </div>
 </section>
+

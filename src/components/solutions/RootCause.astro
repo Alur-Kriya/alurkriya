@@ -4,12 +4,30 @@ interface Props {
   rootCause: {
     headline: string;
     subheadline: string;
+    siloTitle?: string;
+    siloSubtitle?: string;
+    siloWarning?: string;
+    solutionTitle?: string;
+    solutionSubtitle?: string;
+    solutionResult?: string;
     silo: Array<{ title: string; problem: string }>;
     erpSolution: Array<{ title: string; desc: string }>;
   };
 }
 
 const { rootCause } = Astro.props;
+
+const siloTitle = rootCause.siloTitle || 'Kondisi Lama: Sistem Terpecah-Pecah (Silo)';
+const siloSubtitle = rootCause.siloSubtitle || 'Amil habis waktu untuk merekap data secara manual';
+const siloWarning =
+  rootCause.siloWarning ||
+  '⚠️ Akibatnya: Laporan selalu terlambat, selisih kas rawan terjadi, dan pimpinan tidak memiliki gambaran utuh kinerja lembaga.';
+const solutionTitle = rootCause.solutionTitle || 'Solusi Kriya: Satu ERP Terintegrasi';
+const solutionSubtitle =
+  rootCause.solutionSubtitle || 'Seluruh divisi terhubung dalam satu database real-time';
+const solutionResult =
+  rootCause.solutionResult ||
+  '✨ Hasil: Seluruh data terintegrasi real-time, nol selisih pembukuan, dan kepatuhan tata kelola terjamin.';
 ---
 
 <section
@@ -42,10 +60,10 @@ const { rootCause } = Astro.props;
             </span>
             <div>
               <h3 class="text-lg font-bold text-red-900 dark:text-red-300">
-                Kondisi Lama: Sistem Terpecah-Pecah (Silo)
+                {siloTitle}
               </h3>
               <p class="text-xs text-red-700/80 dark:text-red-400">
-                Amil habis waktu untuk merekap data secara manual
+                {siloSubtitle}
               </p>
             </div>
           </div>
@@ -69,13 +87,12 @@ const { rootCause } = Astro.props;
 
         <div class="mt-8 rounded-2xl bg-red-100/60 p-4 text-center dark:bg-red-950/30">
           <p class="text-xs font-semibold text-red-900 dark:text-red-300">
-            ⚠️ Akibatnya: Laporan selalu terlambat, selisih kas rawan terjadi, dan pimpinan tidak
-            memiliki gambaran utuh kinerja lembaga.
+            {siloWarning}
           </p>
         </div>
       </div>
 
-      <!-- Right Column: The Answer - Integrated ERP Hub -->
+      <!-- Right Column: The Answer - Integrated Hub -->
       <div
         class="flex flex-col justify-between rounded-3xl border border-emerald-300/80 bg-emerald-50/30 p-6 sm:p-8 dark:border-emerald-800/60 dark:bg-emerald-950/10"
       >
@@ -90,10 +107,10 @@ const { rootCause } = Astro.props;
             </span>
             <div>
               <h3 class="text-lg font-bold text-emerald-900 dark:text-emerald-300">
-                Solusi Kriya: Satu ERP Terintegrasi
+                {solutionTitle}
               </h3>
               <p class="text-xs text-emerald-700 dark:text-emerald-400">
-                Seluruh divisi terhubung dalam satu database real-time
+                {solutionSubtitle}
               </p>
             </div>
           </div>
@@ -122,8 +139,7 @@ const { rootCause } = Astro.props;
           class="mt-8 rounded-2xl bg-emerald-600 p-4 text-center text-white shadow-md shadow-emerald-700/20"
         >
           <p class="text-xs font-bold">
-            ✨ Hasil: Efisiensi waktu amil meningkat hingga 70%, nol selisih pembukuan, dan
-            kepatuhan syariah PSAK 109 terjamin 100%.
+            {solutionResult}
           </p>
         </div>
       </div>

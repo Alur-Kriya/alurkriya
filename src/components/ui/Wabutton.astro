@@ -1,19 +1,20 @@
 ---
-import { MessageCircle, ChevronRight } from '@lucide/astro';
+import { MessageCircle } from '@lucide/astro';
 ---
 
 <a
-  class="button inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-(--color-steel-blue-800) px-4 py-3 text-sm font-medium text-white hover:bg-(--color-steel-blue-700) focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600)"
+  class="inline-flex min-h-[44px] items-center justify-center gap-x-2 rounded-lg border border-transparent bg-(--color-steel-blue-800) px-5 py-3 text-sm font-medium text-white transition-colors duration-150 hover:bg-(--color-steel-blue-700) focus-visible:ring-2 focus-visible:ring-(--color-steel-blue-600) focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600) dark:focus-visible:ring-offset-neutral-900"
   href="https://wa.me/6285117428800"
+  target="_blank"
+  rel="noopener noreferrer"
 >
   <MessageCircle class="size-4 shrink-0" />
-  Konsultasi Gratis
-  <ChevronRight class="size-4 shrink-0" />
+  <span>Konsultasi Gratis</span>
 </a>
 
 <a
-  class="inline-flex items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-800 shadow-2xs hover:bg-gray-50 focus:bg-gray-50 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-gray-800"
+  class="inline-flex min-h-[44px] items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-2xs transition-colors duration-150 hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus-visible:ring-offset-neutral-900"
   href="/portfolio"
 >
-  Lihat Portofolio
+  <span>Lihat Portofolio</span>
 </a>

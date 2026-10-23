@@ -9,10 +9,9 @@
   "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     {
-      "files": ["*.astro", "*.md", "*.toml", "*.yml"],
+      "files": "*.astro",
       "options": {
-        "parser": "astro",
-        "useTabs": false
+        "parser": "astro"
       }
     }
   ]

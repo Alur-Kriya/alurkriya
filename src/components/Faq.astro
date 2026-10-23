@@ -1,34 +1,35 @@
 ---
 const faqs = [
   {
-    question: 'Apa itu jasa teknologi informasi dan software development?',
+    question: 'Bagaimana alur kerja sama dan konsultasi awal di Kriya?',
     answer:
-      'Layanan ini mencakup pengembangan aplikasi, pengelolaan sistem IT, dan solusi digital untuk meningkatkan efisiensi dan kinerja bisnis.',
+      'Kami mengawali setiap kerja sama dengan sesi asesmen teknis dan bisnis tanpa biaya. Tim engineer kami menganalisis proses bisnis, arsitektur yang sudah berjalan, serta tujuan proyek sebelum menyusun proposal spesifikasi dan estimasi terukur.',
   },
   {
-    question: 'Apa saja layanan yang biasanya ditawarkan perusahaan IT?',
+    question: 'Apakah Kriya melayani pengembangan sistem kustom atau solusi siap pakai?',
     answer:
-      'Umumnya meliputi website dan aplikasi development, IT consulting, cloud infrastructure, data migration, serta IT support.',
+      'Kami menyediakan keduanya: solusi produk teruji siap pakai seperti Software ZISWAF ERP, serta perancangan perangkat lunak kustom dari nol yang disesuaikan persis dengan alur kerja unik perusahaan Anda.',
   },
   {
-    question: 'Bagaimana cara memilih perusahaan software development yang tepat?',
+    question: 'Bagaimana jaminan keamanan dan kerahasiaan data perusahaan kami?',
     answer:
-      'Pilih penyedia yang memahami kebutuhan bisnis, memiliki portofolio relevan, dan menawarkan solusi yang scalable.',
+      'Seluruh engagement dan data proyek dilindungi Non-Disclosure Agreement (NDA) resmi. Kami menerapkan best practices keamanan mencakup enkripsi transmisi data, kontrol akses berbasis peran (RBAC), dan isolasi server.',
   },
   {
-    question: 'Berapa biaya jasa software development?',
+    question: 'Bagaimana mekanisme garansi dan pemeliharaan setelah sistem selesai dideploy?',
     answer:
-      'Biaya tergantung pada kompleksitas fitur, teknologi yang digunakan, dan skala proyek, biasanya dihitung per proyek.',
+      'Setiap proyek disertai periode garansi perbaikan bug purna-implementasi, serta opsi Service Level Agreement (SLA) untuk monitoring performa, update keamanan berkala, dan penanganan gangguan operasional.',
   },
   {
-    question: 'Berapa lama proses pengembangan software?',
+    question: 'Berapa lama rata-rata estimasi durasi pengerjaan proyek?',
     answer:
-      'Durasi pengembangan bervariasi, mulai dari beberapa minggu hingga beberapa bulan, tergantung ruang lingkup dan kebutuhan bisnis.',
+      'Proyek website profesional atau landing page umumnya selesai dalam 2 sampai 4 minggu. Pengembangan software aplikasi bisnis dan migrasi infrastruktur berskala enterprise berkisar antara 1 sampai 6 bulan tergantung kompleksitas fitur.',
   },
   {
-    question: 'Apakah layanan IT cocok untuk perusahaan menengah dan B2B?',
+    question:
+      'Apakah solusi Kriya dapat diintegrasikan dengan sistem internal yang sudah berjalan?',
     answer:
-      'Layanan IT membantu perusahaan menengah dan B2B mengoptimalkan operasional dan mendukung pertumbuhan jangka panjang.',
+      'Ya. Kami berpengalaman membangun integrasi API, sinkronisasi database, perbankan/payment gateway, hingga sistem ERP pihak ketiga untuk memastikan data mengalir mulus tanpa hambatan.',
   },
 ];
 
@@ -54,8 +55,12 @@ const faqSchema = {
   <!-- Title -->
   <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
     <h2 class="text-2xl font-bold text-gray-800 md:text-3xl md:leading-tight dark:text-neutral-200">
-      Frequently Asked Questions
+      Pertanyaan yang Sering Diajukan
     </h2>
+    <p class="mt-3 text-sm text-gray-600 dark:text-neutral-400">
+      Jawaban transparan seputar model kerja, keamanan, dan komitmen layanan rekayasa teknologi
+      Kriya.
+    </p>
   </div>
   <!-- End Title -->
 
@@ -65,10 +70,12 @@ const faqSchema = {
       {
         faqs.map((faq) => (
           <div>
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">
+            <h3 class="text-base font-semibold text-gray-900 dark:text-neutral-100">
               {faq.question}
             </h3>
-            <p class="mt-2 text-gray-600 dark:text-neutral-400">{faq.answer}</p>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600 dark:text-neutral-400">
+              {faq.answer}
+            </p>
           </div>
         ))
       }

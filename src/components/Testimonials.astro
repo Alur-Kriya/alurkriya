@@ -1,9 +1,32 @@
 ---
 import TestiSlide from '@components/ui/TestiSlide.astro';
-import { Quote } from '@lucide/astro';
+import { Quote, Zap, ShieldCheck, Clock, Layers } from '@lucide/astro';
+
+const commitments = [
+  {
+    icon: Clock,
+    title: '< 24 Jam',
+    desc: 'Waktu respon awal konsultasi teknis dan asesmen kebutuhan bisnis Anda.',
+  },
+  {
+    icon: Layers,
+    title: 'Modular & Scalable',
+    desc: 'Arsitektur sistem dibangun adaptif, siap berkembang seiring ekspansi perusahaan.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Standar NDA & Keamanan',
+    desc: 'Kerahasiaan data dan hak cipta kekayaan intelektual dilindungi kesepakatan resmi.',
+  },
+  {
+    icon: Zap,
+    title: 'Dukungan Proaktif',
+    desc: 'Pemantauan sistem preventif untuk menjaga keandalan dan meminimalkan gangguan.',
+  },
+];
 ---
 
-<!-- Testimonials with Stats -->
+<!-- Testimonials with Commitments -->
 <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
   <!-- Grid -->
   <div class="text-base lg:grid lg:grid-cols-12 lg:items-center lg:justify-between lg:gap-16">
@@ -13,10 +36,11 @@ import { Quote } from '@lucide/astro';
         <h2
           class="font-heading mb-2 text-3xl font-bold text-gray-800 lg:text-4xl dark:text-neutral-200"
         >
-          It's all about speed
+          Kemitraan & Kecepatan Layanan
         </h2>
         <p class="text-gray-600 dark:text-neutral-400">
-          Respons cepat, solusi tepat. Kami selesaikan masalah Anda tanpa menunggu lama.
+          Respons cepat, solusi tepat. Kami mendampingi kebutuhan teknologi bisnis Anda dengan
+          eksekusi terukur dan transparan.
         </p>
       </div>
       <!-- End Title -->
@@ -38,51 +62,23 @@ import { Quote } from '@lucide/astro';
       <div class="space-y-6 sm:space-y-8">
         <!-- List -->
         <ul
-          class="grid grid-cols-2 divide-x divide-y divide-gray-200 overflow-hidden dark:divide-neutral-700"
+          class="grid grid-cols-1 gap-4 divide-y divide-gray-200 overflow-hidden sm:grid-cols-2 sm:divide-y-0 dark:divide-neutral-700"
         >
-          <li class="-m-0.5 flex flex-col p-4 sm:p-8">
-            <div
-              class="mb-2 flex items-end gap-x-2 text-3xl font-bold text-gray-800 sm:text-5xl dark:text-neutral-200"
-            >
-              10k+
-            </div>
-            <p class="text-sm text-gray-600 sm:text-base dark:text-neutral-400">
-              pekerjaan dilakukan dengan cepat, tepat, dan profesional
-            </p>
-          </li>
-
-          <li class="-m-0.5 flex flex-col p-4 sm:p-8">
-            <div
-              class="mb-2 flex items-end gap-x-2 text-3xl font-bold text-gray-800 sm:text-5xl dark:text-neutral-200"
-            >
-              70%
-            </div>
-            <p class="text-sm text-gray-600 sm:text-base dark:text-neutral-400">
-              sudah bermitra lebih dari 5 tahun
-            </p>
-          </li>
-
-          <li class="-m-0.5 flex flex-col p-4 sm:p-8">
-            <div
-              class="mb-2 flex items-end gap-x-2 text-3xl font-bold text-gray-800 sm:text-5xl dark:text-neutral-200"
-            >
-              99.5%
-            </div>
-            <p class="text-sm text-gray-600 sm:text-base dark:text-neutral-400">
-              Tingkat retensi pelanggan kembali dalam 3 bulan.
-            </p>
-          </li>
-
-          <li class="-m-0.5 flex flex-col p-4 sm:p-8">
-            <div
-              class="mb-2 flex items-end gap-x-2 text-3xl font-bold text-gray-800 sm:text-5xl dark:text-neutral-200"
-            >
-              24/7
-            </div>
-            <p class="text-sm text-gray-600 sm:text-base dark:text-neutral-400">
-              layanan dukungan - kami selalu siap membantu
-            </p>
-          </li>
+          {
+            commitments.map((item) => (
+              <li class="flex flex-col rounded-xl border border-gray-100 bg-white/70 p-5 shadow-2xs dark:border-neutral-800 dark:bg-neutral-900/40">
+                <div class="mb-3 flex size-8 items-center justify-center rounded-lg bg-(--color-steel-blue-50) text-(--color-steel-blue-700) dark:bg-neutral-800 dark:text-(--color-steel-blue-300)">
+                  <item.icon class="size-4.5" />
+                </div>
+                <div class="text-lg font-bold text-gray-800 dark:text-neutral-200">
+                  {item.title}
+                </div>
+                <p class="mt-1.5 text-xs leading-relaxed text-gray-600 dark:text-neutral-400">
+                  {item.desc}
+                </p>
+              </li>
+            ))
+          }
         </ul>
         <!-- End List -->
       </div>
@@ -91,4 +87,3 @@ import { Quote } from '@lucide/astro';
   </div>
   <!-- End Grid -->
 </div>
-<!-- End Testimonials with Stats -->

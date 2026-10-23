@@ -5,7 +5,7 @@ export const portfolio = [
       'Software ini dibangun untuk kebutuhan pengelolaan zakat, infak, sedekah, wakaf, qurban, serta berbagai program kebaikan lainnya oleh Lembaga Amil Zakat Nasional Dewan Dawah Islamiyah Indonesia.',
     image: '/images/portofolio/porto-a.png',
     tags: ['Laravel', 'NuxtJS', 'Bootstrap', 'NodeJS'],
-    link: '#',
+    link: '/solusi/software-ziswaf-erp',
   },
   {
     title: 'Website Company Profile - Ecofix',
@@ -13,7 +13,7 @@ export const portfolio = [
       'Website company profile yang dibangun khusus untuk perusahaan Ecofix, perusahaan yang berfokus pada maintenance services seperti, plumbing, grease trap, service ac di wilayah Jabodetabek.',
     image: '/images/portofolio/porto-b.png',
     tags: ['Astro', 'Ghost', 'Tailwind', 'Analytics'],
-    link: '#',
+    link: '/jasa/website-development',
   },
   {
     title: 'Shipping Management System - Alena Kargo',
@@ -21,7 +21,7 @@ export const portfolio = [
       'Software shipping management system yang dibangun khusus untuk perusahaan PT. Alena Mega Kargo, sebuah perusahaan ekspedisi layanan pengiriman barang dengan jumlah berat dan ukuran yang besar.',
     image: '/images/portofolio/porto-c.png',
     tags: ['Bootstrap', 'Litespeed', 'Laravel'],
-    link: '#',
+    link: '/jasa/software-development',
   },
   {
     title: 'Website News Portal - Sabili',
@@ -29,7 +29,7 @@ export const portfolio = [
       'Sabili.id merupakan media independent yang di bangun dari jaringan komunitas kontributor yang berada di Indonesia dan mancanegara seperti Saudi Arabia, Jepang, Jerman, Sudan, dll.',
     image: '/images/portofolio/porto-d.png',
     tags: ['Ghost', 'Cloudflare', 'NodeJS'],
-    link: '#',
+    link: '/jasa/website-development',
   },
   {
     title: 'Situs Profil Perusahaan - ID Adventure',
@@ -37,7 +37,7 @@ export const portfolio = [
       'ID ADVENTURE® adalah platform inspiratif yang dirancang untuk memberikan solusi profesional melalui event khusus, pelatihan, workshop, perjalanan petualangan, dan dalam satu kata: pengalaman',
     image: '/images/portofolio/porto-e.png',
     tags: ['HTML', 'Tailwind', 'Apache'],
-    link: '#',
+    link: '/jasa/website-development',
   },
   {
     title: 'Situs Profil Yayasan - Pesantren BIK',
@@ -45,7 +45,7 @@ export const portfolio = [
       'Pesantren BIK ada adalah sebuah lembaga yang melahirkan juru dakwah, pendidik dan juga menghasilkan para pemimpin yang mumpuni, berakhlak dan menjadi teladan.',
     image: '/images/portofolio/porto-f.png',
     tags: ['Wordpress', 'PHP', 'Ubuntu', 'Analytics'],
-    link: '#',
+    link: '/jasa/website-development',
   },
   {
     title: 'Website Apps - Tagar AI',
@@ -53,6 +53,6 @@ export const portfolio = [
       'Tagar AI adalah sebuah situ aplikasi berbasis kecerdasan buatan yang dapat digunakan untuk membuat hashtag yang relevan, berpotensi viral, terukur untuk Instagram, TikTok, LinkedIn, dan YouTube.',
     image: '/images/portofolio/porto-g.png',
     tags: ['ReactJS', 'Tailwind', 'ExpressJS'],
-    link: '#',
+    link: '/jasa/software-development',
   },
 ];

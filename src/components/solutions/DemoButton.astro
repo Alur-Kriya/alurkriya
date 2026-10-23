@@ -23,20 +23,20 @@ const {
 const waUrl = getWaUrl(message);
 
 const sizeClasses = {
-  sm: 'px-3.5 py-2 text-xs font-semibold gap-x-2 rounded-lg',
-  md: 'px-5 py-3 text-sm font-semibold gap-x-2.5 rounded-xl shadow-md',
-  lg: 'px-6 py-3.5 text-base font-bold gap-x-3 rounded-2xl shadow-lg',
+  sm: 'min-h-[44px] px-3.5 py-2.5 text-xs font-semibold gap-x-2 rounded-lg',
+  md: 'min-h-[44px] px-5 py-3 text-sm font-semibold gap-x-2.5 rounded-xl shadow-md',
+  lg: 'min-h-[48px] px-6 py-3.5 text-base font-bold gap-x-3 rounded-2xl shadow-lg',
 }[size];
 
 const variantClasses = {
   emerald:
-    'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-950/20 hover:shadow-emerald-900/30 dark:bg-emerald-600 dark:hover:bg-emerald-500',
+    'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-950/20 hover:shadow-emerald-900/30 focus-visible:ring-emerald-500 dark:bg-emerald-600 dark:hover:bg-emerald-500',
   primary:
-    'bg-(--color-steel-blue-800) hover:bg-(--color-steel-blue-700) text-white dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600)',
+    'bg-(--color-steel-blue-800) hover:bg-(--color-steel-blue-700) text-white focus-visible:ring-(--color-steel-blue-600) dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600)',
   secondary:
-    'bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200',
+    'bg-gray-100 hover:bg-gray-200 text-gray-800 focus-visible:ring-neutral-400 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200',
   outline:
-    'border border-emerald-600/40 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500/40 dark:text-emerald-300 dark:hover:bg-emerald-950/40',
+    'border border-emerald-600/40 text-emerald-700 hover:bg-emerald-50 focus-visible:ring-emerald-500 dark:border-emerald-500/40 dark:text-emerald-300 dark:hover:bg-emerald-950/40',
 }[variant];
 ---
 
@@ -45,7 +45,7 @@ const variantClasses = {
   target="_blank"
   rel="noopener noreferrer"
   id={id}
-  class={`inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 focus:outline-hidden ${sizeClasses} ${variantClasses} ${extraClass}`}
+  class={`inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-900 ${sizeClasses} ${variantClasses} ${extraClass}`}
   data-cta="whatsapp-demo"
 >
   <MessageCircle class="size-4 shrink-0 text-white" />
