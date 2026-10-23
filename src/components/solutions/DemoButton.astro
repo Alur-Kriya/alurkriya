@@ -47,6 +47,8 @@ const variantClasses = {
   id={id}
   class={`inline-flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-900 ${sizeClasses} ${variantClasses} ${extraClass}`}
   data-cta="whatsapp-demo"
+  data-analytics-cta="demo"
+  data-analytics-location={id || 'demo_button'}
 >
   <MessageCircle class="size-4 shrink-0 text-white" />
   <span>{label}</span>

@@ -17,17 +17,18 @@ interface Props {
 
 const { rootCause } = Astro.props;
 
-const siloTitle = rootCause.siloTitle || 'Kondisi Lama: Sistem Terpecah-Pecah (Silo)';
-const siloSubtitle = rootCause.siloSubtitle || 'Amil habis waktu untuk merekap data secara manual';
+const siloTitle = rootCause.siloTitle || 'Kondisi Sebelumnya: Penanganan Parsial';
+const siloSubtitle =
+  rootCause.siloSubtitle || 'Penanganan sementara yang menimbulkan kendala berulang';
 const siloWarning =
   rootCause.siloWarning ||
-  '⚠️ Akibatnya: Laporan selalu terlambat, selisih kas rawan terjadi, dan pimpinan tidak memiliki gambaran utuh kinerja lembaga.';
-const solutionTitle = rootCause.solutionTitle || 'Solusi Kriya: Satu ERP Terintegrasi';
+  '⚠️ Akibatnya: Produktivitas terhambat dan pengguna menghabiskan banyak waktu untuk troubleshooting berulang.';
+const solutionTitle = rootCause.solutionTitle || 'Solusi Kriya: Arsitektur Terencana & Terkelola';
 const solutionSubtitle =
-  rootCause.solutionSubtitle || 'Seluruh divisi terhubung dalam satu database real-time';
+  rootCause.solutionSubtitle || 'Infrastruktur andal yang dirancang sesuai kebutuhan bangunan';
 const solutionResult =
   rootCause.solutionResult ||
-  '✨ Hasil: Seluruh data terintegrasi real-time, nol selisih pembukuan, dan kepatuhan tata kelola terjamin.';
+  '✨ Hasil: Operasional lebih stabil, terstruktur, dan mudah dikelola secara berkelanjutan.';
 ---
 
 <section

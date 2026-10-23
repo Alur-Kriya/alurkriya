@@ -130,7 +130,10 @@ const cards =
           item.waMsg ||
           `Halo Kriya, saya ingin konsultasi mengenai ${item.domain || item.badge || 'solusi ini'}.`,
       }))
-    : defaultSolutionsBrief;
+    : defaultSolutionsBrief.map((item) => ({
+        ...item,
+        badge: item.domain,
+      }));
 ---
 
 <section class="bg-gray-50/50 py-16 sm:py-24 dark:bg-neutral-900/30">
@@ -201,7 +204,9 @@ const cards =
                 href={getWaUrl(item.waMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex w-full items-center justify-between text-xs font-semibold text-emerald-700 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300"
+                class="inline-flex min-h-[44px] w-full items-center justify-between rounded-lg px-2 py-2 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50/70 hover:text-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-hidden dark:text-emerald-400 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
+                data-analytics-cta="whatsapp"
+                data-analytics-location="pain_solution"
               >
                 <span>Konsultasi Bidang Ini</span>
                 <ArrowRight class="size-3.5" />

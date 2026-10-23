@@ -1,18 +1,19 @@
 ---
 interface Props {
-  q1: string;
-  a1: string;
-  q2: string;
-  a2: string;
-  q3: string;
-  a3: string;
-  q4: string;
-  a4: string;
-  q5: string;
-  a5: string;
-  q6: string;
-  a6: string;
-  heading: string;
+  q1?: string;
+  a1?: string;
+  q2?: string;
+  a2?: string;
+  q3?: string;
+  a3?: string;
+  q4?: string;
+  a4?: string;
+  q5?: string;
+  a5?: string;
+  q6?: string;
+  a6?: string;
+  faqs?: Array<{ q: string; a: string }>;
+  heading?: string;
   subheading?: string;
   title?: string;
 }
@@ -30,20 +31,24 @@ const {
   a5,
   q6,
   a6,
-  heading,
+  faqs,
+  heading = 'Teknologi Kriya',
   subheading,
-  title = 'Frequently Asked Questions',
+  title = 'Pertanyaan yang Sering Diajukan',
 } = Astro.props;
 
-// Build FAQ pairs, filtering out any empty entries
-const faqPairs = [
-  { q: q1, a: a1 },
-  { q: q2, a: a2 },
-  { q: q3, a: a3 },
-  { q: q4, a: a4 },
-  { q: q5, a: a5 },
-  { q: q6, a: a6 },
-].filter(({ q, a }) => q && a);
+// Build FAQ pairs, prioritizing direct faqs array or fallback to q1-q6
+const faqPairs =
+  faqs && faqs.length > 0
+    ? faqs.filter(({ q, a }) => q && a)
+    : [
+        { q: q1, a: a1 },
+        { q: q2, a: a2 },
+        { q: q3, a: a3 },
+        { q: q4, a: a4 },
+        { q: q5, a: a5 },
+        { q: q6, a: a6 },
+      ].filter(({ q, a }) => q && a);
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -60,10 +65,10 @@ const faqSchema = {
 ---
 
 <!-- FAQ Schema Markup -->
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 
 <!-- FAQ -->
-<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
+<div id="faq" class="mx-auto max-w-[85rem] scroll-mt-20 px-4 py-10 sm:px-6 lg:px-8 lg:py-20">
   <!-- Title -->
   <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
     <h2 class="text-3xl font-bold text-(--color-ink-black-800) lg:text-4xl dark:text-white">
@@ -78,65 +83,16 @@ const faqSchema = {
   <div class="mx-auto max-w-5xl">
     <!-- Grid -->
     <div class="grid gap-6 sm:grid-cols-2 md:gap-12">
-      <div>
-        <h3 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">
-          {q1}
-        </h3>
-        <p class="mt-1 dark:text-neutral-300">
-          {a1}
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">
-          {q2}
-        </h3>
-        <p class="mt-1 dark:text-neutral-300">
-          {a2}
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">
-          {q3}
-        </h3>
-        <p class="mt-1 dark:text-neutral-300">
-          {a3}
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">
-          {q4}
-        </h3>
-        <p class="mt-1 dark:text-neutral-300">
-          {a4}
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">
-          {q5}
-        </h3>
-        <p class="mt-1 dark:text-neutral-300">
-          {a5}
-        </p>
-      </div>
-      <!-- End Col -->
-
-      <div>
-        <h3 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">
-          {q6}
-        </h3>
-        <p class="mt-1 dark:text-neutral-300">
-          {a6}
-        </p>
-      </div>
-      <!-- End Col -->
+      {
+        faqPairs.map((item) => (
+          <div>
+            <h3 class="text-base font-semibold text-(--color-ink-black-800) sm:text-lg dark:text-white">
+              {item.q}
+            </h3>
+            <p class="mt-1 dark:text-neutral-300">{item.a}</p>
+          </div>
+        ))
+      }
     </div>
     <!-- End Grid -->
   </div>

@@ -82,6 +82,7 @@ const defaultStructuredData = {
 };
 
 const finalStructuredData = structuredData ?? defaultStructuredData;
+const fullTitle = title.endsWith(' | Kriya') ? title : `${title} | Kriya`;
 ---
 
 <!doctype html>
@@ -97,11 +98,12 @@ const finalStructuredData = structuredData ?? defaultStructuredData;
   <link rel="sitemap" href="/sitemap.xml" />
   <link rel="llms" href="/llms.txt" />
   <SEO
-    title={title.concat(' | Kriya')}
+    title={fullTitle}
     description={description}
+    canonical={url}
     openGraph={{
       basic: {
-        title: title.concat(' | Kriya'),
+        title: fullTitle,
         type: 'website',
         image: absoluteImageUrl,
         url: url,
@@ -113,16 +115,17 @@ const finalStructuredData = structuredData ?? defaultStructuredData;
       },
       image: {
         secureUrl: absoluteImageUrl,
-        alt: title.concat(' | Kriya'),
+        alt: fullTitle,
         type: 'image/png',
         width: imageWidth,
         height: imageHeight,
       },
     }}
   />
-  <script type="application/ld+json" set:html={JSON.stringify(finalStructuredData)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(finalStructuredData)} />
   <script>
     import '@scripts/lenisSmoothScroll.js';
+    import '@scripts/analyticsInit.ts';
   </script>
   <!-- Google Tag Manager -->
   <script is:inline>

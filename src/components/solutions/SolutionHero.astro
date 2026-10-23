@@ -56,7 +56,8 @@ const computedAlt = imageAlt || `${displayHeading} - PT Alur Kriya Teknologi`;
       <h1
         class="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white"
       >
-        <span class="text-(--color-fresh-sky-500) dark:text-(--color-fresh-sky-500)">{displayHeading}</span
+        <span class="text-(--color-fresh-sky-500) dark:text-(--color-fresh-sky-500)"
+          >{displayHeading}</span
         >
       </h1>
       <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">
@@ -70,6 +71,9 @@ const computedAlt = imageAlt || `${displayHeading} - PT Alur Kriya Teknologi`;
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
+          id="hero-primary-demo-cta"
+          data-analytics-cta="demo"
+          data-analytics-location="hero_primary"
         >
           <MessageCircle class="size-4 shrink-0 text-white" />
           <span>{primaryCtaText}</span>
@@ -78,6 +82,9 @@ const computedAlt = imageAlt || `${displayHeading} - PT Alur Kriya Teknologi`;
         <a
           class="inline-flex min-h-[44px] items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-2xs transition-colors duration-150 hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus-visible:ring-offset-neutral-900"
           href={secondaryCtaHref}
+          id="hero-secondary-cta"
+          data-analytics-cta={secondaryCtaHref.includes('wa.me') ? 'whatsapp' : undefined}
+          data-analytics-location="hero_secondary"
         >
           <span>{secondaryCtaText}</span>
         </a>

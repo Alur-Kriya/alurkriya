@@ -58,13 +58,18 @@ const displayBadge = badge || `${modules.length} Modul & Layanan Terintegrasi`;
       <!-- Quick Jump Module Selector -->
       <div
         class="mb-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
+        role="tablist"
         aria-label="Pilihan Cepat Modul ERP"
       >
         {
           modules.map((m, idx) => (
             <button
               type="button"
-              class={`nav-quick-jump inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-hidden ${
+              role="tab"
+              id={`quick-jump-tab-${m.id}`}
+              aria-selected={idx === 0 ? 'true' : 'false'}
+              aria-controls={`tab-panel-${m.id}`}
+              class={`nav-quick-jump inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border px-3.5 py-2 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-hidden ${
                 idx === 0
                   ? 'border-emerald-500 bg-emerald-50 text-emerald-700 shadow-2xs ring-2 ring-emerald-500/20 dark:border-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300'
                   : 'border-gray-200 bg-white text-gray-700 shadow-2xs hover:border-emerald-400 hover:bg-emerald-50/50 hover:text-emerald-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:border-emerald-500 dark:hover:bg-neutral-700'
@@ -91,6 +96,7 @@ const displayBadge = badge || `${modules.length} Modul & Layanan Terintegrasi`;
                   id={`tab-panel-${m.id}`}
                   class="swiper-slide module-panel h-auto"
                   role="tabpanel"
+                  aria-labelledby={`quick-jump-tab-${m.id}`}
                   data-panel-module-id={m.id}
                   data-index={idx}
                   data-module-number={m.number}
@@ -105,7 +111,9 @@ const displayBadge = badge || `${modules.length} Modul & Layanan Terintegrasi`;
                             Modul {m.number}
                           </span>
                           <span class="text-xs font-semibold text-gray-500 dark:text-neutral-400">
-                            Standar ERP ZISWAF
+                            {badge?.toLowerCase().includes('ziswaf')
+                              ? 'Standar ERP ZISWAF'
+                              : 'Standar Layanan Teknis'}
                           </span>
                         </div>
                         <h3 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
@@ -187,8 +195,8 @@ const displayBadge = badge || `${modules.length} Modul & Layanan Terintegrasi`;
         onlyInViewport: true,
       },
       on: {
-        slideChange: function () {
-          updateActiveJumpBtn(this.activeIndex);
+        slideChange: function (swiperInstance: any) {
+          updateActiveJumpBtn(swiperInstance.activeIndex);
         },
       },
     });
@@ -196,6 +204,7 @@ const displayBadge = badge || `${modules.length} Modul & Layanan Terintegrasi`;
     function updateActiveJumpBtn(currentIndex: number) {
       quickJumpBtns.forEach((btn, idx) => {
         const isActive = idx === currentIndex;
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
         if (isActive) {
           btn.classList.add(
             'border-emerald-500',

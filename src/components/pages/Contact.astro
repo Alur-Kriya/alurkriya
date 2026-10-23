@@ -186,13 +186,24 @@ import { Phone, Mail, MapPin } from '@lucide/astro';
         </form>
 
         <script>
+          import { trackFormStart, trackFormSubmit } from '@lib/analytics';
+
           const form = document.getElementById('contact-form') as HTMLFormElement | null;
           const alertBox = document.getElementById('contact-alert');
           const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
           const btnText = document.getElementById('btn-text');
           const btnSpinner = document.getElementById('btn-spinner');
 
+          let hasStartedForm = false;
+
           if (form) {
+            form.addEventListener('focusin', () => {
+              if (!hasStartedForm) {
+                hasStartedForm = true;
+                trackFormStart('contact_form');
+              }
+            });
+
             form.addEventListener('submit', (e) => {
               e.preventDefault();
               if (!alertBox || !submitBtn || !btnText || !btnSpinner) return;
@@ -224,11 +235,15 @@ import { Phone, Mail, MapPin } from '@lucide/astro';
                 btnText.textContent = 'Kirim Pesan';
                 btnSpinner.classList.add('hidden');
 
+                // Track submission without any PII
+                trackFormSubmit('contact_form');
+
                 // Success state
                 alertBox.className =
                   'block mb-4 rounded-lg bg-emerald-50 p-4 text-sm text-emerald-800 border border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-900';
                 alertBox.innerHTML = `<strong>Terima kasih, ${firstname}!</strong> Pesan Anda telah kami terima. Tim Kriya akan menghubungi Anda melalui email atau WhatsApp dalam 1x24 jam.`;
                 form.reset();
+                hasStartedForm = false;
               }, 600);
             });
           }

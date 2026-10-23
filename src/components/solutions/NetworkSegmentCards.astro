@@ -2,32 +2,28 @@
 import {
   Building2,
   House,
+  Store,
+  Warehouse,
+  Building,
   CheckCircle2,
   ArrowRight,
-  Wifi,
-  Network,
-  ShieldCheck,
+  CircleAlert,
   Zap,
-  Activity,
+  Server,
   Layers,
-  Router,
 } from '@lucide/astro';
 import { getWaUrl } from '@lib/whatsapp';
 
-interface SegmentItem {
+export interface SegmentItem {
   id: string;
   badge: string;
   title: string;
-  targetSpaces: string[];
+  targetSpaces?: string[];
   description: string;
-  priorities: Array<{
-    title: string;
-    desc: string;
-  }>;
-  specs: Array<{
-    label: string;
-    value: string;
-  }>;
+  problem: string;
+  solution: string;
+  outcome: string;
+  componentsNeeded: string[];
   waMessage: string;
 }
 
@@ -37,242 +33,428 @@ interface Props {
 
 const defaultSegments: SegmentItem[] = [
   {
-    id: 'sme-commercial',
-    badge: 'Segmen Komersial & UKM',
-    title: 'Perkantoran, Ruko Bertingkat, Gudang & Workshop',
-    targetSpaces: ['Kantor 1-3 Lantai', 'Ruko Bisnis', 'Gudang Logistik', 'Kafe & Resto'],
+    id: 'rumah-bertingkat',
+    badge: 'Residensial & Hunian',
+    title: 'Rumah dan Rumah Bertingkat',
+    targetSpaces: ['Rumah 2-4 Lantai', 'Klaster Hunian', 'Villa & Paviliun', 'Home Office'],
     description:
-      'Fokus pada ketersediaan koneksi tanpa henti, kapasitas multi-user bersamaan, dan pembagian jalur prioritas untuk operasional bisnis kritis.',
-    priorities: [
-      {
-        title: 'Prioritas Bandwidth Kasir & Cloud ERP (QoS)',
-        desc: 'Sistem POS kasir, transaksi pembayaran, dan akses database kantor tetap lancar meskipun staf lain sedang streaming atau unduh berkas besar.',
-      },
-      {
-        title: 'Isolasi Jaringan Tamu (VLAN Guest)',
-        desc: 'Pengunjung mendapatkan akses Wi-Fi cepat tanpa bisa melihat atau mengakses server lokal, NAS, printer kantor, dan komputer internal.',
-      },
-      {
-        title: 'Penetrasi Sinyal Dinding Tebal & Gudang',
-        desc: 'Penempatan Access Point strategis dan directional antena untuk menjangkau area berpartisi bata tebal, beton, dan rak besi gudang.',
-      },
-      {
-        title: 'Kapasitas Concurrency Tinggi',
-        desc: 'Perangkat enterprise siap melayani 40 hingga 100+ koneksi gawai sekaligus tanpa overheat, latency melonjak, atau router hang.',
-      },
-    ],
-    specs: [
-      { label: 'Topologi', value: 'Backbone Cat6 PoE Gigabit + Managed Switch' },
-      { label: 'Konektivitas', value: 'Multi-SSID dengan VLAN Tagging 802.1Q' },
-      { label: 'Manajemen', value: 'Traffic Shaper / Dynamic QoS Prioritization' },
+      'Solusi jangkauan Wi-Fi merata di seluruh lantai tanpa kabel melintang semrawut di dinding, menjaga kenyamanan keluarga dan estetika interior rumah.',
+    problem:
+      'Sinyal Wi-Fi teredam oleh dak semen cor bertulang antar lantai, repeater colokan menambah latensi, dan kabel semrawut merusak estetika interior.',
+    solution:
+      'Instalasi jalur tulang punggung kabel Cat6 tersembunyi di plafon atau pipa conduit, dipadukan dengan access point Wi-Fi 6 berfitur fast roaming 802.11k/v/r.',
+    outcome:
+      'Koneksi stabil di semua ruangan dan lantai tanpa perlu mengganti nama Wi-Fi secara manual, panggilan video tidak terputus saat bergerak antar ruangan.',
+    componentsNeeded: [
+      'Access Point Ceiling Wi-Fi 6',
+      'Switch PoE Gigabit',
+      'Kabel UTP Cat6 Pure Copper',
+      'Pipa Conduit & Pelindung Dekoratif',
     ],
     waMessage:
-      'Halo Kriya, saya ingin konsultasi kebutuhan perluasan jaringan internet untuk kantor / ruko UKM kami.',
+      'Halo Kriya, saya ingin berkonsultasi mengenai instalasi jaringan Wi-Fi untuk rumah bertingkat.',
   },
   {
-    id: 'residential-property',
-    badge: 'Segmen Residensial & Hunian',
-    title: 'Rumah Bertingkat 2-4 Lantai, Klaster & Villa',
-    targetSpaces: ['Rumah 2-4 Lantai', 'Klaster Hunian', 'Villa & Paviliun', 'Home Office / WFH'],
-    description:
-      'Mengutamakan estetika interior rumah tanpa kabel berseliweran, roaming mulus saat berpindah lantai, dan latensi rendah untuk hiburan keluarga.',
-    priorities: [
-      {
-        title: 'Seamless Roaming Tanpa Putus (802.11k/v/r)',
-        desc: 'Pindah dari ruang tamu lantai 1 ke kamar tidur lantai 2 atau 3 tanpa panggilan video WhatsApp drop atau tayangan video terhenti.',
-      },
-      {
-        title: 'Instalasi Kabel Rapi & Tersembunyi',
-        desc: 'Jalur kabel Cat6 ditanam rapi melalui conduit pipa, celah plafon, atau pelindung kabel dekoratif yang menyatu dengan estetika interior.',
-      },
-      {
-        title: 'Koneksi Stabil untuk Smart Home & CCTV Outdoor',
-        desc: 'Kamera CCTV gerbang, smart lock, lampu pintar, dan speaker IoT tetap terhubung stabil tanpa berebut bandwidth dengan TV 4K.',
-      },
-      {
-        title: 'Parental Control & Jadwal Internet',
-        desc: 'Pengaturan pembatasan konten berbahaya dan jadwal matikan akses internet malam hari untuk perangkat gawai anak-anak.',
-      },
+    id: 'kantor-ruang-kerja',
+    badge: 'Perkantoran & Co-working',
+    title: 'Kantor dan Ruang Kerja',
+    targetSpaces: [
+      'Kantor 1-3 Lantai',
+      'Co-working Space',
+      'Studio Kreatif',
+      'Ruang Kerja Bersama',
     ],
-    specs: [
-      { label: 'Jangkauan', value: 'Cakupan Merata Lantai 1 hingga Rooftop' },
-      { label: 'Protokol', value: 'Wi-Fi 6 (802.11ax) Dual-Band Seamless Roaming' },
-      { label: 'Estetika', value: 'Concealed Cable Routing & Sleek Ceiling AP' },
+    description:
+      'Infrastruktur jaringan bisnis yang mengutamakan kelancaran komunikasi video, kapasitas koneksi multi-perangkat bersamaan, dan keamanan data internal perusahaan.',
+    problem:
+      'Koneksi internet melambat drastis saat jam sibuk, meeting video Zoom terputus-putus, dan router bawaan mudah hang saat banyak gawai terhubung.',
+    solution:
+      'Penerapan gateway router dengan manajemen alokasi bandwidth dinamis (QoS), access point enterprise berkapasitas konkurensi tinggi, serta isolasi VLAN untuk tamu.',
+    outcome:
+      'Aplikasi bisnis penting dan panggilan video online tetap lancar, perangkat staf terhubung stabil tanpa saling memonopoli bandwidth.',
+    componentsNeeded: [
+      'Core Gateway Router (MikroTik/UniFi)',
+      'Managed PoE Switch Gigabit',
+      'Access Point Enterprise High-Concurrency',
+      'Patch Panel & Mini Rack Cabinet',
     ],
     waMessage:
-      'Halo Kriya, saya ingin konsultasi perbaikan jangkauan Wi-Fi dan instalasi jaringan untuk rumah bertingkat kami.',
+      'Halo Kriya, saya ingin berkonsultasi mengenai perbaikan dan instalasi jaringan Wi-Fi untuk kantor.',
+  },
+  {
+    id: 'ruko-bisnis-ritel',
+    badge: 'Ruko & Ritel Komersial',
+    title: 'Ruko dan Bisnis Ritel',
+    targetSpaces: ['Ruko Bisnis', 'Kafe & Resto', 'Toko Ritel', 'Klinik & Salon'],
+    description:
+      'Pemisahan jalur koneksi yang aman antara sistem operasional pembayaran kasir dengan fasilitas Wi-Fi publik untuk pengunjung.',
+    problem:
+      'Transaksi kasir POS dan mesin pembayaran QRIS/EDC tersendat ketika pengunjung kafe atau ruko aktif streaming menggunakan jaringan yang sama.',
+    solution:
+      'Segmentasi subnet menggunakan Virtual LAN (VLAN 802.1Q) dan pembatasan bandwidth terpisah pada SSID tamu agar tidak mengganggu transaksi kasir.',
+    outcome:
+      'Sistem kasir dan operasional kas selalu prioritas dan responsif, sementara pelanggan tetap mendapatkan akses Wi-Fi yang stabil.',
+    componentsNeeded: [
+      'Smart Managed Gateway',
+      'Managed Switch VLAN-enabled',
+      'Access Point Dual-Band',
+      'Konfigurasi Captive Portal Tamu [Opsional]',
+    ],
+    waMessage:
+      'Halo Kriya, saya ingin berkonsultasi mengenai solusi jaringan Wi-Fi untuk ruko atau tempat usaha ritel.',
+  },
+  {
+    id: 'gudang-operasional',
+    badge: 'Gudang & Logistik',
+    title: 'Gudang dan Bangunan Operasional',
+    targetSpaces: [
+      'Gudang Logistik',
+      'Workshop / Bengkel',
+      'Area Loading Dock',
+      'Pusat Distribusi',
+    ],
+    description:
+      'Distribusi jaringan tahan banting untuk area industri luas berpartisi rak besi tinggi guna mendukung perangkat pemindai barcode dan kamera CCTV pengawas.',
+    problem:
+      'Jangkauan sinyal terhalang oleh rak besi tinggi dan barang bertumpuk, menimbulkan blind spot bagi scanner barcode nirkabel dan tablet inventori.',
+    solution:
+      'Penempatan access point high-power dengan antena terarah strategis, jalur kabel data berpelindung conduit kokoh tahan benturan, dan koneksi CCTV NVR.',
+    outcome:
+      'Pemindaian barcode barang berjalan tanpa delay di seluruh lorong gudang dan koneksi kamera pemantau keamanan perimeter tetap andal.',
+    componentsNeeded: [
+      'High-Power Industrial Access Point',
+      'Pipa Conduit PVC / Logam Heavy Duty',
+      'PoE Switch Gigabit High-Wattage',
+      'Jalur Integrasi CCTV NVR',
+    ],
+    waMessage:
+      'Halo Kriya, saya ingin berkonsultasi mengenai instalasi jaringan internet untuk area gudang atau workshop.',
+  },
+  {
+    id: 'gedung-banyak-lantai',
+    badge: 'Gedung & Multi-Ruang',
+    title: 'Gedung dengan Banyak Ruangan atau Lantai',
+    targetSpaces: ['Gedung Bertingkat', 'Penginapan / Guest House', 'Asrama', 'Pusat Pelatihan'],
+    description:
+      'Arsitektur jaringan skala gedung dengan perencanaan kanal frekuensi terstruktur untuk mencegah interferensi antar lantai dan manajemen terpusat.',
+    problem:
+      'Sinyal saling bertubrukan (interferensi co-channel) antar access point yang diletakkan sembarangan, serta kesulitan memantau perangkat yang tersebar di banyak lantai.',
+    solution:
+      'Desain topologi bertingkat (Core & Distribution switch), perencanaan kanal 2.4/5 GHz non-overlapping, dan monitoring controller berbasis cloud.',
+    outcome:
+      'Sinyal Wi-Fi terdistribusi secara rapi dan stabil, serta pengelola gedung memiliki visibilitas penuh terhadap status jaringan melalui satu dasbor terpusat.',
+    componentsNeeded: [
+      'Core Router & Distribution Switch',
+      'Multiple Enterprise Access Point',
+      'Cloud / Hardware Network Controller',
+      'Server Rack Cabinet & Structured Cabling',
+    ],
+    waMessage:
+      'Halo Kriya, saya ingin berkonsultasi mengenai perancangan jaringan Wi-Fi untuk gedung banyak lantai atau ruangan.',
   },
 ];
 
 const { segments = defaultSegments } = Astro.props;
+
+function getSegmentIcon(id: string) {
+  if (id.includes('rumah')) return House;
+  if (id.includes('kantor')) return Building2;
+  if (id.includes('ruko')) return Store;
+  if (id.includes('gudang')) return Warehouse;
+  return Building;
+}
 ---
 
-<section id="segmen-solusi" class="scroll-mt-20 py-16 sm:py-24">
+<section id="solusi-kebutuhan" class="scroll-mt-20 py-16 sm:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
     <div class="mx-auto max-w-3xl text-center">
       <span
         class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300"
       >
         <Layers class="size-3.5 text-emerald-600 dark:text-emerald-400" />
-        Spesifikasi Sesuai Tipe Kebutuhan
+        Kesesuaian Tipe Bangunan
       </span>
       <h2
         class="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
       >
-        Dirancang Spesifik untuk Tantangan Arsitektur Bangunan Anda
+        Solusi Jaringan Berdasarkan Kebutuhan Bangunan
       </h2>
       <p class="mt-4 text-base text-gray-600 sm:text-lg dark:text-neutral-300">
-        Kebutuhan stabilitas jaringan kantor bisnis berbeda dengan kenyamanan hunian keluarga. Kami
-        menyesuaikan topologi kabel, konfigurasi router, dan tipe access point sesuai peruntukan
-        ruang.
+        Setiap bangunan memiliki tantangan struktur fisik dan beban penggunaan yang berbeda. Kriya
+        menyesuaikan perencanaan jalur kabel, kapasitas access point, dan konfigurasi router dengan
+        kebutuhan spesifik Anda.
       </p>
     </div>
 
-    <div class="mt-14 grid gap-8 lg:grid-cols-2">
-      {
-        segments.map((seg, idx) => {
-          const isCommercial = seg.id === 'sme-commercial' || idx === 0;
+    <!-- Interactive Segment Switcher -->
+    <div class="mt-12">
+      <!-- Tab Navigation Buttons -->
+      <div
+        class="flex flex-wrap items-center justify-center gap-2 border-b border-gray-200/80 pb-4 dark:border-neutral-800"
+        role="tablist"
+        aria-label="Pilih tipe bangunan Anda"
+        id="segment-tabs-nav"
+      >
+        {
+          segments.map((seg, idx) => {
+            const Icon = getSegmentIcon(seg.id);
+            const isActive = idx === 0;
 
-          return (
-            <div class="flex flex-col justify-between overflow-hidden rounded-3xl border border-gray-200/90 bg-white p-6 shadow-xs transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl sm:p-8 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
-              <div>
-                <!-- Header Badge & Target Spaces -->
-                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gray-100 pb-5 dark:border-neutral-800">
-                  <span class="inline-flex items-center gap-2 rounded-xl bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
-                    {isCommercial ? (
-                      <Building2 class="size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    ) : (
-                      <House class="size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    )}
-                    {seg.badge}
-                  </span>
+            return (
+              <button
+                type="button"
+                role="tab"
+                id={`tab-btn-${seg.id}`}
+                aria-selected={isActive ? 'true' : 'false'}
+                aria-controls={`tab-panel-${seg.id}`}
+                data-segment-target={seg.id}
+                class={`segment-tab-btn inline-flex min-h-[44px] items-center gap-2 rounded-xl border px-4 py-2.5 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-(--color-steel-blue-600) focus-visible:outline-hidden ${
+                  isActive
+                    ? 'active border-emerald-500 bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
+                    : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700'
+                }`}
+              >
+                <Icon class="size-4 shrink-0" />
+                <span>{seg.title.split('&')[0].trim()}</span>
+              </button>
+            );
+          })
+        }
+      </div>
 
-                  <div class="flex flex-wrap gap-1.5">
-                    {seg.targetSpaces.map((space) => (
-                      <span class="rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-600 dark:bg-neutral-800 dark:text-neutral-300">
-                        {space}
-                      </span>
-                    ))}
+      <!-- Tab Panels Container -->
+      <div class="mt-8" id="segment-panels-container">
+        {
+          segments.map((seg, idx) => {
+            const isActive = idx === 0;
+            const Icon = getSegmentIcon(seg.id);
+
+            return (
+              <div
+                role="tabpanel"
+                id={`tab-panel-${seg.id}`}
+                aria-labelledby={`tab-btn-${seg.id}`}
+                class={`segment-panel transition-opacity duration-200 ${
+                  isActive ? 'block opacity-100' : 'hidden opacity-0'
+                }`}
+              >
+                <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 shadow-lg sm:p-10 dark:border-neutral-800 dark:bg-(--color-deep-space-blue-950)">
+                  {/* Top Bar: Badge, Title & Target Spaces */}
+                  <div class="flex flex-col justify-between gap-4 border-b border-gray-100 pb-6 sm:flex-row sm:items-center dark:border-neutral-800">
+                    <div>
+                      <div class="flex flex-wrap items-center gap-2">
+                        <span class="inline-flex items-center gap-1.5 rounded-md bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300">
+                          <Icon class="size-3.5" />
+                          {seg.badge}
+                        </span>
+                        {seg.targetSpaces && (
+                          <div class="flex flex-wrap gap-1.5">
+                            {seg.targetSpaces.map((space) => (
+                              <span class="rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-600 dark:bg-neutral-800 dark:text-neutral-300">
+                                {space}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <h3 class="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
+                        {seg.title}
+                      </h3>
+                      <p class="mt-2 max-w-3xl text-sm leading-relaxed text-gray-600 sm:text-base dark:text-neutral-300">
+                        {seg.description}
+                      </p>
+                    </div>
+
+                    <div class="shrink-0">
+                      <a
+                        href={getWaUrl(seg.waMessage)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-(--color-steel-blue-800) px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-(--color-steel-blue-700) focus-visible:ring-2 focus-visible:ring-(--color-steel-blue-600) dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600)"
+                        data-analytics-cta="whatsapp"
+                        data-analytics-location="segment_card"
+                      >
+                        <span>Konsultasikan Kebutuhan Ini</span>
+                        <ArrowRight class="size-3.5" />
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-                <h3 class="mt-5 text-xl font-extrabold tracking-tight text-gray-900 sm:text-2xl dark:text-white">
-                  {seg.title}
-                </h3>
-
-                <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-neutral-300">
-                  {seg.description}
-                </p>
-
-                <!-- Visual Network Architecture Topology Diagram -->
-                <div class="mt-6 rounded-2xl border border-gray-200/80 bg-linear-to-b from-gray-50/90 to-gray-100/40 p-4 dark:border-neutral-800 dark:from-neutral-900/80 dark:to-(--color-deep-space-blue-900)/40">
-                  <div class="flex items-center justify-between border-b border-gray-200/60 pb-2.5 dark:border-neutral-800">
-                    <span class="flex items-center gap-1.5 text-[11px] font-bold tracking-wider text-gray-600 uppercase dark:text-neutral-300">
-                      <Network class="size-3.5 text-emerald-600 dark:text-emerald-400" />
-                      Visual Arsitektur Topologi Alur Kriya
-                    </span>
-                    <span class="rounded-md bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300">
-                      Gigabit PoE Full-Duplex
-                    </span>
-                  </div>
-
-                  <!-- Topology Flowchart Nodes -->
-                  <div class="mt-3 grid grid-cols-1 gap-2 text-xs sm:grid-cols-3">
-                    {isCommercial ? (
-                      <>
-                        <div class="rounded-xl border border-gray-200 bg-white p-2.5 text-center shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
-                          <p class="text-[10px] font-bold text-gray-400 uppercase">Input</p>
-                          <p class="mt-0.5 font-bold text-gray-900 dark:text-white">Modem Fiber ISP</p>
-                          <p class="text-[10px] text-emerald-600 dark:text-emerald-400">Multi-WAN Ready</p>
-                        </div>
-                        <div class="rounded-xl border border-emerald-300/80 bg-emerald-50/50 p-2.5 text-center shadow-2xs dark:border-emerald-800/80 dark:bg-emerald-950/30">
-                          <p class="text-[10px] font-bold text-emerald-700 uppercase dark:text-emerald-300">Core Engine</p>
-                          <p class="mt-0.5 font-bold text-gray-900 dark:text-white">MikroTik Router</p>
-                          <p class="text-[10px] font-medium text-gray-600 dark:text-neutral-300">Traffic QoS + VLAN</p>
-                        </div>
-                        <div class="rounded-xl border border-gray-200 bg-white p-2.5 text-center shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
-                          <p class="text-[10px] font-bold text-gray-400 uppercase">Distribusi</p>
-                          <p class="mt-0.5 font-bold text-gray-900 dark:text-white">Wi-Fi 6 AP & CCTV</p>
-                          <p class="text-[10px] text-emerald-600 dark:text-emerald-400">PoE Gigabit Switch</p>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div class="rounded-xl border border-gray-200 bg-white p-2.5 text-center shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
-                          <p class="text-[10px] font-bold text-gray-400 uppercase">Input Utama</p>
-                          <p class="mt-0.5 font-bold text-gray-900 dark:text-white">Fiber Terminal</p>
-                          <p class="text-[10px] text-emerald-600 dark:text-emerald-400">Pusat Kabel Panel</p>
-                        </div>
-                        <div class="rounded-xl border border-emerald-300/80 bg-emerald-50/50 p-2.5 text-center shadow-2xs dark:border-emerald-800/80 dark:bg-emerald-950/30">
-                          <p class="text-[10px] font-bold text-emerald-700 uppercase dark:text-emerald-300">Backbone</p>
-                          <p class="mt-0.5 font-bold text-gray-900 dark:text-white">Cat6 In-Wall Conduit</p>
-                          <p class="text-[10px] font-medium text-gray-600 dark:text-neutral-300">Kabel Rapi Tersembunyi</p>
-                        </div>
-                        <div class="rounded-xl border border-gray-200 bg-white p-2.5 text-center shadow-2xs dark:border-neutral-700 dark:bg-neutral-800">
-                          <p class="text-[10px] font-bold text-gray-400 uppercase">Cakupan</p>
-                          <p class="mt-0.5 font-bold text-gray-900 dark:text-white">AP Lantai 1, 2, 3</p>
-                          <p class="text-[10px] text-emerald-600 dark:text-emerald-400">Fast Roaming &lt;50ms</p>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-
-                <!-- Priorities List -->
-                <div class="mt-6 space-y-3.5">
-                  <h4 class="text-xs font-bold tracking-wider text-gray-500 uppercase dark:text-neutral-400">
-                    Fokus Rekayasa Teknis:
-                  </h4>
-                  {seg.priorities.map((item) => (
-                    <div class="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50/60 p-3.5 transition-colors hover:bg-gray-50 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:bg-neutral-900/80">
-                      <CheckCircle2 class="mt-0.5 size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                  {/* 4 Pillars: Problem, Solution, Outcome, Components */}
+                  <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    {/* 1. Masalah Umum */}
+                    <div class="flex flex-col justify-between rounded-2xl border border-red-100 bg-red-50/40 p-5 dark:border-red-950/40 dark:bg-red-950/20">
                       <div>
-                        <h5 class="text-xs font-bold text-gray-900 dark:text-white">{item.title}</h5>
-                        <p class="mt-1 text-xs leading-relaxed text-gray-600 dark:text-neutral-400">
-                          {item.desc}
+                        <div class="flex items-center gap-2">
+                          <span class="flex size-6 items-center justify-center rounded-lg bg-red-100 text-red-600 dark:bg-red-900/60 dark:text-red-300">
+                            <CircleAlert class="size-3.5" />
+                          </span>
+                          <h4 class="text-xs font-bold tracking-wider text-red-800 uppercase dark:text-red-300">
+                            Masalah Umum
+                          </h4>
+                        </div>
+                        <p class="mt-3 text-xs leading-relaxed text-gray-700 dark:text-neutral-300">
+                          {seg.problem}
                         </p>
                       </div>
                     </div>
-                  ))}
-                </div>
 
-                <!-- Technical Standard Specs -->
-                <div class="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50/40 p-4 dark:border-emerald-900/30 dark:bg-emerald-950/20">
-                  <span class="block text-[11px] font-bold tracking-wider text-emerald-800 uppercase dark:text-emerald-300">
-                    Standar Implementasi:
-                  </span>
-                  <dl class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
-                    {seg.specs.map((spec) => (
-                      <div class="border-t border-emerald-200/50 pt-1.5 sm:border-t-0 sm:border-l sm:pl-2.5 sm:first:border-l-0 sm:first:pl-0 dark:border-emerald-800/40">
-                        <dt class="text-[10px] font-semibold text-gray-500 dark:text-neutral-400">
-                          {spec.label}
-                        </dt>
-                        <dd class="mt-0.5 text-xs font-bold text-gray-900 dark:text-white">
-                          {spec.value}
-                        </dd>
+                    {/* 2. Solusi yang Relevan */}
+                    <div class="flex flex-col justify-between rounded-2xl border border-emerald-100 bg-emerald-50/40 p-5 dark:border-emerald-950/40 dark:bg-emerald-950/20">
+                      <div>
+                        <div class="flex items-center gap-2">
+                          <span class="flex size-6 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300">
+                            <CheckCircle2 class="size-3.5" />
+                          </span>
+                          <h4 class="text-xs font-bold tracking-wider text-emerald-800 uppercase dark:text-emerald-300">
+                            Solusi yang Relevan
+                          </h4>
+                        </div>
+                        <p class="mt-3 text-xs leading-relaxed text-gray-700 dark:text-neutral-300">
+                          {seg.solution}
+                        </p>
                       </div>
-                    ))}
-                  </dl>
+                    </div>
+
+                    {/* 3. Hasil yang Ingin Dicapai */}
+                    <div class="flex flex-col justify-between rounded-2xl border border-sky-100 bg-sky-50/40 p-5 dark:border-sky-950/40 dark:bg-sky-950/20">
+                      <div>
+                        <div class="flex items-center gap-2">
+                          <span class="flex size-6 items-center justify-center rounded-lg bg-sky-100 text-sky-700 dark:bg-sky-900/60 dark:text-sky-300">
+                            <Zap class="size-3.5" />
+                          </span>
+                          <h4 class="text-xs font-bold tracking-wider text-sky-800 uppercase dark:text-sky-300">
+                            Hasil yang Ditargetkan
+                          </h4>
+                        </div>
+                        <p class="mt-3 text-xs leading-relaxed text-gray-700 dark:text-neutral-300">
+                          {seg.outcome}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* 4. Komponen Instalasi */}
+                    <div class="flex flex-col justify-between rounded-2xl border border-gray-200 bg-gray-50/70 p-5 dark:border-neutral-800 dark:bg-neutral-900/60">
+                      <div>
+                        <div class="flex items-center gap-2">
+                          <span class="flex size-6 items-center justify-center rounded-lg bg-gray-200 text-gray-700 dark:bg-neutral-800 dark:text-neutral-300">
+                            <Server class="size-3.5" />
+                          </span>
+                          <h4 class="text-xs font-bold tracking-wider text-gray-700 uppercase dark:text-neutral-300">
+                            Komponen yang Mungkin Diperlukan
+                          </h4>
+                        </div>
+                        <ul class="mt-3 space-y-1.5 text-xs text-gray-600 dark:text-neutral-300">
+                          {seg.componentsNeeded?.map((comp) => (
+                            <li class="flex items-start gap-1.5">
+                              <span class="text-emerald-600 dark:text-emerald-400">•</span>
+                              <span>{comp}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <!-- Button CTA -->
-              <div class="mt-8 border-t border-gray-100 pt-6 dark:border-neutral-800">
-                <a
-                  href={getWaUrl(seg.waMessage)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex min-h-[44px] w-full items-center justify-center gap-x-2 rounded-xl bg-(--color-steel-blue-800) px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-(--color-steel-blue-700) focus-visible:ring-2 focus-visible:ring-(--color-steel-blue-600) focus-visible:ring-offset-2 focus-visible:outline-hidden dark:bg-(--color-steel-blue-700) dark:hover:bg-(--color-steel-blue-600) dark:focus-visible:ring-offset-neutral-900"
-                >
-                  <span>Konsultasikan Kebutuhan {isCommercial ? 'UKM' : 'Rumah'} via WA</span>
-                  <ArrowRight class="size-4 shrink-0" />
-                </a>
-              </div>
-            </div>
-          );
-        })
-      }
+            );
+          })
+        }
+      </div>
     </div>
   </div>
 </section>
 
+<script>
+  function initSegmentTabs() {
+    const nav = document.getElementById('segment-tabs-nav');
+    const container = document.getElementById('segment-panels-container');
+    if (!nav || !container) return;
+
+    const btns = Array.from(nav.querySelectorAll<HTMLButtonElement>('.segment-tab-btn'));
+    const panels = Array.from(container.querySelectorAll<HTMLElement>('.segment-panel'));
+
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-segment-target');
+
+        // Update button states
+        btns.forEach((b) => {
+          b.setAttribute('aria-selected', 'false');
+          b.classList.remove(
+            'active',
+            'border-emerald-500',
+            'bg-emerald-600',
+            'text-white',
+            'shadow-md',
+            'shadow-emerald-600/20'
+          );
+          b.classList.add(
+            'border-gray-200',
+            'bg-white',
+            'text-gray-700',
+            'dark:border-neutral-700',
+            'dark:bg-neutral-800',
+            'dark:text-neutral-300'
+          );
+        });
+
+        btn.setAttribute('aria-selected', 'true');
+        btn.classList.add(
+          'active',
+          'border-emerald-500',
+          'bg-emerald-600',
+          'text-white',
+          'shadow-md',
+          'shadow-emerald-600/20'
+        );
+        btn.classList.remove(
+          'border-gray-200',
+          'bg-white',
+          'text-gray-700',
+          'dark:border-neutral-700',
+          'dark:bg-neutral-800',
+          'dark:text-neutral-300'
+        );
+
+        // Update panel states
+        panels.forEach((p) => {
+          if (p.id === `tab-panel-${targetId}`) {
+            p.classList.remove('hidden');
+            setTimeout(() => {
+              p.classList.remove('opacity-0');
+              p.classList.add('opacity-100');
+            }, 10);
+          } else {
+            p.classList.add('hidden', 'opacity-0');
+            p.classList.remove('opacity-100');
+          }
+        });
+      });
+
+      // Keyboard arrow navigation
+      btn.addEventListener('keydown', (e) => {
+        let newIndex = -1;
+        if (e.key === 'ArrowRight') {
+          newIndex = (index + 1) % btns.length;
+        } else if (e.key === 'ArrowLeft') {
+          newIndex = (index - 1 + btns.length) % btns.length;
+        }
+
+        if (newIndex >= 0) {
+          e.preventDefault();
+          btns[newIndex].focus();
+          btns[newIndex].click();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSegmentTabs);
+  } else {
+    initSegmentTabs();
+  }
+  document.addEventListener('astro:page-load', initSegmentTabs);
+</script>

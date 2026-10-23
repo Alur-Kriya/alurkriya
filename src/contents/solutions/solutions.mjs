@@ -8,9 +8,9 @@ export const solutions = [
     badge: 'Solusi Khusus ZISWAF & Filantropi',
     navDesc:
       'ERP terpadu untuk fundraising, akuntansi PSAK 109, penyaluran 8 Asnaf, approval PPD, dan SDM amil.',
-    title: 'Software ZISWAF ERP : Solusi Sistem ERP Terintegrasi Lembaga Amil Zakat',
+    title: 'Software ZISWAF ERP untuk Lembaga Zakat',
     description:
-      'Software ZISWAF ERP adalah platform ERP komprehensif untuk Lembaga Amil Zakat (LAZ, UPZ, BAZNAS) yang mengintegrasikan fundraising, kasir ZIS, akuntansi PSAK 109, penyaluran 8 Asnaf, persetujuan PPD berjenjang, dan tata kelola amil.',
+      'Kelola operasional lembaga ZISWAF melalui sistem terintegrasi untuk membantu pengelolaan data, transaksi, pembukuan, dan pelaporan. Konsultasikan kebutuhan lembaga Anda dengan Kriya.',
     ogimage: '/images/og-solusi-ziswaf-erp.png',
     images: {
       hero: '/images/solusi/hero.jpg',
@@ -19,22 +19,21 @@ export const solutions = [
       sdm: '/images/solusi/sdm.jpg',
     },
     hero: {
-      eyebrow: 'ERP Terintegrasi Lembaga ZISWAF',
-      headline: 'Satu Sistem ERP untuk Seluruh Operasional Lembaga ZISWAF',
+      eyebrow: 'ERP Terintegrasi untuk Lembaga ZISWAF',
+      headline: 'Kelola Penghimpunan, Keuangan, dan Penyaluran ZISWAF dalam Satu Sistem',
       subheadline:
-        'Hentikan kerumitan data yang terpisah-pisah di Excel, chat, dan banyak aplikasi. Software ZISWAF ERP menyatukan penghimpunan donasi, verifikasi mutasi bank, pembukuan PSAK 109, penyaluran 8 Asnaf, dan monitoring LPJ dalam satu database terpusat yang aman dan siap audit.',
-      primaryCta: 'Minta Demo via WhatsApp',
-      secondaryCta: 'Pelajari Masalah yang Diselesaikan',
-      secondaryCtaHref: '#pain-points',
+        'Satukan proses pengelolaan data muzaki, transaksi, pembukuan, dan pelaporan dalam sistem terintegrasi untuk membantu tim bekerja lebih terstruktur dan memudahkan pemantauan operasional lembaga.',
+      primaryCta: 'Minta Demo ERP ZISWAF',
+      secondaryCta: 'Konsultasi Kebutuhan Lembaga',
+      secondaryCtaHref: '#cara-kerja',
     },
     waMessage:
-      'Halo Kriya, saya ingin request sesi demo Software ZISWAF ERP untuk lembaga amil zakat kami. Mohon info ketersediaan jadwalnya.',
+      'Halo Kriya, saya ingin minta demo Software ZISWAF ERP untuk lembaga zakat kami. Mohon info ketersediaan jadwalnya.',
     schemaType: 'SoftwareApplication',
     compliance: true,
-    demoButtonLabel: 'Minta Demo',
+    demoButtonLabel: 'Minta Demo ERP ZISWAF',
     modulesLabel: 'Cakupan 11 Modul Inti:',
-    trustBannerHeading:
-      'Telah Diimplementasikan & Dipercaya oleh Berbagai Lembaga Pengelola Dana ZISWAF',
+    trustBannerHeading: 'Arsitektur Sistem Dirancang untuk Berbagai Skala Lembaga Pengelola ZISWAF',
     painPointsTitle: 'Apakah Lembaga Anda Sering Mengalami Hambatan Operasional Ini?',
     painPointsSubtitle:
       'Mengelola dana amanah umat membutuhkan akurasi, kecepatan, dan transparansi tinggi. Namun banyak lembaga terhambat oleh proses manual yang lambat dan rawan risiko.',
@@ -50,18 +49,18 @@ export const solutions = [
       'Seluruh modul di bawah ini sudah saling terintegrasi dalam paket standar, dan dapat disesuaikan mengikuti SOP dan alur otorisasi lembaga Anda.',
     impactHeading: 'Dampak Nyata Implementasi di Lembaga ZISWAF',
     impactSubheading:
-      'Hasil nyata yang dirasakan tim operasional, keuangan, dan pendayagunaan setelah beralih dari pencatatan spreadsheet ke Software ZISWAF ERP terpadu.',
+      'Peningkatan efisiensi yang dirasakan tim operasional, keuangan, dan pendayagunaan setelah beralih dari pencatatan spreadsheet ke Software ZISWAF ERP terpadu.',
     faqHeading: 'Pertanyaan yang Sering Diajukan Seputar Software ZISWAF ERP',
     ctaTitle: 'Siap Mengintegrasikan Seluruh Tata Kelola Lembaga ZISWAF Anda?',
     ctaDesc:
       'Dapatkan sesi demonstrasi langsung dan konsultasi sistem bersama tim ahli Kriya. Temukan bagaimana Software ZISWAF ERP membantu lembaga Anda bertumbuh lebih amanah dan akuntabel.',
-    ctaButtonLabel: 'Minta Demo via WhatsApp',
+    ctaButtonLabel: 'Minta Demo ERP ZISWAF',
     ctaNote: 'Tim konsultan Kriya siap merespons permohonan demo dalam waktu 1x24 jam kerja.',
 
     // Clients & Social Proof
     clientInstitutions: [
-      { name: 'Lembaga Amil Zakat Nasional', type: 'LAZNAS Mitra' },
-      { name: 'LAZ Provinsi & Daerah', type: 'LAZ Daerah Mitra' },
+      { name: 'Lembaga Amil Zakat Nasional', type: 'LAZNAS' },
+      { name: 'LAZ Provinsi & Daerah', type: 'LAZ Daerah' },
       { name: 'Unit Pengumpul Zakat (UPZ)', type: 'UPZ Korporasi & Kampus' },
       { name: 'Yayasan Filantropi Islam', type: 'Yayasan Sosial Mandiri' },
       { name: 'Lembaga Pengelola Wakaf', type: 'Nazhir Wakaf Produktif' },
@@ -72,7 +71,7 @@ export const solutions = [
       { value: '11', label: 'Modul Inti Terintegrasi' },
       { value: '8', label: 'Asnaf Zakat Syariah Sesuai Kaidah' },
       { value: '5', label: 'Pilar Program Standar Penyaluran' },
-      { value: '100%', label: 'Kepatuhan Syariah PSAK 109 & BAZNAS ACR' },
+      { value: 'PSAK 109', label: 'Standar Akuntansi Nirlaba & Pedoman BAZNAS' },
     ],
 
     // Acute Pain Points
@@ -181,7 +180,7 @@ export const solutions = [
           desc: 'Ketika kasir menginput donasi, jurnal akuntansi PSAK 109 langsung terbentuk otomatis tanpa input ulang.',
         },
         {
-          title: 'Jejak Audit Digital 100%',
+          title: 'Jejak Audit Digital Komprehensif',
           desc: 'Setiap klik persetujuan, revisi anggaran, dan pencairan kas terekam jelas siapa, kapan, dan nominalnya.',
         },
         {
@@ -749,30 +748,8 @@ export const solutions = [
       },
     ],
 
-    // Testimonials (Reflecting real impact in ZISWAF management)
-    testimonials: [
-      {
-        quote:
-          'Sebelum menggunakan Software ZISWAF ERP, rekonsiliasi akhir bulan bersama tim keuangan butuh 5 hari lembur penuh. Sekarang dengan modul Ayat Silang dan jurnal otomatis PSAK 109, semua mutasi bank klop dalam hitungan jam. Audit syariah tahun ini berjalan sangat mulus!',
-        author: 'Drs. H. M. Fauzan, M.E.',
-        role: 'Direktur Keuangan & Operasional',
-        institution: 'Lembaga Filantropi & ZISWAF Mandiri',
-      },
-      {
-        quote:
-          'Fitur Approval Center dan monitoring PPD mengubah cara kerja kami. Dulu persetujuan permohonan dana bantuan bencana sering tertahan di tumpukan map fisik. Sekarang dari mana saja pimpinan bisa approve dalam hitungan menit, dan mustahik menerima manfaat lebih cepat.',
-        author: 'Ahmad Syukron, S.Sos.',
-        role: 'Kepala Divisi Pendayagunaan & Program',
-        institution: 'LAZ Peduli Ummat',
-      },
-      {
-        quote:
-          'Yang paling berharga bagi kami adalah nilai spiritualitasnya. Bukan hanya software bisnis dingin, modul Mutabaah Yaumiyah amil dan kanal Lapor Gratifikasi menjaga kultur amanah seluruh tim. Pelayanan ke muzaki meningkat drastis.',
-        author: 'Nurul Hidayati, S.E.',
-        role: 'Manajer Fundraising & SDM',
-        institution: 'Yayasan Bina Amal Insani',
-      },
-    ],
+    // Testimonials (Set to empty to avoid unverified/fictional reviews)
+    testimonials: [],
 
     // Customization & Implementation Methodology
     customizationHeadline:
@@ -838,59 +815,58 @@ export const solutions = [
   {
     id: 2,
     slug: 'perluasan-jaringan-internet',
-    name: 'Solusi Perluasan Jaringan Internet',
-    tagline: 'Infrastruktur Jaringan Cepat, Stabil, dan Bebas Blind Spot untuk UKM & Hunian',
+    name: 'Jasa Instalasi dan Perluasan Jaringan Wi-Fi',
+    tagline: 'Perencanaan dan Instalasi Jaringan Wi-Fi serta LAN Sesuai Kebutuhan Bangunan',
     category: 'Network Infrastructure & Wireless Roaming',
     schemaType: 'Service',
     badge: 'Infrastruktur & Jaringan',
     navDesc:
-      'Solusi jangkauan Wi-Fi luas, stabil, dan bebas dead zone untuk kantor UKM, ruko, gudang, dan hunian bertingkat.',
-    title: 'Solusi Perluasan Jaringan Internet & Wi-Fi Gedung',
+      'Layanan perencanaan dan instalasi jaringan Wi-Fi serta LAN untuk rumah, kantor, ruko, dan gudang.',
+    title: 'Jasa Instalasi Jaringan Wi-Fi & Perluasan Internet',
     description:
-      'Layanan rekayasa jaringan terpadu dari Alur Kriya Teknologi: site survey jangkauan RF, instalasi kabel Cat6 terstruktur yang rapi, access point enterprise dengan seamless roaming, dan manajemen bandwidth terpusat untuk perkantoran UKM, ruko, gudang, serta hunian bertingkat.',
+      'Layanan instalasi dan perluasan jaringan Wi-Fi serta LAN untuk rumah, kantor, ruko, dan gudang. Konsultasikan kebutuhan jaringan Anda dengan Kriya.',
     ogimage: '/images/og-solusi-jaringan.png',
     images: {
       hero: '/images/solusi/network-hero.jpg',
     },
     hero: {
       eyebrow: 'Infrastruktur Jaringan & Konektivitas Terpadu',
-      headline: 'Jaringan Wi-Fi Cepat, Stabil, dan Merata di Setiap Sudut Bangunan',
+      headline: 'Jasa Instalasi dan Perluasan Jaringan Wi-Fi untuk Rumah dan Kantor',
       subheadline:
-        'Akhiri masalah dead zone lantai atas, koneksi putus saat berpindah ruangan, dan internet melambat akibat bandwidth bentrok. Kami hadirkan arsitektur jaringan kabel terstruktur dan access point enterprise terkelola untuk perkantoran UKM, ruko, gudang, dan hunian bertingkat.',
-      primaryCta: 'Jadwalkan Survey Lokasi via WhatsApp',
-      secondaryCta: 'Pelajari Masalah Jaringan',
-      secondaryCtaHref: '#pain-points',
+        'Atasi area Wi-Fi yang sulit terjangkau, jaringan kantor yang tidak stabil, dan instalasi kabel yang tidak terstruktur. Kriya membantu merencanakan dan memasang jaringan Wi-Fi serta LAN sesuai kebutuhan bangunan Anda.',
+      primaryCta: 'Konsultasikan Kebutuhan Jaringan',
+      secondaryCta: 'Lihat Proses Instalasi',
+      secondaryCtaHref: '#proses-instalasi',
     },
     waMessage:
-      'Halo Kriya, saya ingin konsultasi dan menjadwalkan survey lokasi untuk solusi perluasan jaringan internet di tempat kami.',
-    demoButtonLabel: 'Jadwalkan Survey',
-    modulesLabel: 'Cakupan 8 Layanan Rekayasa Jaringan:',
+      'Halo Kriya, saya ingin berkonsultasi mengenai perluasan jaringan Wi-Fi. Jenis bangunan saya [rumah/kantor/gudang], dengan kendala jaringan [jelaskan kendala].',
+    demoButtonLabel: 'Konsultasi Jaringan',
+    modulesLabel: 'Lingkup 7 Layanan Rekayasa Jaringan:',
 
     hardwareEcosystem: [
       {
         name: 'Ubiquiti UniFi',
         badge: 'Enterprise Wi-Fi & Switching',
         specialization:
-          'Solusi ekosistem terpadu untuk jangkauan sinyal merata, seamless fast roaming 802.11k/v/r, dan kontrol visual terpusat.',
-        recommendedFor:
-          'Kantor UKM, ruko modern bertingkat, coworking space, dan hunian bertingkat premium.',
+          'Solusi ekosistem terpadu untuk jangkauan sinyal terencana, fast roaming 802.11k/v/r, dan kontrol visual terpusat.',
+        recommendedFor: 'Kantor UKM, ruko bertingkat, coworking space, dan hunian bertingkat.',
         devices: [
           'UniFi U6-Pro / U6+ Wi-Fi 6 AP',
           'UniFi Switch PoE+ Gigabit',
           'UniFi Cloud Gateway',
         ],
         features: [
-          'Fast BSS transition untuk perpindahan sinyal antar lantai tanpa jeda putus',
-          'Desain ceiling mount minimalis elegan yang menyatu dengan estetika plafon',
+          'Fast BSS transition untuk transisi sinyal antar lantai yang lebih mulus',
+          'Desain ceiling mount minimalis yang menyatu dengan estetika plafon',
           'Dashboard UniFi Controller terpusat untuk monitoring perangkat dan klien',
-          'Dukungan multi-SSID dan isolasi VLAN tamu berbasis hardware',
+          'Dukungan multi-SSID dan isolasi VLAN tamu berbasis perangkat keras',
         ],
       },
       {
         name: 'MikroTik RouterOS',
         badge: 'Core Gateway & Bandwidth Shaper',
         specialization:
-          'Router performa tinggi untuk pembagian bandwidth adil, proteksi firewall berlapis, dan kestabilan routing tanpa henti.',
+          'Router performa tinggi untuk pembagian bandwidth teratur, proteksi firewall, dan kestabilan routing.',
         recommendedFor:
           'Perkantoran dengan banyak divisi, sistem kasir POS, gudang logistik, dan manajemen multi-WAN.',
         devices: [
@@ -899,10 +875,10 @@ export const solutions = [
           'MikroTik Cloud Router Switch',
         ],
         features: [
-          'Dynamic Queue Tree & PCQ untuk membagi bandwidth secara adil tanpa monopoli',
+          'Dynamic Queue Tree dan PCQ untuk pembagian bandwidth adil antarpengguna',
           'Prioritas jalur kritis (QoS) untuk sistem kasir POS, database kantor, dan VoIP',
-          'Multi-WAN failover otomatis mengalihkan koneksi ke ISP cadangan saat ISP utama putus',
-          'Firewall filtering andal untuk memblokir akses situs berbahaya dan serangan jaringan',
+          'Multi-WAN failover untuk mengalihkan koneksi ke ISP cadangan saat ISP utama mengalami gangguan',
+          'Firewall filtering untuk pengamanan akses jaringan internal',
         ],
       },
       {
@@ -910,18 +886,17 @@ export const solutions = [
         badge: 'Cloud-Managed Mesh & Smart Gateway',
         specialization:
           'Perangkat jaringan kelas komersial dengan teknologi Self-Organizing Network (SON) dan kemudahan manajemen berbasis cloud.',
-        recommendedFor:
-          'Ruko bisnis, kafe/restoran, penginapan/villa, dan hunian residensial bertingkat.',
+        recommendedFor: 'Ruko bisnis, kafe, penginapan, dan hunian residensial bertingkat.',
         devices: [
           'Reyee RG-RAP Wi-Fi 6 AP',
           'Reyee Smart Managed PoE Switch',
           'Reyee Cloud Gateway Router',
         ],
         features: [
-          'Self-Organizing Network untuk konfigurasi mesh dan optimasi sinyal otomatis',
-          'Pemantauan status jaringan real-time melalui aplikasi mobile Reyee Cloud',
-          'Pemisahan jaringan tamu dengan captive portal selamat datang yang elegan',
-          'Performa Wi-Fi 6 stabil dengan rasio biaya investasi yang sangat efisien',
+          'Self-Organizing Network untuk konfigurasi dan optimasi sinyal terkoordinasi',
+          'Pemantauan status jaringan melalui aplikasi mobile Reyee Cloud',
+          'Pemisahan jaringan tamu dengan captive portal selamat datang yang rapi',
+          'Performa Wi-Fi 6 stabil dengan efisiensi biaya investasi yang terukur',
         ],
       },
       {
@@ -938,211 +913,264 @@ export const solutions = [
         ],
         features: [
           'Standar enkripsi WPA3 dan fitur keamanan terpasang tanpa biaya lisensi tambahan',
-          'Optimasi otomatis untuk voice dan video conference agar bebas stuttering',
+          'Optimasi alokasi untuk voice dan video conference guna meminimalkan jitter',
           'Manajemen ganda melalui aplikasi mobile atau web browser lokal',
-          'Kualitas hardware kelas enterprise global dengan durabilitas jangka panjang',
+          'Kualitas perangkat keras standar bisnis dengan durabilitas jangka panjang',
         ],
       },
     ],
 
-    trustBannerHeading: 'Melayani Instalasi & Optimasi Jaringan di Berbagai Tipe Bangunan',
+    trustBannerHeading: 'Tipe Bangunan yang Telah Kami Layani',
     clientInstitutions: [
+      { name: 'Rumah Tinggal Bertingkat', type: 'Residential 2-4 Lantai' },
       { name: 'Perkantoran UKM & Coworking', type: 'Office Network' },
       { name: 'Ruko Bertingkat & Bisnis Ritel', type: 'Commercial Shophouse' },
       { name: 'Gudang Logistik & Workshop', type: 'Industrial Area' },
-      { name: 'Rumah Tinggal Bertingkat', type: 'Residential 2-4 Lantai' },
-      { name: 'Klaster Hunian & Villa', type: 'Private Property' },
+      { name: 'Gedung Multilantai & Ruang Kompleks', type: 'Multi-Floor Facility' },
     ],
 
     stats: [
       { value: '1 Gbps', label: 'Standar Backbone Kabel Cat6' },
-      { value: 'Wi-Fi 6', label: 'Dukungan Standar Protokol 802.11ax' },
-      { value: 'Zero-Drop', label: 'Seamless Roaming 802.11k/v/r' },
+      { value: 'Wi-Fi 6', label: 'Dukungan Protokol 802.11ax' },
+      { value: '< 50 ms', label: 'Handover Roaming Cepat 802.11k/v/r' },
       { value: 'VLAN', label: 'Isolasi Keamanan Jaringan Tamu' },
     ],
 
-    painPointsTitle: 'Kendala Jaringan yang Kerap Mengganggu Operasional Bisnis & Kenyamanan Rumah',
+    painPointsTitle: 'Masalah Jaringan yang Kami Tangani',
     painPointsSubtitle:
-      'Sebagian besar masalah bukan berasal dari kapasitas ISP Anda, melainkan distribusi sinyal di dalam bangunan yang tidak dirancang secara teknis.',
+      'Sebagian besar kendala koneksi berasal dari distribusi jaringan internal bangunan yang belum terencana secara teknis.',
     painPoints: [
       {
         id: 'dead-zone-lantai',
         number: '01',
-        title: 'Sinyal Drop / Hilang di Lantai Atas & Ruang Belakang',
-        desc: 'Router bawaan provider internet diletakkan di sudut lantai bawah. Sinyal radio frekuensi teredam oleh dak beton bertulang dan partisi dinding tebal, meninggalkan area tanpa sinyal di lantai 2 atau 3.',
-        impact: 'Koneksi terputus saat bekerja dari kamar atau ruang meeting lantai atas.',
+        title: 'Sinyal Drop di Lantai Atas & Ruang Tertutup',
+        desc: 'Router bawaan provider internet diletakkan di sudut lantai bawah. Sinyal radio frekuensi teredam oleh dak beton bertulang dan dinding tebal, meninggalkan area sulit sinyal di lantai atas.',
+        impact: 'Koneksi terhambat saat bekerja dari kamar atau ruang rapat lantai atas.',
       },
       {
         id: 'repeater-choke',
         number: '02',
-        title: 'Wi-Fi Repeater Colokan Justru Membuat Internet Lambat',
-        desc: 'Repeater nirkabel murah bekerja secara half-duplex, memotong throughput bandwidth hingga separuh dan menambah latency drastis. Perangkat sering freeze dan butuh restart berulang.',
+        title: 'Wi-Fi Repeater Colokan Menurunkan Throughput & Menambah Latensi',
+        desc: 'Repeater nirkabel beroperasi secara half-duplex dengan membagi kapasitas kanal udara, sehingga throughput dapat menurun drastis dan latensi meningkat tergantung kondisi radio dan jarak.',
         impact:
-          'Internet terasa sangat lambat dan buffering berkepanjangan meskipun paket ISP berkecepatan tinggi.',
+          'Koneksi terasa lambat dan buffering berkepanjangan pada area yang mengandalkan repeater nirkabel.',
       },
       {
         id: 'roaming-putus',
         number: '03',
-        title: 'Koneksi Putus Setiap Berpindah Lantai atau Ruangan',
-        desc: 'Tanpa standar seamless roaming 802.11k/v/r, gawai Anda tetap menempel pada router lantai bawah yang sinyalnya tinggal 1 bar meskipun Anda sudah berdiri di dekat router lantai atas.',
+        title: 'Koneksi Terputus Saat Berpindah Lantai atau Ruangan',
+        desc: 'Tanpa protokol fast roaming (802.11k/v/r), gawai cenderung bertahan pada access point yang jauh (sticky client) meskipun sinyal sudah melemah.',
         impact:
-          'Panggilan video Zoom, Google Meet, atau telepon WhatsApp terputus mendadak saat berjalan antar ruangan.',
+          'Panggilan video meeting atau komunikasi online terganggu saat pengguna berpindah posisi.',
       },
       {
         id: 'bandwidth-rebutan',
         number: '04',
         title: 'Bandwidth Rebutan Tanpa Manajemen Lalu Lintas (QoS)',
-        desc: 'Ketika satu gawai mengunduh file besar atau streaming 4K, transaksi kasir (POS), printer kasir, dan aplikasi akuntansi langsung gagal memproses data karena ketiadaan prioritas traffic.',
-        impact:
-          'Antrean transaksi kasir macet dan produktivitas staf kantor terganggu saat jam sibuk.',
+        desc: 'Ketika salah satu perangkat melakukan aktivitas unduhan berat, aktivitas transaksi kasir dan aplikasi kantor dapat terhambat karena ketiadaan manajemen alokasi bandwidth.',
+        impact: 'Operasional bisnis penting terganggu saat utilisasi trafik jaringan meningkat.',
       },
       {
         id: 'kabel-semrawut',
         number: '05',
         title: 'Kabel Melintang Semrawut & Merusak Estetika Dinding',
-        desc: 'Instalasi kabel yang dipasang sembarangan tanpa pipa conduit, ducting, atau patch panel terlihat kumuh di dinding dan rawan digigit tikus atau tersandung kaki.',
-        impact: 'Merusak estetika interior dan risiko kabel putus fisik yang sulit dilacak.',
+        desc: 'Instalasi kabel yang dipasang tanpa pipa conduit, ducting, atau patch panel terlihat kumuh di dinding serta rentan risiko fisik.',
+        impact:
+          'Mengurangi kerapian interior dan berisiko mengalami kerusakan kabel fisik yang sulit dilacak.',
       },
       {
         id: 'risiko-keamanan-tamu',
         number: '06',
-        title: 'Tamu Mengakses Satu Jaringan dengan Database Internal',
-        desc: 'Memberikan kata sandi Wi-Fi kantor kepada pengunjung atau tamu rumah membuka risiko keamanan, karena perangkat luar berada di subnet yang sama dengan server lokal, CCTV, dan NAS.',
-        impact: 'Potensi kebocoran data sensitif internal perusahaan dan celah penyebaran malware.',
+        title: 'Tamu Mengakses Satu Subnet dengan Data Internal',
+        desc: 'Memberikan kata sandi Wi-Fi kantor kepada pengunjung tanpa pemisahan jaringan membuka risiko keamanan karena perangkat luar berada di segmen yang sama dengan perangkat kerja.',
+        impact: 'Membuka celah keamanan data internal perusahaan dan perangkat operasional.',
       },
     ],
 
-    // SME vs Residential Specific Pillars
     segments: [
       {
-        id: 'sme-commercial',
-        badge: 'Segmen Komersial & UKM',
-        title: 'Perkantoran, Ruko Bertingkat, Gudang & Workshop',
-        targetSpaces: ['Kantor 1-3 Lantai', 'Ruko Bisnis', 'Gudang Logistik', 'Kafe & Resto'],
+        id: 'rumah-bertingkat',
+        badge: 'Residensial & Hunian',
+        title: 'Rumah dan Rumah Bertingkat',
+        targetSpaces: ['Rumah 2-4 Lantai', 'Klaster Hunian', 'Villa & Paviliun', 'Home Office'],
         description:
-          'Fokus pada ketersediaan koneksi tanpa henti, kapasitas multi-user bersamaan, dan pembagian jalur prioritas untuk operasional bisnis kritis.',
-        priorities: [
-          {
-            title: 'Prioritas Bandwidth Kasir & Cloud ERP (QoS)',
-            desc: 'Sistem POS kasir, transaksi pembayaran, dan akses database kantor tetap lancar meskipun staf lain sedang streaming atau unduh berkas besar.',
-          },
-          {
-            title: 'Isolasi Jaringan Tamu (VLAN Guest)',
-            desc: 'Pengunjung mendapatkan akses Wi-Fi cepat tanpa bisa melihat atau mengakses server lokal, NAS, printer kantor, dan komputer internal.',
-          },
-          {
-            title: 'Penetrasi Sinyal Dinding Tebal & Gudang',
-            desc: 'Penempatan Access Point strategis dan directional antena untuk menjangkau area berpartisi bata tebal, beton, dan rak besi gudang.',
-          },
-          {
-            title: 'Kapasitas Concurrency Tinggi',
-            desc: 'Perangkat enterprise siap melayani 40 hingga 100+ koneksi gawai sekaligus tanpa overheat, latency melonjak, atau router hang.',
-          },
-        ],
-        specs: [
-          { label: 'Topologi', value: 'Backbone Cat6 PoE Gigabit + Managed Switch' },
-          { label: 'Konektivitas', value: 'Multi-SSID dengan VLAN Tagging 802.1Q' },
-          { label: 'Manajemen', value: 'Traffic Shaper / Dynamic QoS Prioritization' },
+          'Solusi jangkauan Wi-Fi merata di seluruh lantai tanpa kabel melintang semrawut di dinding, menjaga kenyamanan keluarga dan estetika interior rumah.',
+        problem:
+          'Sinyal Wi-Fi teredam oleh dak semen cor bertulang antar lantai, repeater colokan menambah latensi, dan kabel semrawut merusak estetika interior.',
+        solution:
+          'Instalasi jalur tulang punggung kabel Cat6 tersembunyi di plafon atau pipa conduit, dipadukan dengan access point Wi-Fi 6 berfitur fast roaming 802.11k/v/r.',
+        outcome:
+          'Koneksi stabil di semua ruangan dan lantai tanpa perlu mengganti nama Wi-Fi secara manual, panggilan video tidak terputus saat bergerak antar ruangan.',
+        componentsNeeded: [
+          'Access Point Ceiling Wi-Fi 6',
+          'Switch PoE Gigabit',
+          'Kabel UTP Cat6 Pure Copper',
+          'Pipa Conduit & Pelindung Dekoratif',
         ],
         waMessage:
-          'Halo Kriya, saya ingin konsultasi kebutuhan perluasan jaringan internet untuk kantor / ruko UKM kami.',
+          'Halo Kriya, saya ingin berkonsultasi mengenai instalasi jaringan Wi-Fi untuk rumah bertingkat.',
       },
       {
-        id: 'residential-property',
-        badge: 'Segmen Residensial & Hunian',
-        title: 'Rumah Bertingkat 2-4 Lantai, Klaster & Villa',
+        id: 'kantor-ruang-kerja',
+        badge: 'Perkantoran & Co-working',
+        title: 'Kantor dan Ruang Kerja',
         targetSpaces: [
-          'Rumah 2-4 Lantai',
-          'Klaster Hunian',
-          'Villa & Paviliun',
-          'Home Office / WFH',
+          'Kantor 1-3 Lantai',
+          'Co-working Space',
+          'Studio Kreatif',
+          'Ruang Kerja Bersama',
         ],
         description:
-          'Mengutamakan estetika interior rumah tanpa kabel berseliweran, roaming mulus saat berpindah lantai, dan latensi rendah untuk hiburan keluarga.',
-        priorities: [
-          {
-            title: 'Seamless Roaming Tanpa Putus (802.11k/v/r)',
-            desc: 'Pindah dari ruang tamu lantai 1 ke kamar tidur lantai 2 atau 3 tanpa panggilan video WhatsApp drop atau tayangan video terhenti.',
-          },
-          {
-            title: 'Instalasi Kabel Rapi & Tersembunyi',
-            desc: 'Jalur kabel Cat6 ditanam rapi melalui conduit pipa, celah plafon, atau pelindung kabel dekoratif yang menyatu dengan estetika interior.',
-          },
-          {
-            title: 'Koneksi Stabil untuk Smart Home & CCTV Outdoor',
-            desc: 'Kamera CCTV gerbang, smart lock, lampu pintar, dan speaker IoT tetap terhubung stabil tanpa berebut bandwidth dengan TV 4K.',
-          },
-          {
-            title: 'Parental Control & Jadwal Internet',
-            desc: 'Pengaturan pembatasan konten berbahaya dan jadwal matikan akses internet malam hari untuk perangkat gawai anak-anak.',
-          },
-        ],
-        specs: [
-          { label: 'Jangkauan', value: 'Cakupan Merata Lantai 1 hingga Rooftop' },
-          { label: 'Protokol', value: 'Wi-Fi 6 (802.11ax) Dual-Band Seamless Roaming' },
-          { label: 'Estetika', value: 'Concealed Cable Routing & Sleek Ceiling AP' },
+          'Infrastruktur jaringan bisnis yang mengutamakan kelancaran komunikasi video, kapasitas koneksi multi-perangkat bersamaan, dan keamanan data internal perusahaan.',
+        problem:
+          'Koneksi internet melambat drastis saat jam sibuk, meeting video Zoom terputus-putus, dan router bawaan mudah hang saat banyak gawai terhubung.',
+        solution:
+          'Penerapan gateway router dengan manajemen alokasi bandwidth dinamis (QoS), access point enterprise berkapasitas konkurensi tinggi, serta isolasi VLAN untuk tamu.',
+        outcome:
+          'Aplikasi bisnis penting dan panggilan video online tetap lancar, perangkat staf terhubung stabil tanpa saling memonopoli bandwidth.',
+        componentsNeeded: [
+          'Core Gateway Router (MikroTik/UniFi)',
+          'Managed PoE Switch Gigabit',
+          'Access Point Enterprise High-Concurrency',
+          'Patch Panel & Mini Rack Cabinet',
         ],
         waMessage:
-          'Halo Kriya, saya ingin konsultasi perbaikan jangkauan Wi-Fi dan instalasi jaringan untuk rumah bertingkat kami.',
+          'Halo Kriya, saya ingin berkonsultasi mengenai perbaikan dan instalasi jaringan Wi-Fi untuk kantor.',
+      },
+      {
+        id: 'ruko-bisnis-ritel',
+        badge: 'Ruko & Ritel Komersial',
+        title: 'Ruko dan Bisnis Ritel',
+        targetSpaces: ['Ruko Bisnis', 'Kafe & Resto', 'Toko Ritel', 'Klinik & Salon'],
+        description:
+          'Pemisahan jalur koneksi yang aman antara sistem operasional pembayaran kasir dengan fasilitas Wi-Fi publik untuk pengunjung.',
+        problem:
+          'Transaksi kasir POS dan mesin pembayaran QRIS/EDC tersendat ketika pengunjung kafe atau ruko aktif streaming menggunakan jaringan yang sama.',
+        solution:
+          'Segmentasi subnet menggunakan Virtual LAN (VLAN 802.1Q) dan pembatasan bandwidth terpisah pada SSID tamu agar tidak mengganggu transaksi kasir.',
+        outcome:
+          'Sistem kasir dan operasional kas selalu prioritas dan responsif, sementara pelanggan tetap mendapatkan akses Wi-Fi yang stabil.',
+        componentsNeeded: [
+          'Smart Managed Gateway',
+          'Managed Switch VLAN-enabled',
+          'Access Point Dual-Band',
+          'Konfigurasi Captive Portal Tamu [Opsional]',
+        ],
+        waMessage:
+          'Halo Kriya, saya ingin berkonsultasi mengenai solusi jaringan Wi-Fi untuk ruko atau tempat usaha ritel.',
+      },
+      {
+        id: 'gudang-operasional',
+        badge: 'Gudang & Logistik',
+        title: 'Gudang dan Bangunan Operasional',
+        targetSpaces: [
+          'Gudang Logistik',
+          'Workshop / Bengkel',
+          'Area Loading Dock',
+          'Pusat Distribusi',
+        ],
+        description:
+          'Distribusi jaringan tahan banting untuk area industri luas berpartisi rak besi tinggi guna mendukung perangkat pemindai barcode dan kamera CCTV pengawas.',
+        problem:
+          'Jangkauan sinyal terhalang oleh rak besi tinggi dan barang bertumpuk, menimbulkan blind spot bagi scanner barcode nirkabel dan tablet inventori.',
+        solution:
+          'Penempatan access point high-power dengan antena terarah strategis, jalur kabel data berpelindung conduit kokoh tahan benturan, dan koneksi CCTV NVR.',
+        outcome:
+          'Pemindaian barcode barang berjalan tanpa delay di seluruh lorong gudang dan koneksi kamera pemantau keamanan perimeter tetap andal.',
+        componentsNeeded: [
+          'High-Power Industrial Access Point',
+          'Pipa Conduit PVC / Logam Heavy Duty',
+          'PoE Switch Gigabit High-Wattage',
+          'Jalur Integrasi CCTV NVR',
+        ],
+        waMessage:
+          'Halo Kriya, saya ingin berkonsultasi mengenai instalasi jaringan internet untuk area gudang atau workshop.',
+      },
+      {
+        id: 'gedung-banyak-lantai',
+        badge: 'Gedung & Multi-Ruang',
+        title: 'Gedung dengan Banyak Ruangan atau Lantai',
+        targetSpaces: [
+          'Gedung Bertingkat',
+          'Penginapan / Guest House',
+          'Asrama',
+          'Pusat Pelatihan',
+        ],
+        description:
+          'Arsitektur jaringan skala gedung dengan perencanaan kanal frekuensi terstruktur untuk mencegah interferensi antar lantai dan manajemen terpusat.',
+        problem:
+          'Sinyal saling bertubrukan (interferensi co-channel) antar access point yang diletakkan sembarangan, serta kesulitan memantau perangkat yang tersebar di banyak lantai.',
+        solution:
+          'Desain topologi bertingkat (Core & Distribution switch), perencanaan kanal 2.4/5 GHz non-overlapping, dan monitoring controller berbasis cloud.',
+        outcome:
+          'Sinyal Wi-Fi terdistribusi secara rapi dan stabil, serta pengelola gedung memiliki visibilitas penuh terhadap status jaringan melalui satu dasbor terpusat.',
+        componentsNeeded: [
+          'Core Router & Distribution Switch',
+          'Multiple Enterprise Access Point',
+          'Cloud / Hardware Network Controller',
+          'Server Rack Cabinet & Structured Cabling',
+        ],
+        waMessage:
+          'Halo Kriya, saya ingin berkonsultasi mengenai perancangan jaringan Wi-Fi untuk gedung banyak lantai atau ruangan.',
       },
     ],
 
     rootCause: {
-      headline: 'Mengapa Router Bawaan ISP & Wi-Fi Extender Murah Tidak Pernah Cukup?',
+      headline: 'Mengapa Router Bawaan Provider & Wi-Fi Extender Colokan Sering Bermasalah?',
       subheadline:
-        'Router bawaan provider dirancang hanya untuk satu ruangan terbuka kecil. Ketika dipaksa menembus cor dak beton, lantai bertingkat, atau melayani puluhan perangkat sekaligus, koneksi langsung macet.',
-      siloTitle: 'Metode Darurat: Router ISP + Wi-Fi Repeater Colokan',
-      siloSubtitle: 'Penyebab utama latensi tinggi, koneksi freeze, dan blind spot',
+        'Router bawaan provider umumnya dirancang untuk satu area terbuka terbatas. Saat harus melayani struktur bertingkat, sekat beton tebal, atau banyak perangkat, kualitas koneksi cenderung menurun.',
+      siloTitle: 'Metode Sementara: Router Provider + Extender Nirkabel',
+      siloSubtitle: 'Penyebab latensi bertambah, sinyal tidak stabil, dan penurunan throughput',
       siloWarning:
-        'Akibatnya: Produktivitas tim kantor terganggu, transaksi kasir gagal saat jam sibuk, dan kenyamanan keluarga di rumah terusik.',
-      solutionTitle: 'Solusi Kriya: Arsitektur Jaringan Kabel Terstruktur & Access Point Terkelola',
-      solutionSubtitle: 'Backbone kabel gigabit dengan controller terpusat',
+        'Akibatnya: Produktivitas kerja terganggu, transaksi kasir terhambat, dan pengguna sering mengalami disconnect.',
+      solutionTitle: 'Solusi Kriya: Backbone Kabel Terstruktur & Access Point Terkelola',
+      solutionSubtitle: 'Jalur kabel gigabit fisik dengan manajemen perangkat terpusat',
       solutionResult:
-        'Hasil: Jangkauan sinyal merata di setiap lantai, throughput stabil, dan roaming otomatis tanpa jeda putus koneksi.',
+        'Hasil: Penetrasi sinyal lebih stabil di setiap lantai, alokasi bandwidth terjaga, dan transisi roaming lebih mulus.',
       silo: [
         {
-          title: 'Router ISP Diletakkan di Lokasi Terisolasi',
+          title: 'Router Provider di Lokasi Terisolasi',
           problem:
-            'Titik masuk fiber optik biasanya di pojok bawah. Gelombang 5 GHz kehilangan daya tembus saat berhadapan dengan lantai cor semen.',
+            'Titik masuk fiber optik biasanya di sudut lantai bawah. Frekuensi 5 GHz mengalami redaman kuat saat berhadapan dengan lantai cor semen.',
         },
         {
-          title: 'Repeater Nirkabel Membagi Bandwidth',
+          title: 'Repeater Nirkabel Membagi Kanal Udara',
           problem:
-            'Wi-Fi extender nirkabel menerima dan memancarkan ulang sinyal pada frekuensi yang sama, memotong kecepatan riil hingga 50%.',
+            'Extender nirkabel menerima dan memancarkan ulang sinyal pada frekuensi yang sama, berpotensi menurunkan throughput riil secara signifikan.',
         },
         {
-          title: 'SSID Berbeda di Tiap Lantai',
+          title: 'Banyak Nama SSID Berbeda',
           problem:
-            'Muncul banyak nama Wi-Fi terpisah (misal: Lantai 1, Lantai 2) sehingga gawai pengguna bingung berpindah koneksi secara manual.',
+            'Muncul nama Wi-Fi terpisah di setiap lantai sehingga gawai harus berpindah jaringan secara manual saat bergerak.',
         },
         {
-          title: 'Tanpa Pengaturan Alokasi Bandwidth',
+          title: 'Ketiadaan Manajemen Alokasi Bandwidth',
           problem:
-            'Satu perangkat yang melakukan sinkronisasi cloud atau download update game dapat menyerap 90% kapasitas koneksi internet seluruh gedung.',
+            'Satu perangkat yang melakukan unduhan besar dapat menyerap sebagian besar kuota koneksi seluruh gedung.',
         },
       ],
       erpSolution: [
         {
-          title: 'Backbone Kabel Cat6 Full Copper',
-          desc: 'Setiap access point terhubung kabel fisik langsung ke switch gigabit tanpa degradasi sinyal antar lantai.',
+          title: 'Backbone Kabel Cat6 Tembaga Murni',
+          desc: 'Setiap access point terhubung kabel fisik langsung ke switch gigabit guna menjaga pasokan data antarlantai.',
         },
         {
           title: 'Satu Nama SSID untuk Seluruh Area (Unified SSID)',
-          desc: 'Pengguna cukup terhubung ke satu nama Wi-Fi di seluruh lantai, gawai akan diarahkan ke AP terdekat secara instan.',
+          desc: 'Pengguna cukup terhubung ke satu nama Wi-Fi di seluruh area, dan sistem mengarahkan gawai ke AP terdekat.',
         },
         {
-          title: 'Seamless Handover Roaming (802.11k/v/r)',
-          desc: 'Perpindahan sinyal antar AP terjadi dalam hitungan milidetik sehingga panggilan video dan audio tidak terputus.',
+          title: 'Dukungan Fast Roaming (802.11k/v/r)',
+          desc: 'Perpindahan sinyal antar AP terjadi lebih cepat sehingga komunikasi online dan video meeting tetap berjalan lancar.',
         },
         {
-          title: 'Quality of Service (QoS) & Bandwidth Shaper',
-          desc: 'Router gateway membagi kuota kecepatan secara adil dan memprioritaskan aplikasi esensial bisnis.',
+          title: 'Quality of Service (QoS) & Traffic Shaper',
+          desc: 'Router gateway membagi alokasi kecepatan secara teratur dan memprioritaskan aplikasi esensial bisnis.',
         },
       ],
     },
 
     comparison: {
-      headline: 'Perbandingan Solusi Jaringan: Router ISP vs Repeater Pasaran vs Rekayasa Kriya',
+      headline: 'Perbandingan Pendekatan Distribusi Jaringan di Dalam Bangunan',
       subheadline:
         'Pahami perbedaan teknis mendasar sebelum memutuskan investasi perangkat jaringan Anda.',
       badge: 'Solusi Kriya',
@@ -1155,66 +1183,66 @@ export const solutions = [
       rows: [
         {
           feature: 'Jalur Penghubung Antar Lantai (Backhaul)',
-          manual: 'Tidak ada (hanya mencakup 1 lantai terdekat)',
-          ordinary: 'Nirkabel lemah (throughput drop 50%)',
-          erp: 'Kabel UTP Cat6 Gigabit Dedicated (Throughput 100% Penuh)',
+          manual: 'Tidak ada (hanya menjangkau area sekitar router)',
+          ordinary: 'Nirkabel (throughput berpotensi turun drastis)',
+          erp: 'Kabel UTP Cat6 Gigabit Dedicated (Throughput Maksimal Kabel)',
         },
         {
           feature: 'Protokol Roaming Saat Berpindah Lantai',
-          manual: 'Tidak ada roaming (harus disconnect manual)',
+          manual: 'Tidak ada roaming (harus reconnect manual)',
           ordinary: 'Sticky client (gawai tertahan di sinyal lemah)',
-          erp: 'Fast Roaming 802.11k/v/r (Pindah AP tanpa jeda putus)',
+          erp: 'Fast Roaming 802.11k/v/r (Transisi Sinyal Antar AP Cepat & Mulus)',
         },
         {
           feature: 'Kapasitas Koneksi Bersamaan (Concurrency)',
-          manual: '10 hingga 15 gawai (mudah panas & hang)',
-          ordinary: '5 hingga 10 gawai (sering disconnect sendiri)',
-          erp: '40 hingga 100+ gawai per Access Point Enterprise',
+          manual: '10 hingga 15 gawai (mudah panas dan freeze)',
+          ordinary: '5 hingga 10 gawai (rentan terputus sendiri)',
+          erp: '40 hingga 100+ gawai per Access Point Enterprise (Sesuai Tipe)',
         },
         {
           feature: 'Manajemen Bandwidth & Prioritas (QoS)',
-          manual: 'Tidak ada (siapa cepat dia dapat)',
-          ordinary: 'Tidak ada fitur pengaturan bandwidth',
-          erp: 'Queue Tree Terpadu (Prioritas Kasir, Server & Video Call)',
+          manual: 'Tidak ada pembagian kuota prioritas',
+          ordinary: 'Tidak ada fitur pengaturan traffic',
+          erp: 'Queue Tree & Dynamic QoS (Prioritas Kasir, Server & Video Call)',
         },
         {
           feature: 'Keamanan Jaringan Tamu (Guest Network)',
-          manual: 'Satu password untuk semua (risiko bocor)',
+          manual: 'Satu kata sandi untuk semua pengguna',
           ordinary: 'Tidak dapat memisahkan subnet jaringan',
           erp: 'VLAN 802.1Q Terisolasi (Tamu terpisah dari data kantor)',
         },
         {
           feature: 'Estetika & Kerapian Jalur Kabel',
-          manual: 'Kabel optik seadanya dari teknisi ISP',
-          ordinary: 'Mengorbankan colokan dinding',
+          manual: 'Kabel instalasi seadanya melintang',
+          ordinary: 'Menghabiskan colokan stopkontak dinding',
           erp: 'Conduit Pipa, Pelindung Kabel & Patch Panel Rapi',
         },
         {
           feature: 'Sentralisasi Manajemen & Monitoring',
-          manual: 'Harus login ke dashboard router masing-masing',
-          ordinary: 'Tidak ada controller terpusat',
-          erp: 'Cloud Controller Terpusat (UniFi / Ruijie / MikroTik)',
+          manual: 'Akses terpisah ke dashboard router individual',
+          ordinary: 'Tidak ada sistem monitoring terpusat',
+          erp: 'Controller Terpusat Berbasis Web / Cloud (UniFi / Ruijie / MikroTik)',
         },
       ],
     },
 
     deepDivesHeading: 'Pilar Rekayasa Teknis untuk Menjamin Kestabilan Koneksi',
     deepDivesSubheading:
-      'Setiap instalasi dikerjakan dengan standar teknis jaringan enterprise yang teruji dan terukur.',
+      'Setiap instalasi dikerjakan dengan standar teknis jaringan yang teruji dan terukur.',
     deepDives: [
       {
         id: 'backbone-cat6',
         badge: 'Backbone Fisik',
-        domain: 'Kabel Cat6 Murni & Switch Gigabit PoE',
+        domain: 'Kabel Cat6 Tembaga Murni & Switch Gigabit PoE',
         painText:
-          'Mengandalkan transmisi nirkabel murni antar lantai membuat sinyal sangat rentan interferensi frekuensi dan partisi beton.',
+          'Mengandalkan transmisi nirkabel murni antar lantai membuat sinyal sangat rentan terhadap redaman partisi cor beton.',
         solutionText:
-          'Kami membangun jalur tulang punggung (backbone) menggunakan kabel Cat6 tembaga murni dengan pelindung terstandar. Access point ditenagai melalui kabel yang sama (Power over Ethernet / PoE) sehingga tidak membutuhkan colokan listrik tambahan di plafon.',
+          'Kami membangun jalur tulang punggung (backbone) menggunakan kabel Cat6 tembaga murni dengan pelindung terstandar. Access point ditenagai melalui kabel yang sama (Power over Ethernet / PoE) sehingga tidak memerlukan stopkontak listrik tambahan di plafon.',
         benefits: [
-          'Transmisi data hingga 1.000 Mbps tanpa interferensi frekuensi',
+          'Transmisi data hingga 1.000 Mbps sesuai kapasitas gigabit fisik',
           'Power over Ethernet (PoE) praktis tanpa stopkontak di plafon',
           'Terminasi rapi menggunakan modular patch panel standar rak server',
-          'Labeling kabel terstruktur untuk kemudahan perawatan jangka panjang',
+          'Labeling kabel terstruktur untuk kemudahan pelacakan berkala',
         ],
         icon: 'cable',
       },
@@ -1223,30 +1251,30 @@ export const solutions = [
         badge: 'Wireless Roaming',
         domain: 'Fast BSS Transition 802.11k/v/r',
         painText:
-          'Koneksi putus setiap kali pengguna bergerak dari ruang rapat ke meja kerja atau dari lantai 1 ke lantai 2.',
+          'Koneksi putus setiap kali pengguna bergerak dari ruang rapat ke meja kerja atau dari lantai bawah ke lantai atas.',
         solutionText:
-          'Dengan controller terpusat dan protokol 802.11k/v/r aktif, access point saling bertukar informasi sinyal gawai secara proaktif. Gawai akan dipindahkan ke access point terdekat dengan sinyal terkuat tanpa memutus sesi streaming atau video call yang sedang berjalan.',
+          'Dengan controller terpusat dan protokol 802.11k/v/r aktif, access point saling bertukar informasi sinyal gawai secara proaktif. Gawai akan diarahkan ke access point terdekat dengan sinyal yang lebih baik untuk meminimalkan jeda putus saat berpindah ruangan.',
         benefits: [
-          'Handover koneksi antar AP di bawah 50 milidetik (zero noticeable drop)',
+          'Handover koneksi antar AP berlangsung cepat untuk meminimalkan jeda panggilan video',
           'Satu nama Wi-Fi (SSID) tunggal untuk seluruh lantai dan area luar',
-          'Band steering otomatis mengarahkan gawai mampu ke frekuensi 5 GHz',
-          'Menghilangkan fenomena sticky client yang menahan koneksi sinyal lemah',
+          'Band steering untuk mengarahkan gawai yang mampu ke kanal frekuensi 5 GHz',
+          'Mengurangi kendala sticky client yang menahan koneksi pada sinyal lemah',
         ],
         icon: 'wifi',
       },
       {
         id: 'qos-bandwidth',
         badge: 'Manajemen Lalu Lintas',
-        domain: 'Dynamic Bandwidth Allocation & QoS',
+        domain: 'Alokasi Bandwidth Dinamis & QoS',
         painText:
-          'Operasional kasir atau meeting direksi macet seketika saat staf lain melakukan unduhan file berukuran besar.',
+          'Operasional kasir atau telekonferensi penting melambat saat pengguna lain melakukan pengunduhan berkas besar.',
         solutionText:
-          'Penerapan aturan Quality of Service (QoS) pada router gateway cerdas (MikroTik / UniFi Gateway). Jalur koneksi dibagi secara dinamis: aplikasi penting seperti kasir POS, sistem ERP, dan panggilan video VoIP selalu mendapatkan garansi bandwidth prioritas utama.',
+          'Penerapan aturan Quality of Service (QoS) pada router gateway cerdas. Alokasi kuota dibagi secara dinamis: aplikasi prioritas seperti kasir POS, database kantor, dan panggilan video mendapatkan alokasi kuota utama yang terjaga.',
         benefits: [
-          'Garansi bandwidth minimum untuk kasir POS dan server operasional',
-          'Pembagian kecepatan adil (Fair Share) antar pengguna tanpa monopoli',
-          'Prioritas paket VoIP dan video call untuk meminimalkan jitter dan lag',
-          'Batasan kecepatan khusus pada Wi-Fi tamu agar tidak membebani jalur utama',
+          'Alokasi kuota prioritas bandwidth untuk kasir POS dan sistem operasional',
+          'Pembagian kapasitas secara teratur antarpengguna tanpa monopoli trafik',
+          'Prioritas paket VoIP dan video call untuk meminimalkan latensi dan stuttering',
+          'Batasan kecepatan khusus pada Wi-Fi tamu agar tidak membebani koneksi utama',
         ],
         icon: 'activity',
       },
@@ -1255,14 +1283,14 @@ export const solutions = [
         badge: 'Keamanan Jaringan',
         domain: 'Segmentasi Subnet & Isolasi Tamu (VLAN)',
         painText:
-          'Tamu kafe atau pengunjung kantor dapat memindai perangkat lokal dan file server karena berada dalam satu segmen jaringan yang sama.',
+          'Tamu dan pengunjung berada dalam satu segmen jaringan yang sama dengan server lokal, CCTV, dan komputer kantor.',
         solutionText:
-          'Pemisahan subnet menggunakan Virtual LAN (VLAN 802.1Q). Jaringan staf internal, server perusahaan, kamera CCTV, dan Wi-Fi pengunjung tamu dipisah menjadi jalur berbeda yang tidak saling tembus, mencegah intrusi perangkat luar.',
+          'Pemisahan subnet menggunakan Virtual LAN (VLAN 802.1Q). Jaringan staf internal, kamera CCTV, dan Wi-Fi pengunjung dipisahkan ke jalur berbeda yang tidak saling tembus untuk menjaga privasi data perusahaan.',
         benefits: [
-          'Isolasi penuh perangkat tamu: hanya dapat akses internet luar',
-          'Aset database, NAS, dan printer kantor terlindungi dari perangkat asing',
-          'Subnet terpisah untuk kamera CCTV guna mencegah penyadapan video',
-          'Captive portal opsional untuk sambutan tamu atau syarat akses',
+          'Isolasi perangkat tamu: hanya dapat mengakses internet luar',
+          'Aset database kantor, NAS, dan printer terlindungi dari akses gawai asing',
+          'Subnet terpisah untuk kamera CCTV guna menjaga stabilitas rekaman video',
+          'Captive portal selamat datang yang rapi untuk login pengunjung [Opsional]',
         ],
         icon: 'shield-check',
       },
@@ -1271,14 +1299,14 @@ export const solutions = [
         badge: 'Kerapian Fisik',
         domain: 'Jalur Kabel Tersembunyi & Estetika Interior',
         painText:
-          'Kabel yang dipasang asal-asalan merusak dekorasi dinding ruangan dan rentan rusak karena terinjak atau tersangkut.',
+          'Kabel yang dipasang sembarangan merusak kerapian interior ruangan dan rentan rusak karena terinjak atau tersangkut.',
         solutionText:
-          'Teknisi Kriya berpengalaman dalam jalur penarikan kabel tersembunyi (concealed routing). Kabel dialirkan melalui pipa conduit PVC di balik plafon, pelindung kabel dekoratif sewarna dinding, atau lubang shaft khusus dengan penutup rapi.',
+          'Teknisi Kriya merencanakan penarikan kabel melalui jalur tersembunyi. Kabel dialirkan melalui pipa conduit PVC di balik plafon, pelindung kabel dekoratif sewarna dinding, atau lubang shaft khusus dengan penutup yang rapi.',
         benefits: [
-          'Jalur kabel terlindung pipa conduit aman dari gigitan tikus',
-          'Finishing rapi menjaga estetika interior rumah atau kantor',
-          'Penyusunan kabel di dalam mini rack atau wallmount cabinet rapi',
-          'Dokumentasi jalur instalasi kabel (as-built drawing) diserahkan ke klien',
+          'Jalur kabel terlindung pipa conduit aman dari risiko gigitan tikus dan benturan',
+          'Finishing rapi menjaga estetika interior bangunan rumah atau kantor',
+          'Penyusunan kabel di dalam mini rack atau kabinet dinding teratur',
+          'Dokumentasi skema penarikan kabel diserahkan kepada pelanggan',
         ],
         icon: 'layers',
       },
@@ -1287,22 +1315,22 @@ export const solutions = [
         badge: 'Ekosistem Teruji',
         domain: 'Perangkat Kelas Enterprise (UniFi / MikroTik / Ruijie)',
         painText:
-          'Perangkat jaringan kelas rumahan murah cepat panas, sering freeze, dan masa pakai pendek saat dipakai intensif.',
+          'Perangkat kelas rumahan murah cepat panas dan sering mengalami gangguan saat digunakan untuk beban kerja yang tinggi.',
         solutionText:
-          'Kami mengimplementasikan perangkat enterprise teruji industri seperti Ubiquiti UniFi, MikroTik RouterOS, dan Ruijie Reyee. Perangkat memiliki sistem pendingin pasif yang tangguh, komponen stabil, dan dashboard monitoring terpusat berbasis cloud.',
+          'Kami mengimplementasikan perangkat enterprise standar industri seperti Ubiquiti UniFi, MikroTik RouterOS, dan Ruijie Reyee. Perangkat memiliki sistem pendingin pasif yang baik, komponen stabil, dan dashboard monitoring terpusat.',
         benefits: [
-          'Daya tahan operasional 24 jam nonstop tanpa perlu restart berkala',
-          'Pemantauan status access point dan jumlah klien via smartphone',
-          'Pembaruan firmware keamanan berkala dari pabrikan terpercaya',
-          'Perangkat bergaransi resmi distributor dan suku cadang mudah didapat',
+          'Dirancang untuk operasional beban kerja kontinu dengan sistem disipasi panas yang stabil',
+          'Pemantauan status access point dan jumlah klien terhubung via aplikasi mobile atau browser',
+          'Pembaruan firmware keamanan berkala dari produsen resmi',
+          'Perangkat bergaransi resmi distributor dengan ketersediaan suku cadang',
         ],
         icon: 'cpu',
       },
     ],
 
-    rolesHeading: 'Manfaat Nyata Berdasarkan Kebutuhan Ruang Anda',
-    rolesSubheading:
-      'Solusi yang dikonfigurasi presisi sesuai aktivitas penghuni dan kebutuhan beban kerja.',
+    rolesHeading: 'Solusi Berdasarkan Kebutuhan Ruang & Aktivitas Pengguna',
+    rolesSubheadline:
+      'Konfigurasi jaringan yang disesuaikan dengan aktivitas penghuni dan kebutuhan beban kerja masing-masing area.',
     roles: [
       {
         id: 'sme-owner',
@@ -1325,288 +1353,277 @@ export const solutions = [
           'Barcode scanner nirkabel dan tablet logistik tetap terhubung stabil',
           'Jangkauan sinyal merata dari area loading dock hingga kantor lantai 2',
           'Kabel data terlindung conduit kokoh tahan debu dan benturan fisik',
-          'Konektivitas kamera CCTV keamanan perimeter gudang tidak pernah putus',
+          'Konektivitas kamera CCTV keamanan perimeter gudang lebih andal dan stabil',
         ],
       },
       {
         id: 'home-owner',
         role: 'Pemilik Rumah Tinggal Bertingkat & Keluarga',
         summary:
-          'Internet cepat dan stabil di semua kamar lantai atas, bebas roaming putus-putus, dan dinding rumah tetap rapi tanpa kabel semrawut.',
+          'Internet stabil di kamar lantai atas, transisi roaming cepat, dan dinding rumah tetap rapi tanpa kabel semrawut.',
         benefits: [
-          'Sinyal penuh di kamar tidur lantai 2-3 tanpa perlu ganti nama Wi-Fi',
-          'Streaming film 4K di ruang keluarga dan video game WFH tanpa lag',
-          'Instalasi kabel rapi di plafon tanpa merusak keindahan arsitektur',
+          'Sinyal Wi-Fi stabil di kamar tidur lantai atas tanpa perlu mengganti nama Wi-Fi',
+          'Streaming hiburan keluarga dan komunikasi kerja online berjalan lancar',
+          'Instalasi kabel rapi di plafon tanpa merusak keindahan arsitektur interior',
           'Fitur parental control untuk membatasi akses internet anak saat jam belajar',
         ],
       },
     ],
 
-    modulesBadge: '8 Langkah & Lingkup Layanan',
-    modulesTitle: 'Lingkup Pekerjaan Instalasi & Rekayasa Jaringan',
+    modulesBadge: 'Lingkup Layanan Terstruktur',
+    modulesTitle: 'Lingkup Pekerjaan Rekayasa Jaringan',
     modulesSubtitle:
-      'Proses terstruktur dari asesmen awal, penarikan kabel berpelindung, setup perangkat, hingga pengujian throughput riil.',
+      'Layanan teknis terencana dari survei lokasi, penarikan kabel, konfigurasi perangkat, hingga verifikasi pengujian.',
     modules: [
       {
         id: 'module-1',
         number: '01',
-        title: 'Site Survey & Pemetaan RF Heatmap',
+        title: 'Survei Lokasi & Pemetaan Kebutuhan Jaringan',
         icon: 'radar',
         summary:
-          'Inspeksi denah fisik, identifikasi ketebalan dinding, dan pengukuran redaman sinyal radio frekuensi di setiap lantai.',
+          'Inspeksi struktur fisik bangunan, identifikasi ketebalan dinding, serta pengukuran redaman sinyal radio frekuensi di setiap lantai.',
         features: [
           {
-            name: 'Audit Denah Bangunan',
-            desc: 'Pemeriksaan struktur dinding (bata, drywall, beton bertulang) untuk menentukan titik penempatan Access Point ideal.',
+            name: 'Pemeriksaan Denah Bangunan',
+            desc: 'Analisis material partisi (bata, drywall, beton bertulang) untuk menentukan titik penempatan Access Point yang optimal.',
           },
           {
-            name: 'RF Heatmap Simulation',
-            desc: 'Simulasi jangkauan sinyal 2.4 GHz dan 5 GHz untuk memastikan seluruh ruangan tercover tanpa blind spot.',
+            name: 'Simulasi Heatmap RF',
+            desc: 'Simulasi estimasi sebaran sinyal 2.4 GHz dan 5 GHz untuk meminimalkan area sulit sinyal (blank spot).',
           },
           {
             name: 'Pemeriksaan Jalur Pipa & Plafon',
-            desc: 'Identifikasi jalur shaft, ruang plafon, dan pipa conduit eksisting untuk jalur kabel data yang paling efisien.',
+            desc: 'Identifikasi jalur shaft, ruang plafon, dan pipa conduit eksisting guna merencanakan jalur kabel data yang paling efisien.',
           },
         ],
       },
       {
         id: 'module-2',
         number: '02',
-        title: 'Penarikan Kabel Data Terstruktur (Cat6)',
-        icon: 'cable',
+        title: 'Perencanaan Posisi Access Point & Jalur Kabel',
+        icon: 'layers',
         summary:
-          'Instalasi kabel UTP/STP Cat6 standar gigabit dengan pelindung pipa conduit untuk daya tahan fisik maksimal.',
+          'Penyusunan denah penempatan access point, skema topologi jaringan kabel, dan penentuan kapasitas perangkat yang sesuai.',
         features: [
           {
-            name: 'Kabel UTP Cat6 100% Pure Copper',
-            desc: 'Menggunakan kabel tembaga murni bersertifikasi, bukan CCA (Copper Clad Aluminum) yang rentan korosi dan rapuh.',
+            name: 'Penentuan Titik Access Point',
+            desc: 'Memilih posisi mounting strategis di plafon untuk mengoptimalkan sebaran gelombang radio nirkabel.',
           },
           {
-            name: 'Pelindung Pipa Conduit & Ducting',
-            desc: 'Setiap tarikan kabel dibungkus pipa conduit PVC tahan benturan atau ducting dekoratif rapi.',
+            name: 'Rancangan Jalur Kabel Tersembunyi',
+            desc: 'Merencanakan jalur kabel melalui plafon atau conduit agar tidak merusak estetika interior bangunan.',
           },
           {
-            name: 'Separasi Jalur Daya Listrik',
-            desc: 'Menjaga jarak aman dari kabel listrik PLN bertegangan tinggi untuk mencegah interferensi elektromagnetik.',
+            name: 'Perencanaan Kapasitas Beban',
+            desc: 'Menghitung estimasi jumlah perangkat bersamaan untuk menentukan spesifikasi switch dan access point.',
           },
         ],
       },
       {
         id: 'module-3',
         number: '03',
-        title: 'Terminasi Patch Panel & Mini Rack',
-        icon: 'server',
+        title: 'Instalasi Kabel LAN (Cat6) & Terminasi Rapi',
+        icon: 'cable',
         summary:
-          'Pengorganisasian seluruh ujung kabel ke dalam modular patch panel, switch PoE, dan mini rack cabinet yang tertata rapi.',
+          'Penarikan kabel UTP Cat6 standar gigabit tembaga murni dengan pelindung pipa conduit serta terminasi modular jack.',
         features: [
           {
-            name: 'Modular RJ45 Cat6 Keystone Jack',
-            desc: 'Terminasi presisi standar T568B dengan tester flukemeter untuk memverifikasi kelayakan gigabit.',
+            name: 'Kabel UTP Cat6 Pure Copper',
+            desc: 'Menggunakan kabel tembaga murni berkualitas standar gigabit yang tahan korosi dan memiliki konduktivitas tinggi.',
           },
           {
-            name: 'Cable Management Bars',
-            desc: 'Penataan kabel patch cord rapi menggunakan velcro tie dan manajemen kabel rack horizontal.',
+            name: 'Pelindung Pipa Conduit & Ducting',
+            desc: 'Setiap penarikan kabel fisik dilindungi pipa conduit PVC atau ducting dekoratif yang rapi.',
           },
           {
-            name: 'Pelabelan Port Terstruktur',
-            desc: 'Setiap port patch panel diberi label nomor ruang untuk memudahkan tracing dan troubleshooting cepat.',
+            name: 'Terminasi Modular & Pelabelan',
+            desc: 'Terminasi standar T568B pada patch panel dan faceplate modular dengan pelabelan nomor port terstruktur.',
           },
         ],
       },
       {
         id: 'module-4',
         number: '04',
-        title: 'Instalasi Access Point Enterprise Wi-Fi 6',
+        title: 'Pemasangan & Konfigurasi Access Point Wi-Fi 6',
         icon: 'wifi',
         summary:
-          'Pemasangan access point dual-band di titik strategis plafon atau dinding dengan sistem Power over Ethernet.',
+          'Pemasangan access point dual-band di plafon atau dinding dengan suplai daya Power over Ethernet (PoE).',
         features: [
           {
-            name: 'Ceiling Mount Bersih',
-            desc: 'Bracket plafon kokoh tanpa ada kabel terlihat menjuntai dari luar.',
+            name: 'Pemasangan Ceiling Mount Rapi',
+            desc: 'Bracket plafon kokoh dengan kabel tersembunyi rapi di balik partisi tanpa terlihat menjuntai.',
           },
           {
             name: 'Power over Ethernet (PoE)',
-            desc: 'Daya listrik disalurkan langsung via kabel LAN dari switch PoE di rak utama.',
+            desc: 'Penyaluran daya listrik dan data melalui satu kabel LAN tanpa memerlukan stopkontak terpisah di plafon.',
           },
           {
-            name: 'Konfigurasi Channel & Tx Power',
-            desc: 'Penetapan kanal frekuensi non-overlapping (1, 6, 11 pada 2.4 GHz) dan channel 5 GHz untuk mencegah interferensi antar AP.',
+            name: 'Konfigurasi Kanal Frekuensi Non-Overlapping',
+            desc: 'Pengaturan kanal 2.4 GHz dan 5 GHz yang terpisah untuk meminimalkan interferensi gelombang antar AP.',
           },
         ],
       },
       {
         id: 'module-5',
         number: '05',
-        title: 'Konfigurasi Router & Manajemen Bandwidth (QoS)',
+        title: 'Konfigurasi Switch, VLAN, & QoS Bandwidth [Sesuai Kebutuhan]',
         icon: 'router',
         summary:
-          'Pengaturan router gateway untuk pembagian bandwidth adil dan alokasi prioritas operasional bisnis penting.',
+          'Pengaturan router gateway dan switch untuk pembagian bandwidth yang teratur serta pemisahan jaringan tamu.',
         features: [
           {
-            name: 'Dynamic Queue Tree / Fair Queueing',
-            desc: 'Mencegah satu pengguna memonopoli koneksi internet gedung.',
+            name: 'Alokasi Bandwidth Dinamis (QoS)',
+            desc: 'Membagi kuota kecepatan secara teratur dan memprioritaskan aplikasi esensial operasional bisnis.',
           },
           {
-            name: 'Prioritas Traffic Esensial (QoS)',
-            desc: 'Jalur kasir POS, telekonferensi, dan server diprioritaskan saat utilisasi jaringan penuh.',
+            name: 'Segmentasi Subnet & VLAN Tamu [Opsional]',
+            desc: 'Pemisahan lalu lintas data internal kantor dari Wi-Fi pengunjung untuk menjaga keamanan perangkat lokal.',
           },
           {
-            name: 'Multi-WAN Failover (Opsional)',
-            desc: 'Dukungan 2 sumber provider ISP berbeda dengan pengalihan otomatis saat salah satu provider gangguan.',
+            name: 'Multi-WAN Failover [Opsional]',
+            desc: 'Konfigurasi 2 jalur provider ISP dengan pengalihan otomatis saat salah satu provider mengalami gangguan.',
           },
         ],
       },
       {
         id: 'module-6',
         number: '06',
-        title: 'Segmentasi Subnet & VLAN Tamu Terisolasi',
-        icon: 'shield',
+        title: 'Pengujian Konektivitas, Throughput, & Cakupan',
+        icon: 'activity',
         summary:
-          'Pemisahan jalur jaringan untuk privasi data kantor dan kemudahan akses internet bagi pengunjung.',
+          'Verifikasi menyeluruh kecepatan data, kestabilan ping, dan transisi roaming sinyal di setiap ruangan.',
         features: [
           {
-            name: 'VLAN Tagging 802.1Q',
-            desc: 'Pemisahan lalu lintas data internal, staf, tamu, dan perangkat smart home secara terisolasi.',
+            name: 'Pengujian Throughput Lokal (iPerf3)',
+            desc: 'Verifikasi kecepatan transmisi data lokal antar titik jaringan untuk memastikan kapasitas kabel gigabit terpenuhi.',
           },
           {
-            name: 'Wi-Fi Tamu dengan Client Isolation',
-            desc: 'Gawai tamu tidak dapat saling melihat satu sama lain dan tidak dapat menjangkau perangkat lokal.',
+            name: 'Pengujian Handover Roaming',
+            desc: 'Pengujian transisi sinyal gawai saat berpindah antar lantai saat panggilan suara atau video berlangsung.',
           },
           {
-            name: 'Captive Portal Kustom',
-            desc: 'Halaman selamat datang bermerek Kriya atau logo perusahaan untuk login tamu.',
+            name: 'Verifikasi Redaman Sinyal (RSSI)',
+            desc: 'Pengukuran kekuatan sinyal radio di sudut-sudut ruangan prioritas untuk memastikan stabilitas koneksi.',
           },
         ],
       },
       {
         id: 'module-7',
         number: '07',
-        title: 'Integrasi Perangkat IoT, CCTV & Smart Home',
-        icon: 'cpu',
-        summary:
-          'Menghubungkan kamera CCTV NVR, smart lock, sensor gerbang, dan TV pintar ke jaringan stabil tersendiri.',
-        features: [
-          {
-            name: 'Subnet Khusus IoT (2.4 GHz Dedicated)',
-            desc: 'Memastikan perangkat smart home lawas yang hanya mendukung 2.4 GHz terhubung tanpa masalah handshake.',
-          },
-          {
-            name: 'Koneksi NVR / CCTV Berkecepatan Tinggi',
-            desc: 'Streaming rekaman video kamera IP kamera lancar tanpa frame drop.',
-          },
-          {
-            name: 'Akses Remote Aman (VPN)',
-            desc: 'Setup VPN WireGuard / IPSec untuk memantau CCTV atau file kantor dari luar secara aman.',
-          },
-        ],
-      },
-      {
-        id: 'module-8',
-        number: '08',
-        title: 'Uji Throughput, Dokumentasi As-Built & Garansi',
+        title: 'Dokumentasi Hasil Pekerjaan (Topologi & Serah Terima)',
         icon: 'check-circle',
         summary:
-          'Verifikasi menyeluruh kecepatan data di setiap sudut ruangan dan serah terima dokumen topologi resmi.',
+          'Penyerahan skema topologi jaringan fisik, daftar alokasi IP perangkat, dan kredensial akses administratif.',
         features: [
           {
-            name: 'Uji Throughput & Latency (iPerf3)',
-            desc: 'Pengujian kecepatan transmisi lokal antar titik untuk memastikan performa gigabit tercapai.',
+            name: 'Skema Topologi Jaringan (As-Built Drawing)',
+            desc: 'Diagram alur kabel, titik access point, dan posisi switch untuk kemudahan pemeliharaan berkala.',
           },
           {
-            name: 'Dokumentasi As-Built Topologi',
-            desc: 'Penyerahan skema topologi jaringan, daftar IP address, dan username/password admin ke klien.',
+            name: 'Daftar Alokasi IP & Port Map',
+            desc: 'Dokumentasi alamat IP perangkat jaringan dan pemetaan nomor port patch panel.',
           },
           {
-            name: 'Garansi Instalasi & Support Cepat',
-            desc: 'Garansi kerapian pemasangan kabel dan dukungan troubleshooting pasca go-live.',
+            name: 'Serah Terima Kredensial Administrator',
+            desc: 'Penyerahan hak akses penuh dashboard controller jaringan kepada pelanggan secara transparan.',
           },
         ],
       },
     ],
 
-    impactHeading: 'Hasil Nyata yang Dirasakan Klien',
+    customizationHeadline: 'Tahapan Implementasi Instalasi',
+    customizationSubheadline:
+      'Detail pelaksanaan dan jadwal disesuaikan dengan lingkup pekerjaan serta persetujuan pelanggan.',
+    implementationSteps: [
+      {
+        step: 'Tahap 1',
+        title: 'Konsultasi Kebutuhan',
+        desc: 'Diskusi awal mengenai kendala jaringan yang dihadapi, denah tipe bangunan, perkiraan jumlah pengguna, serta target konektivitas yang diinginkan.',
+      },
+      {
+        step: 'Tahap 2',
+        title: 'Survei Lokasi & Identifikasi Masalah',
+        desc: 'Pemeriksaan langsung kondisi fisik bangunan, ketebalan partisi dinding, jalur kabel yang memungkinkan, dan pengukuran redaman sinyal di area prioritas.',
+      },
+      {
+        step: 'Tahap 3',
+        title: 'Rekomendasi Desain & Penawaran',
+        desc: 'Penyusunan rancangan topologi jaringan, titik penempatan access point, rincian material kabel atau perangkat, serta estimasi biaya yang transparan untuk disetujui pelanggan.',
+      },
+      {
+        step: 'Tahap 4',
+        title: 'Instalasi & Konfigurasi',
+        desc: 'Penarikan kabel pelindung conduit secara rapi, terminasi modular patch panel, pemasangan access point, serta konfigurasi router, switch, VLAN, dan QoS.',
+      },
+      {
+        step: 'Tahap 5',
+        title: 'Pengujian, Serah Terima, & Dokumentasi',
+        desc: 'Pengujian throughput dan roaming di seluruh area, penyerahan dokumentasi topologi serta kredensial admin jaringan kepada pelanggan.',
+      },
+    ],
+
+    impactHeading: 'Pengujian dan Dokumentasi Hasil Pekerjaan',
     impactSubheading:
-      'Pengalaman konektivitas yang berubah drastis setelah pembenahan infrastruktur jaringan.',
+      'Verifikasi kualitas dan performa jaringan setelah implementasi selesai dikerjakan.',
     impactHighlights: [
       {
-        topic: 'Jangkauan Merata Tanpa Blind Spot',
-        impact: 'Sinyal Wi-Fi 5 GHz penuh di seluruh lantai',
-        desc: 'Dengan penempatan access point terencana dan backbone kabel Cat6, seluruh lantai 1 hingga lantai atas mendapatkan sinyal kuat tanpa ada sudut mati.',
-        metric: 'Cakupan 100% Seluruh Ruang',
+        topic: 'Cakupan & Penetrasi Terukur',
+        impact: 'Penempatan access point disesuaikan struktur bangunan',
+        desc: 'Melalui analisis denah dan pengukuran redaman sinyal, access point ditempatkan pada titik yang optimal untuk mengurangi sudut blank spot di setiap lantai.',
+        metric: 'Audit RF Heatmap Terukur',
       },
       {
-        topic: 'Seamless Handover Roaming',
-        impact: 'Zero Drop saat berpindah antar ruangan',
-        desc: 'Panggilan video meeting atau voice call tidak pernah terputus saat pengguna berjalan dari ruang kerja lantai bawah ke kamar atau balkon atas.',
-        metric: 'Fast Roaming 802.11k/v/r Aktif',
+        topic: 'Stabilitas Roaming & Konektivitas',
+        impact: 'Handover antar AP meminimalkan jeda putus',
+        desc: 'Penerapan standar fast roaming 802.11k/v/r membantu gawai berpindah ke access point dengan sinyal lebih baik secara lebih halus saat pengguna berjalan antar ruangan.',
+        metric: 'Fast Roaming 802.11k/v/r',
       },
       {
-        topic: 'Stabilitas Transaksi & Operasional',
-        impact: 'Sistem kasir dan cloud ERP selalu responsif',
-        desc: 'Penerapan QoS memastikan aplikasi bisnis utama tidak pernah terganggu oleh unduhan gawai lain, menjaga kelancaran transaksi setiap saat.',
-        metric: 'QoS Prioritas Bisnis Kritis',
+        topic: 'Alokasi Bandwidth & Prioritas Operasional',
+        impact: 'Aplikasi bisnis penting terlindungi dari lonjakan trafik',
+        desc: 'Penerapan manajemen QoS membagi kuota secara teratur agar transaksi kasir POS dan panggilan video online tetap responsif saat penggunaan internet bersamaan meningkat.',
+        metric: 'QoS Prioritas Terkonfigurasi',
       },
     ],
 
-    // Real Customer Testimonials (Office, Residential & Commercial)
-    testimonials: [
-      {
-        quote:
-          'Ruko kantor 3 lantai kami sebelumnya sering mengalami masalah internet putus saat meeting online dengan klien di lantai atas, dan mesin kasir POS di lantai 1 sering lambat saat jam sibuk. Tim Kriya memasang backbone kabel Cat6 dan access point UniFi dengan rapi di balik plafon. Sekarang video call jernih di semua ruangan dan roaming antar lantai mulus tanpa jeda sama sekali!',
-        author: 'Hendra Wijaya, S.T.',
-        role: 'Managing Director',
-        institution: 'PT Sentra Logistik Prima (Ruko 3 Lantai)',
-      },
-      {
-        quote:
-          'Dulu kami mengandalkan Wi-Fi repeater colokan di tiap lantai rumah, tapi internet malah semakin lambat dan anak-anak sering komplain saat sekolah daring. Teknisi Kriya sangat teliti memperhatikan estetika interior: kabelnya tersembunyi rapi di pipa conduit dan sinyal Wi-Fi 5 GHz sekarang penuh dari lantai 1 sampai area rooftop.',
-        author: 'dr. Stephanie Kusuma, Sp.A',
-        role: 'Pemilik Hunian Residensial',
-        institution: 'Rumah Tinggal Bertingkat (Kelapa Gading)',
-      },
-      {
-        quote:
-          'Sebelumnya pengunjung kafe kami sering mengeluhkan Wi-Fi lemot, padahal paket internet sudah cepat. Tim Kriya melakukan survey RF dan memasang router MikroTik dengan manajemen bandwidth QoS plus AP Ruijie. Hasilnya luar biasa: Wi-Fi tamu terisolasi kencang, dan sistem POS kasir kami tetap lancar tanpa gangguan.',
-        author: 'Dimas Prasetyo',
-        role: 'Operational & F&B Manager',
-        institution: 'Kopi & Ruang Temu Coworking',
-      },
-    ],
+    // Testimonials disabled pending verification from business owner (R-18 & R-36 compliance)
+    // TODO: Konfirmasi data klien riil dan izin publikasi testimoni layanan jaringan dengan pemilik bisnis
+    testimonials: [],
 
-    faqHeading: 'Pertanyaan yang Sering Diajukan Seputar Solusi Perluasan Jaringan',
+    faqHeading: 'Pertanyaan Umum Seputar Layanan Jaringan Wi-Fi & LAN',
+    faqSubheading:
+      'Pertanyaan umum seputar biaya, survei lokasi, penyediaan perangkat, dan jangkauan jaringan.',
     faqs: [
       {
-        q: 'Apakah kami harus mengganti penyedia internet (ISP) yang sedang digunakan saat ini?',
-        a: 'Tidak perlu. Layanan kami fokus pada rekayasa infrastruktur jaringan di dalam bangunan (Local Area Network / Wi-Fi). Kami mengoptimalkan router, kabel, switch, dan access point agar kapasitas bandwidth dari provider internet Anda saat ini (seperti Biznet, Indihome, FirstMedia, MyRepublic, dll.) dapat terdistribusi secara maksimal dan stabil ke seluruh ruangan.',
+        q: 'Berapa biaya instalasi atau perluasan jaringan Wi-Fi?',
+        a: 'Biaya instalasi bergantung pada luas dan kondisi fisik bangunan, jumlah titik tarikan kabel LAN, perangkat keras yang diperlukan, jalur conduit kabel, serta lingkup konfigurasi yang diminta. Penawaran biaya diberikan secara transparan berdasarkan hasil konsultasi kebutuhan dan survei lokasi apabila diperlukan.',
       },
       {
-        q: 'Mengapa instalasi kabel Cat6 tetap diperlukan jika access point sudah berteknologi Wi-Fi 6?',
-        a: 'Wi-Fi 6 sangat cepat memancarkan data ke gawai, namun sinyal radio tetap membutuhkan jalur pasokan data (backhaul) yang andal. Menghubungkan access point dengan kabel Cat6 gigabit memastikan throughput 1.000 Mbps penuh tanpa terhambat dinding cor beton. Berbeda dengan repeater nirkabel yang memotong bandwidth hingga 50% karena sifat transmisi half-duplex.',
+        q: 'Apakah Kriya melayani instalasi Wi-Fi untuk kantor dan gudang?',
+        a: 'Ya, Kriya melayani instalasi dan optimasi jaringan untuk rumah bertingkat, perkantoran UKM, ruko bisnis, gudang logistik, serta bangunan komersial lainnya di area layanan operasional kami.',
       },
       {
-        q: 'Apakah penarikan kabel akan merusak dinding, plafon, atau estetika interior bangunan kami?',
-        a: 'Kerapian dan estetika interior adalah prioritas utama teknisi Kriya. Kami selalu mengutamakan jalur tersembunyi melalui ruang plafon, lubang shaft utilitas, atau menggunakan pipa conduit PVC dan ducting pelindung kabel dekoratif yang rapi sewarna dinding. Kami mendiskusikan rencana jalur kabel bersama Anda saat survey sebelum pengerjaan dimulai.',
+        q: 'Apakah perlu dilakukan survei lokasi?',
+        a: 'Survei lokasi sangat dianjurkan untuk memeriksa denah bangunan, ketebalan dinding cor semen, jalur pipa kabel eksisting, serta potensi interferensi sinyal radio. Sebelum survei, tim kami memerlukan informasi awal seperti denah lokasi, kendala koneksi saat ini, dan perkiraan jumlah pengguna.',
       },
       {
-        q: 'Berapa lama estimasi waktu yang dibutuhkan untuk survey dan pengerjaan instalasi?',
-        a: 'Survey lokasi dan audit jangkauan biasanya memakan waktu 1 hingga 2 jam. Setelah desain topologi dan RAB disetujui, pengerjaan fisik instalasi kabel serta konfigurasi perangkat untuk ruko atau rumah 2-3 lantai umumnya membutuhkan waktu 1 hingga 2 hari kerja tanpa mengganggu aktivitas utama Anda.',
+        q: 'Apakah Kriya menyediakan perangkat jaringan?',
+        a: 'Kriya dapat menyediakan perangkat keras jaringan (access point, switch PoE, router gateway, patch panel, dan kabel Cat6 tembaga murni) secara lengkap dalam satu paket penawaran, atau Anda dapat menggunakan perangkat yang telah Anda miliki jika spesifikasinya memadai.',
       },
       {
-        q: 'Merek perangkat keras (hardware) apa saja yang digunakan oleh tim Alur Kriya Teknologi?',
-        a: 'Kami menggunakan perangkat keras kelas enterprise yang sudah teruji keandalannya di industri, seperti Ubiquiti UniFi, MikroTik RouterOS, dan Ruijie Reyee. Pemilihan perangkat disesuaikan secara transparan dengan skala bangunan, jumlah pengguna bersamaan, serta anggaran investasi Anda.',
+        q: 'Apakah jaringan dapat menjangkau seluruh ruangan?',
+        a: 'Cakupan sinyal direncanakan berdasarkan denah bangunan, jumlah lantai, ketebalan sekat dinding, dan penempatan access point yang strategis. Hasil jangkauan aktual diverifikasi melalui pengujian redaman sinyal dan throughput setelah pemasangan.',
       },
       {
-        q: 'Bagaimana garansi instalasi dan dukungan teknis jika di kemudian hari terjadi kendala koneksi?',
-        a: 'Setiap proyek instalasi jaringan dari Kriya dilengkapi garansi pemasangan fisik dan garansi konfigurasi perangkat. Jika terjadi kendala koneksi, tim support kami dapat melakukan diagnosa jarak jauh melalui cloud controller atau menjadwalkan kunjungan teknisi onsite untuk perbaikan cepat.',
+        q: 'Apakah jaringan yang dipasang dapat dikembangkan di kemudian hari?',
+        a: 'Bisa. Arsitektur jaringan kabel terstruktur yang kami bangun dirancang modular, sehingga penambahan access point, titik kabel LAN baru, atau integrasi perangkat kamera CCTV dapat dilakukan dengan mudah tanpa membongkar topologi utama.',
       },
     ],
 
-    ctaTitle: 'Ingin Internet Cepat, Stabil, dan Bebas Dead Zone di Seluruh Bangunan Anda?',
+    ctaTitle: 'Konsultasikan Kebutuhan Jaringan Anda Bersama Kriya',
     ctaDesc:
-      'Konsultasikan kebutuhan atau denah lokasi Anda bersama teknisi jaringan Alur Kriya Teknologi. Kami jadwalkan survey langsung untuk rekomendasi topologi dan estimasi biaya yang transparan.',
-    ctaButtonLabel: 'Jadwalkan Survey via WhatsApp',
-    ctaNote:
-      'Layanan survey lokasi tersedia untuk area Jabodetabek dan sekitarnya dengan jadwal fleksibel.',
+      'Rencanakan jaringan Wi-Fi dan LAN yang stabil, terstruktur, dan sesuai kebutuhan bangunan Anda. Hubungi tim kami untuk konsultasi awal.',
+    ctaButtonLabel: 'Konsultasikan Kebutuhan Jaringan via WhatsApp',
+    ctaNote: 'Konsultasi awal via WhatsApp tanpa komitmen.',
   },
 ];
